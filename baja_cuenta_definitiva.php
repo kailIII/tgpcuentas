@@ -168,10 +168,6 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
                    </div>
                  </div>
 
-            
-
-            </form>
-
                 <div class="form-group">
                   <div class="col-sm-offset-2 col-sm-10">
                     <button type="submit" class="btn btn-primary">Aceptar</button>

@@ -89,7 +89,7 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
     
     <div class="panel-body">
 
-        <blockquote class="blockquote-reverse">
+        <blockquote>
           <p>Datos de la Cuenta</p>
         </blockquote>
 
@@ -120,7 +120,7 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
                 </tbody>
           </table>
 
-            <blockquote class="blockquote-reverse">
+            <blockquote>
               <p>Firmantes</p>
             </blockquote>
 
@@ -161,7 +161,13 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
                                 ?>     
                                 <tr>
                                     <td colspan="11">
-                                        <h4 style="color: red; text-align: center">No Existe Ningun Firmante Asociado a la Cuenta.</h4>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="alert alert-danger">
+                                                <h4><p class="text-center">No existe Firmante asociado a la Cuenta</p></h4>
+                                            </div>
+                                        </div>
+                                    </div>
                                     </td>
                                 </tr>
                                <?php
