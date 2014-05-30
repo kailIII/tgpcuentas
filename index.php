@@ -33,9 +33,11 @@ if (isset($_POST["Datos"]) AND $_POST["Datos"]==1) {
     
     <div class="container">
       <div class="row">
+          <div class="col-md-12">
+            <h3 class="form-signin-heading"><p class="text-center">Inicie sesión para acceder al Sistema de Padrón de Cuentas Oficiales</p></h3>         
+          </div>
           <div class="col-md-4 col-md-offset-4">
             <form class="form-signin" role="form" action="index.php" method="POST">
-              <h2 class="form-signin-heading">Por favor inicie sesión</h2>
               <input type="text" name="usuario" class="form-control" placeholder="Usuario" required autofocus>
               <input type="password" name="contrasena" class="form-control" placeholder="Contraseña" required>
               <br>
