@@ -53,6 +53,7 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
+    <link  href="css/datepicker.css" rel="stylesheet">
     <!-- Bootstrap theme -->
     <link href="css/bootstrap-theme.min.css" rel="stylesheet">
 
@@ -82,43 +83,6 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
 
     <div class="panel-body">
 
-            
-           <!--  <form action="#" class="form-horizontal">
-               <div class="form-group">
-                  <label class="col-sm-2 control-label">Tipo de Cuenta</label>
-                  <div class="col-sm-3">
-                      <input type="text" class="form-control" readonly value="<?php echo $row[0]['fdopropio']; ?>">             
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label class="col-sm-2 control-label">Nro. Cuenta</label>
-                  <div class="col-sm-3">
-                    <input type="text" class="form-control" readonly value="<?php echo $row[0]['cta']; ?>">
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label class="col-sm-2 control-label">Acto Administrativo</label>
-                  <div class="col-sm-5">
-                    <input type="text" class="form-control" readonly value="<?php echo $row[0]['actoadm']; ?>">
-                  </div>
-                </div>
-
-                 <div class="form-group">
-                  <label class="col-sm-2 control-label">Fecha Acto</label>
-                  <div class="col-sm-3">
-                    <input type="text" class="form-control" readonly value="<?php echo $row[0]['fecha']; ?>">
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label class="col-sm-2 control-label">Observaciones</label>
-                  <div class="col-sm-5">
-                        <input type="text" class="form-control" readonly name="observacion"  value="<?php echo $row[0]['observaciones']; ?>">
-                  </div>
-                </div>
-            </form> -->
 
             <blockquote>
               <p>Datos de la Cuenta</p>
@@ -173,13 +137,19 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
                   </div>
                 </div>
 
-
                  <div class="form-group">
-                   <label class="col-sm-2 control-label">Fecha de Alta</label>
-                   <div class="col-sm-3">
-                     <input type="date" class="form-control" name="fecha_alta" value="<?php echo $firmanteCuenta[0]['fecha'];?>" autofocus>
-                   </div>
-                 </div> 
+                  <label class="col-sm-2 control-label">Fecha de Alta</label>
+                  <div class="col-sm-3">
+                    <div class="input-append date" id="dp3" data-date="" data-date-format="dd/mm/yyyy">
+                      <div class="input-group">
+                        <input class="form-control" type="text" value="<?php echo $firmanteCuenta[0]['fecha'];?>" name="fecha_alta" required autofocus placeholder="dd/mm/aaaa" title="Ingrese la Fecha de Alta">
+                        <span class="input-group-btn">
+                          <button class="btn btn-default" type="button"><span class="add-on"><span class="glyphicon glyphicon-calendar"></span></span></button>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
                  <div class="form-group">
                   <label class="col-sm-2 control-label">Resolución de Alta</label>
@@ -210,6 +180,28 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-datepicker.js"></script>
+    <script>
+          if (top.location != location) {
+            top.location.href = document.location.href ;
+          }
+            $(function(){
+              window.prettyPrint && prettyPrint();
+              $('#dp3').datepicker();
+              $('#dp3').datepicker();
+              $('#dpYears').datepicker();
+              $('#dpMonths').datepicker();
+              
+              
+              var startDate = new Date(1,20,2012);
+              var endDate = new Date(1,25,2012);
+           
+                // disabling dates
+                var nowTemp = new Date();
+                var now = new Date(nowTemp.getDate(), nowTemp.getMonth(), nowTemp.getFullYear(), 0, 0, 0, 0);
+
+            });
+    </script>
 
 </body>
 </html>
