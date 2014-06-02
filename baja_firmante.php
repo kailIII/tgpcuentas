@@ -53,6 +53,7 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
+    <link  href="css/datepicker.css" rel="stylesheet">
     <!-- Bootstrap theme -->
     <link href="css/bootstrap-theme.min.css" rel="stylesheet">
 
@@ -135,13 +136,19 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
                   </div>
                 </div>
 
-
                  <div class="form-group">
-                   <label class="col-sm-2 control-label">Fecha de Baja</label>
-                   <div class="col-sm-3">
-                     <input type="date" class="form-control" name="fecha_baja" value="<?php echo $firmanteCuenta[0]['fecha'];?>" autofocus>
-                   </div>
-                 </div> 
+                    <label class="col-sm-2 control-label">Fecha de Baja</label>
+                    <div class="col-sm-3">
+                      <div class="input-append date" id="dp3" data-date="" data-date-format="yyyy/mm/dd">
+                        <div class="input-group">
+                          <input class="form-control" type="text" value="<?php echo $firmanteCuenta[0]['fecha'];?>" name="fecha_baja" required autofocus placeholder="aaaa/mm/dd" title="Ingrese la Fecha de Baja">
+                          <span class="input-group-btn">
+                            <button class="btn btn-default" type="button"><span class="add-on"><span class="glyphicon glyphicon-calendar"></span></span></button>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
 
                  <div class="form-group">
                   <label class="col-sm-2 control-label">Resolución de Baja</label>
@@ -172,6 +179,10 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap-datepicker.js" charset="UTF-8"></script>
+    <script>
+          $('#dp3').datepicker();
+    </script>
 
 </body>
 </html>

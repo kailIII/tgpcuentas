@@ -31,14 +31,10 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
     $obj3 = new Bancos();
     $banco = $obj3->Ordenar_Banco();
 
-    
-
-
     $obj7 = new FirmanteCuentas();
-    if (isset($_POST["Guardar"]) and $_POST["Guardar"] == 1) {
+    if (isset($_POST["Guardar"]) and $_POST["Guardar"] == "Si") {
         
         $obj7->modificarResolucionFirmante($_POST["id"], $_POST["idCta"], $_POST["fecha_alta"], $_POST["resolucion_alta"]);
-        exit;
     }
  
 ?>
@@ -140,9 +136,9 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
                  <div class="form-group">
                   <label class="col-sm-2 control-label">Fecha de Alta</label>
                   <div class="col-sm-3">
-                    <div class="input-append date" id="dp3" data-date="" data-date-format="dd/mm/yyyy">
+                    <div class="input-append date" id="dp3" data-date="" data-date-format="yyyy/mm/dd">
                       <div class="input-group">
-                        <input class="form-control" type="text" value="<?php echo $firmanteCuenta[0]['fecha'];?>" name="fecha_alta" required autofocus placeholder="dd/mm/aaaa" title="Ingrese la Fecha de Alta">
+                        <input class="form-control" type="text" value="<?php echo $firmanteCuenta[0]['fecha'];?>" name="fecha_alta"required autofocus placeholder="aaaa/mm/dd" title="Ingrese la Fecha de Alta"/>
                         <span class="input-group-btn">
                           <button class="btn btn-default" type="button"><span class="add-on"><span class="glyphicon glyphicon-calendar"></span></span></button>
                         </span>
@@ -154,7 +150,7 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
                  <div class="form-group">
                   <label class="col-sm-2 control-label">Resolución de Alta</label>
                   <div class="col-sm-5">
-                    <input type="text" class="form-control" name="resolucion_alta" size="50" value="<?php echo $firmanteCuenta[0]['resalta'] ?>">
+                    <input type="text" class="form-control" name="resolucion_alta" value="<?php echo $firmanteCuenta[0]['resalta'] ?>">
                   </div>
                 </div>
 
@@ -162,7 +158,7 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
                   <div class="col-sm-offset-2 col-sm-10">
                     <button type="submit" class="btn btn-primary">Aceptar</button>
                     <button type="button" class="btn btn-primary" onclick="location='modificar_firmante.php?id=<?php echo $_GET["idcta"]; ?>'">Cancelar</button>
-                       <input type="hidden" name="Guardar" value="1" />
+                       <input type="hidden" name="Guardar" value="Si" />
                        <input type="hidden" name="id" value="<?php echo $firmanteCuenta[0]['id']; ?>">
                        <input type="hidden" name="idCta" value="<?php echo $_GET["idcta"]; ?>" >
                   </div>
@@ -180,27 +176,9 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/bootstrap-datepicker.js"></script>
+    <script type="text/javascript" src="js/bootstrap-datepicker.js" charset="UTF-8"></script>
     <script>
-          if (top.location != location) {
-            top.location.href = document.location.href ;
-          }
-            $(function(){
-              window.prettyPrint && prettyPrint();
-              $('#dp3').datepicker();
-              $('#dp3').datepicker();
-              $('#dpYears').datepicker();
-              $('#dpMonths').datepicker();
-              
-              
-              var startDate = new Date(1,20,2012);
-              var endDate = new Date(1,25,2012);
-           
-                // disabling dates
-                var nowTemp = new Date();
-                var now = new Date(nowTemp.getDate(), nowTemp.getMonth(), nowTemp.getFullYear(), 0, 0, 0, 0);
-
-            });
+          $('#dp3').datepicker();
     </script>
 
 </body>

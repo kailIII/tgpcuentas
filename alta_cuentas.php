@@ -84,7 +84,7 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
                         <td><?php echo $row[$i]["fecha"]; ?></td>
                         <td>&nbsp;&nbsp;
                             <a href="a_cuenta.php?id=<?php echo $row[$i]["id"];?>" title="Alta de Cuenta"><span class="glyphicon glyphicon-plus"></span></a>&nbsp;&nbsp;&nbsp;
-                            <a href="e_cuenta.php?id=<?php echo $row[$i]["id"];?>" title="Editar Cuenta"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;&nbsp;
+                            <a href="e_cuenta.php?id=<?php echo $row[$i]["id"];?>" title="Editar Cuenta"><span class="glyphicon glyphicon-list"></span></a>&nbsp;&nbsp;&nbsp;
                             <a href="alta_cuentas.php?id=<?php echo $row[$i]["id"];?>&elim=1" title="Eliminar Cuenta"><span class="glyphicon glyphicon-remove"></span></a>
                         </td>
                     </tr>

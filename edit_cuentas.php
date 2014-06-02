@@ -161,8 +161,8 @@ include("paginator.inc.php");
                                     <td><?php echo $row["fdopropio"]; ?></td>
                                     <td>
                                         <a href="modificar_firmante.php?id=<?php echo $row["id"];?>" title="Modificar Firmante"><span class="glyphicon glyphicon-user"></span></a>
-                                        <a href="cambiar_saf.php?id=<?php echo $row["id"];?>" title="Cambiar SAF"><span class="glyphicon glyphicon-retweet"></span></a>
-                                        <a href="baja_cuenta.php?id=<?php echo $row["id"];?>" title="Baja de Cuenta"><span class="glyphicon glyphicon-remove"></span></a>
+                                        <a href="cambiar_saf.php?id=<?php echo $row["id"];?>" title="Cambiar SAF"><span class="glyphicon glyphicon-transfer"></span></a>
+                                        <a href="baja_cuenta.php?id=<?php echo $row["id"];?>" title="Baja de Cuenta"><span class="glyphicon glyphicon-trash"></span></a>
                                         <a href="modificar_cuenta.php?id=<?php echo $row["id"];?>" title="Modificar Cuenta"><span class="glyphicon glyphicon-list"></span></a>
                                         <a href="resoluciones.php?id=<?php echo $row["id"];?>" title="Resoluciones de Cuenta"><span class="glyphicon glyphicon-file"></span></a>
                                     </td>

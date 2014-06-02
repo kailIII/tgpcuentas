@@ -147,33 +147,7 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
 
              <?php
 
-                    }else{
-
-                        if (!empty($ctas[0]["cta"])) {
-
-                        ?>
-
-                             <div class="row">
-                                <div class="col-sm-3">
-                                    <div class="alert alert-success">
-                                    
-                                <?php
-
-                            
-                                echo "<b>Nro. CUENTA: </b>".$ctas[0]["cta"]."<br>";
-
-                                ?>
-
-                                </div>
-                                </div>
-                            </div>
-
-                            <?php
-
-                        }
-
-                    }
-                         
+                    }    
                      
                 }
             ?>
@@ -217,8 +191,8 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
                                     <td><?php echo $ctas[$i]["fecbaja"]; ?></td>
                                     <td>&nbsp;
                                         <a href="modificar_firmante.php?id=<?php echo $ctas[$i]["id"];?>" title="Modificar Firmante"><span class="glyphicon glyphicon-user"></span></a>
-                                        <a href="cambiar_saf.php?id=<?php echo $ctas[$i]["id"];?>" title="Cambiar SAF"><span class="glyphicon glyphicon-retweet"></span></a>
-                                        <a href="baja_cuenta.php?id=<?php echo $ctas[$i]["id"];?>" title="Baja de Cuenta"><span class="glyphicon glyphicon-remove"></span></a>
+                                        <a href="cambiar_saf.php?id=<?php echo $ctas[$i]["id"];?>" title="Cambiar SAF"><span class="glyphicon glyphicon-transfer"></span></a>
+                                        <a href="baja_cuenta.php?id=<?php echo $ctas[$i]["id"];?>" title="Baja de Cuenta"><span class="glyphicon glyphicon-trash"></span></a>
                                         <a href="modificar_cuenta.php?id=<?php echo $ctas[$i]["id"];?>" title="Modificar Cuenta"><span class="glyphicon glyphicon-list"></span></a>
                                         <a href="resoluciones.php?id=<?php echo $ctas[$i]["id"];?>" title="Resoluciones de Cuenta"><span class="glyphicon glyphicon-file"></span></a>
                                     </td>

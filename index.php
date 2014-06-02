@@ -34,7 +34,7 @@ if (isset($_POST["Datos"]) AND $_POST["Datos"]==1) {
     <div class="container">
       <div class="row">
           <div class="col-md-12">
-            <h3 class="form-signin-heading"><p class="text-center">Inicie sesión para acceder al Sistema de Padrón de Cuentas Oficiales</p></h3>         
+            <h3 class="form-signin-heading"><p class="text-center"><small>Inicie sesión para acceder al </small><br>Sistema de Padrón de Cuentas Oficiales</p></h3>         
           </div>
           <div class="col-md-4 col-md-offset-4">
             <form class="form-signin" role="form" action="index.php" method="POST">
@@ -51,7 +51,7 @@ if (isset($_POST["Datos"]) AND $_POST["Datos"]==1) {
               <?php
                 }
               ?>
-              <button class="btn btn-lg btn-primary btn-block" type="submit">Iniciar Sesión</button>
+              <button class="btn btn-lg btn-primary btn-block" type="submit"><span class="glyphicon glyphicon-log-in"></span>  Iniciar Sesión</button>
               <input type="hidden" name="Datos" value="1"/>
           </form>
           </div>

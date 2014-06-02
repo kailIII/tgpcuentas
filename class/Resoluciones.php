@@ -33,7 +33,7 @@ class Resoluciones {
                 }else{
                     if (!((strpos($tipo_archivo, "gif") || strpos($tipo_archivo, "jpeg")))) {
                         echo "<script type='text/javascript'>
-                        alert ('La imagen sólo puede ser de formato JPEG, JPG o PNG.');
+                        alert ('La imagen solo puede ser de formato JPEG, JPG o PNG.');
                         window.location = 'resoluciones.php?id=$id_cta';
                         </script>";  
                     }else{
