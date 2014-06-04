@@ -158,8 +158,7 @@ class Cuentas {
                 OR a.cta = trim('$cta')
                 AND a.cerrada = 1
                 AND a.inibaj = 0
-                AND a.baja = 0
-                ORDER BY a.cta";
+                AND a.baja = 0";
         $res = mysql_query($sql, Conectar::con());
         while ($reg = mysql_fetch_array($res)) {
             $this->cuentas[]=$reg;                    

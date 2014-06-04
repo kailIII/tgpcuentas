@@ -12,6 +12,7 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
         require_once 'class/cuentas.php';
         require_once 'class/FirmanteCuentas.php';
         require_once 'class/firmantes.php';
+        require_once 'class/Resoluciones.php';
     
     if (!empty($_GET["id"])) 
          {
@@ -33,18 +34,22 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
     $listFirmantesCuenta = $obj6->listFirmantesCuenta($_GET["id"]);
 
     $obj5 = new Firmantes();
-    if (isset($_GET["Buscar"]) and $_GET["Buscar"] == 1) {
+    if (isset($_POST["Buscar"]) and $_POST["Buscar"] == 1) {
         
-        $idFirmante = $obj5->idFirmante($_GET["dni"]);
+        $idFirmante = $obj5->idFirmante($_POST["dni"]);
 
     }
 
-    $obj7 = new FirmanteCuentas();
-    if (isset($_GET["Guardar"]) and $_GET["Guardar"] == 2) {
+    $obj8 = new Resoluciones();
+    if (isset($_POST["Guardar"]) and $_POST["Guardar"] == 2) {
+
+        $obj8->guardarResolucionFirmante($row[0]["idCta"], $row[0]["cta"], $_FILES["foto"]);
         
-        $obj7->addFirmanteCuentas($row[0]["cta"], $_GET["doc"], $_GET["fecha"], $id, $_GET["resolucion"]);
+        $obj7 = new FirmanteCuentas();
+        $obj7->addFirmanteCuentas($row[0]["cta"], $_POST["doc"], $_POST["fecha"], $id, $_POST["resolucion"]);
         header("Location: modificar_firmante.php?id=$id");
         exit;
+
     }
  
 ?>
@@ -191,7 +196,7 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
             
             <div class="row">
                 
-                <form class="form-horizontal" role="form" action="modificar_firmante.php" method="GET" >
+                <form class="form-horizontal" role="form" action="modificar_firmante.php?id=<?php echo $id; ?>" method="POST" enctype="multipart/form-data">
                      <div class="form-group">
                             <label class="col-sm-2 control-label">Ingrese DNI</label>
                             <div class="col-sm-3">
@@ -200,7 +205,6 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
                             <div class="col-sm-1">
                                 <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span></button>                               
                                 <input type="hidden" name="Buscar" value="1">
-                                <input type="hidden" name="id" value="<?php echo $id; ?>"/>
                             </div>
                     </div>
 
@@ -243,12 +247,21 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
                             </div>
                     </div>
 
+                    <div class="form-group">
+                       <label class="col-sm-2 control-label">Cargar Resolución</label>
+                       <div class="col-sm-3">
+                         <input type="file" class="form-control" name="foto" title="Seleccione la Resolucion Escaneada">
+                       </div>
+                       <div class="col-sm-3">
+                          <h6 class="text-danger"><span class="glyphicon glyphicon-asterisk"></span> Solo archivos JPG</h6>
+                       </div>
+                     </div> 
+
                      <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
                           <button type="submit" class="btn btn-primary">Aceptar</button>
                           <button type="button" class="btn btn-primary" onclick="location='modificar_firmante.php?id=<?php echo $id; ?>'">Cancelar</button>
                           <input type="hidden" name="Guardar" value="2" />
-                          <input type="hidden" name="id" value="<?php echo $id; ?>"/>
                         </div>
                       </div>
 

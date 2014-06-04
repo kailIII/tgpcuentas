@@ -148,7 +148,7 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
                   <div class="col-sm-3">
                     <div class="input-append date" id="dp3" data-date="" data-date-format="yyyy/mm/dd">
                       <div class="input-group">
-                        <input class="form-control" type="text" value="" name="fecha_baja" required autofocus placeholder="aaaa/mm/dd" title="Ingrese la Fecha Inicial de Baja">
+                        <input class="form-control" type="text" value="" name="fec_baja" required autofocus placeholder="aaaa/mm/dd" title="Ingrese la Fecha Inicial de Baja">
                         <span class="input-group-btn">
                           <button class="btn btn-default" type="button"><span class="add-on"><span class="glyphicon glyphicon-calendar"></span></span></button>
                         </span>
