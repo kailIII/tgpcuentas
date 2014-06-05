@@ -1,5 +1,5 @@
 <?php
-require_once("../../init.php");
+//require_once("../../init.php");
 require_once("../../class/class.php");
 require_once("../../class/class_usuarios.php");
 
@@ -42,7 +42,7 @@ $cantidadSaf = $obj1->cantidadPorSaf();
   <body>
 	
 	<?php
-        include ROOT_DIR.'/partes/nav.php';
+    include ("../nav.php");
 	?>
 
 <div class="container">
@@ -57,8 +57,8 @@ $cantidadSaf = $obj1->cantidadPorSaf();
     
     <div class="row">
         <div class="col-md-2 col-md-offset-10">
-         <button type="button" class="btn btn-danger" onclick="location='../../informes/cuentas/cantidad_saf_pdf.php'"><span class="glyphicon glyphicon-print"></span> PDF</button>      
-         <button type="button" class="btn btn-success" onclick="location='#'"><span class="glyphicon glyphicon-print"></span> EXEL</button>      
+         <button type="button" class="btn btn-danger" onclick="window.open('cantidad_saf_pdf.php', 'popup')"><span class="glyphicon glyphicon-print"></span> PDF</button>      
+         <button type="button" class="btn btn-success" onclick="location='cantidad_saf_exel.php'"><span class="glyphicon glyphicon-print"></span> EXEL</button>      
         </div>
     </div>
     <br>
