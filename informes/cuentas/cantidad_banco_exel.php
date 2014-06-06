@@ -29,7 +29,7 @@ require_once("../../class/class.php");
 require_once("../../class/Informes.php");
 
 $obj1 = new Informes();
-$cantidadSaf = $obj1->cantidadPorSaf();
+$cantidadBanco = $obj1->cantidadPorBanco();
 
 /** Error reporting */
 error_reporting(E_ALL);
@@ -58,26 +58,24 @@ $objPHPExcel = new PHPExcel();
 
 
 // DATOS INGRESADOS
-$tituloReporte = "CANTIDAD DE CUENTAS POR SAF";
-$titulosColumnas = array('SAF', 'NOMBRE', 'CANTIDAD');
+$tituloReporte = "CANTIDAD DE CUENTAS POR BANCO";
+$titulosColumnas = array('BANCO', 'CANTIDAD');
 
 // Se combinan las celdas A1 hasta D1, para colocar ahí el titulo del reporte
 $objPHPExcel->setActiveSheetIndex(0)
-    ->mergeCells('A1:C1');
+    ->mergeCells('A1:B1');
  
 // Se agregan los titulos del reporte
 $objPHPExcel->setActiveSheetIndex(0)
     ->setCellValue('A1',  $tituloReporte) // Titulo del reporte
     ->setCellValue('A3',  $titulosColumnas[0])  //Titulo de las columnas
-    ->setCellValue('B3',  $titulosColumnas[1])
-    ->setCellValue('C3',  $titulosColumnas[2]);
+    ->setCellValue('B3',  $titulosColumnas[1]);
 
 $j=4;
-for ($i=0; $i < sizeof($cantidadSaf); $i++) { 
+for ($i=0; $i < sizeof($cantidadBanco); $i++) { 
 $objPHPExcel->setActiveSheetIndex(0)
-            ->setCellValue('A'.$j, $cantidadSaf[$i]["saf"])
-            ->setCellValue('B'.$j, $cantidadSaf[$i]["nombre"])
-            ->setCellValue('C'.$j, $cantidadSaf[$i]["cantidad"]);
+            ->setCellValue('A'.$j, $cantidadBanco[$i]["nombre"])
+            ->setCellValue('B'.$j, $cantidadBanco[$i]["cantidad"]);
 $j++;
 }
 
@@ -143,18 +141,18 @@ $estiloTituloReporte = array(
            	),
         ));
 		 
-		$objPHPExcel->getActiveSheet()->getStyle('A1:C1')->applyFromArray($estiloTituloReporte);
-		$objPHPExcel->getActiveSheet()->getStyle('A3:C3')->applyFromArray($estiloTituloColumnas);		
-		$objPHPExcel->getActiveSheet()->setSharedStyle($estiloInformacion, "A4:C".($j-1));
+		$objPHPExcel->getActiveSheet()->getStyle('A1:B1')->applyFromArray($estiloTituloReporte);
+		$objPHPExcel->getActiveSheet()->getStyle('A3:B3')->applyFromArray($estiloTituloColumnas);		
+		$objPHPExcel->getActiveSheet()->setSharedStyle($estiloInformacion, "A4:B".($j-1));
 
 //Ensancha de forma automatica las celda
-for($i = 'A'; $i <= 'C'; $i++){
+for($i = 'A'; $i <= 'B'; $i++){
     $objPHPExcel->setActiveSheetIndex(0)->getColumnDimension($i)->setAutoSize(TRUE);
 }
 
 
 // Nombre de la Pestaña Exel
-$objPHPExcel->getActiveSheet()->setTitle('Informe de Cuentas por SAF');
+$objPHPExcel->getActiveSheet()->setTitle('Informe de Cuentas por Banco');
 
 
 // Set active sheet index to the first sheet, so Excel opens this as the first sheet
@@ -163,7 +161,7 @@ $objPHPExcel->setActiveSheetIndex(0);
 
 // Redirect output to a client’s web browser (Excel2007)
 header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-header('Content-Disposition: attachment;filename="Informe de Cuentas por SAF.xlsx"');
+header('Content-Disposition: attachment;filename="Informe de Cuentas por Banco.xlsx"');
 header('Cache-Control: max-age=0');
 // If you're serving to IE 9, then the following may be needed
 header('Cache-Control: max-age=1');

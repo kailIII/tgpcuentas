@@ -41,8 +41,8 @@
                             <li><a href="#">Historicos de Cuentas</a></li>
                   <li role="presentation" class="divider"></li>
                   <li role="presentation" class="dropdown-header">CUENTAS</li>
-                            <li><a href="informes/cuentas/cantidad_saf.php">Cantidad por SAF</a></li>
-                            <li><a href="informes/cuentas/cantidad_banco.php">Cantidad por Banco</a></li>
+                            <li><a href="cantidad_saf.php">Cantidad por SAF</a></li>
+                            <li><a href="cantidad_banco.php">Cantidad por Banco</a></li>
                   <li role="presentation" class="divider"></li>
                   <li role="presentation" class="dropdown-header">BANCOS</li>
                             <li><a href="informes/bancos/cuentas_simple.php">Por Cuentas: Simple</a></li> 
