@@ -45,7 +45,7 @@
                             <li><a href="cantidad_banco.php">Cantidad por Banco</a></li>
                   <li role="presentation" class="divider"></li>
                   <li role="presentation" class="dropdown-header">BANCOS</li>
-                            <li><a href="informes/bancos/cuentas_simple.php">Por Cuentas: Simple</a></li> 
+                            <li><a href="cuentas_simple.php">Por Cuentas: Simple</a></li> 
                             <li><a href="#">Por Cuentas: Detallado</a></li>
                             <li><a href="#">Por Bancos y SAF</a></li>
                   <li role="presentation" class="divider"></li>

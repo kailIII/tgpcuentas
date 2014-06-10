@@ -24,6 +24,7 @@ $cantidadBanco = $obj1->cantidadPorBanco();
 
     <!-- Bootstrap core CSS -->
     <link href="../../css/bootstrap.css" rel="stylesheet">
+    <link href="../../css/font-awesome.css" rel="stylesheet">
     <!-- Bootstrap theme -->
     <link href="../../css/bootstrap-theme.min.css" rel="stylesheet">
 
@@ -56,8 +57,8 @@ $cantidadBanco = $obj1->cantidadPorBanco();
     
     <div class="row">
         <div class="col-md-2 col-md-offset-10">
-         <button type="button" class="btn btn-danger" onclick="window.open('cantidad_banco_pdf.php', 'popup')"><span class="glyphicon glyphicon-print"></span> PDF</button>      
-         <button type="button" class="btn btn-success" onclick="location='cantidad_banco_exel.php'"><span class="glyphicon glyphicon-print"></span> EXEL</button>      
+         <button type="button" class="btn btn-danger" onclick="window.open('cantidad_banco_pdf.php', 'popup')"><i class="fa fa-file-pdf-o"></i> PDF</button>      
+         <button type="button" class="btn btn-success" onclick="location='cantidad_banco_exel.php'"><i class="fa fa-file-excel-o"></i> EXEL</button>      
         </div>
     </div>
     <br>

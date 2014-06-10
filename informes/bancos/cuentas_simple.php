@@ -216,6 +216,7 @@ if (isset($_POST["Buscar"]) and $_POST["Buscar"] == 1) {
                                        
                                 ?>
                                     <tr>
+                                        <td><?php echo $listBancosCuentas[$i]["posicion"]; ?></td>
                                         <td><?php echo $listBancosCuentas[$i]["cta"]; ?></td>
                                         <td><?php echo $listBancosCuentas[$i]["denominacion"]; ?></td>
                                         <td><?php echo $listBancosCuentas[$i]["saf"]; ?></td>
