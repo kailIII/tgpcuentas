@@ -44,8 +44,11 @@ $cantidadBanco = $obj1->cantidadPorBanco();
 	<?php
     include ("../nav.php");
 	?>
+  
+  
 
 <div class="container">
+
 
   <div class="panel panel-danger">   
     
@@ -91,6 +94,7 @@ $cantidadBanco = $obj1->cantidadPorBanco();
         <div class="panel-footer"><?php include ("../../partes/footer.php");?></div>   
 
     </div>
+
 </div> <!-- /container -->
 	
 	

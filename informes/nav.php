@@ -8,7 +8,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="../../home.php">Sistema de Padrón de Cuentas Oficiales</a>
+          <a class="navbar-brand" href="../home.php">Sistema de Padrón de Cuentas Oficiales</a>
         </div>
         <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
@@ -32,7 +32,15 @@
               </ul>
             </li>
 
-             <li class="dropdown">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administración <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                    <li> <a href="../../alta_usuarios.php">Alta de Usuarios</a></li>
+                    <li> <a href="../../#">Listado de Usuarios</a></li>
+              </ul>
+            </li>
+            
+            <!-- <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Informes <b class="caret"></b></a>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu2">
                   <li role="presentation" class="dropdown-header">GENERAL</li>
@@ -54,15 +62,10 @@
                             <li><a href="#">General por Cuentas</a></li>
                             <li><a href="#">Autorizados por SAF</a></li>
                 </ul>
-            </li>
+            </li> -->
 
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administración <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                    <li> <a href="../../alta_usuarios.php">Alta de Usuarios</a></li>
-                    <li> <a href="../../#">Listado de Usuarios</a></li>
-              </ul>
-            </li>
+            <li><a href="informes.php">Informes</a></li>
+
           </ul>
           <ul class="nav navbar-nav navbar-right">
 		  		<li class="dropdown">
