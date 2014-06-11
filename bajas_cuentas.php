@@ -42,79 +42,86 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
 
   <body>
 	
-	<?php
-		include ("partes/nav.php");
-	?>
+<div class="container">
 
-<div class="container-fluid">
+    <?php include ("partes/nav.php"); ?>
+      
+      <div class="row">
+      
+        <?php include ("partes/menu.php"); ?>
 
-  <div class="panel panel-primary">   
-    
-    <div class="panel-heading">
-          <h3 class="panel-title"><span class="glyphicon glyphicon-chevron-right"></span>&nbsp;Cuentas Oficiales en Tramite de Baja</h3>
-    </div>  
-    
-    <div class="panel-body">
+        <div class="col-md-10">
 
-          <table class="table table-hover">
-            <thead>
-                <tr class="info">
-                    <th>Cuenta</th>
-                    <th>SAF</th>
-                    <th>Sector</th>
-                    <th>Denominaci&oacute;n</th>
-                    <th>Banco</th>
-                    <th>Inicio de Baja</th>
-                    <th>Operaciones</th>
-                </tr>
-            </thead>
-               <tbody>
-                                 <?php
-                                if(!empty($ctas))
-                                {
-                                for($i=0;$i<sizeof($ctas);$i++){
-                                 
-                                    
-                                ?>
-                                <tr>
-                                    <td><?php echo $ctas[$i]["cta"]; ?></td>
-                                    <td><?php echo $ctas[$i]["saf"]; ?></td>
-                                    <td><?php echo $ctas[$i]["organismo"]; ?></td>
-                                    <td><?php echo $ctas[$i]["denominacion"]; ?></td>
-                                    <td><?php echo $ctas[$i]["banco"]; ?></td>
-                                    <td><?php echo $ctas[$i]["fecbajainicio"]; ?></td>
-                                    <td align="center">
-                                        <a href="baja_cuenta_definitiva.php?id=<?php echo $ctas[$i]["id"];?>" title="Eliminar"><span class="glyphicon glyphicon-remove"></span></a>
-                                    </td>
-                                </tr>
-                                <?php
-                                  }
-                                }
-                                ?>
-                                
-                                <?php
-                                   if(empty($ctas)){
-                                ?>     
-                                <tr>
-                                    <td colspan="6">
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <div class="alert alert-danger">
-                                                <h4><p class="text-center">No existe registro de Inicio de Baja de Cuentas</p></h4>
+
+          <div class="panel panel-primary">   
+            
+            <div class="panel-heading">
+                  <h3 class="panel-title"><span class="glyphicon glyphicon-chevron-right"></span>&nbsp;Cuentas Oficiales en Tramite de Baja</h3>
+            </div>  
+            
+            <div class="panel-body">
+
+                  <table class="table table-hover">
+                    <thead>
+                        <tr class="info">
+                            <th>Cuenta</th>
+                            <th>SAF</th>
+                            <th>Sector</th>
+                            <th>Denominaci&oacute;n</th>
+                            <th>Banco</th>
+                            <th>Inicio de Baja</th>
+                            <th>Operaciones</th>
+                        </tr>
+                    </thead>
+                       <tbody>
+                                         <?php
+                                        if(!empty($ctas))
+                                        {
+                                        for($i=0;$i<sizeof($ctas);$i++){
+                                         
+                                            
+                                        ?>
+                                        <tr>
+                                            <td><?php echo $ctas[$i]["cta"]; ?></td>
+                                            <td><?php echo $ctas[$i]["saf"]; ?></td>
+                                            <td><?php echo $ctas[$i]["organismo"]; ?></td>
+                                            <td><?php echo $ctas[$i]["denominacion"]; ?></td>
+                                            <td><?php echo $ctas[$i]["banco"]; ?></td>
+                                            <td><?php echo $ctas[$i]["fecbajainicio"]; ?></td>
+                                            <td align="center">
+                                                <a href="baja_cuenta_definitiva.php?id=<?php echo $ctas[$i]["id"];?>" title="Eliminar"><span class="glyphicon glyphicon-remove"></span></a>
+                                            </td>
+                                        </tr>
+                                        <?php
+                                          }
+                                        }
+                                        ?>
+                                        
+                                        <?php
+                                           if(empty($ctas)){
+                                        ?>     
+                                        <tr>
+                                            <td colspan="6">
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="alert alert-danger">
+                                                        <h4><p class="text-center">No existe registro de Inicio de Baja de Cuentas</p></h4>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    </td>
-                                </tr>
-                               <?php
-                                   }
-                                ?>
-                    </tbody>
-          </table>
-        </div>    
+                                            </td>
+                                        </tr>
+                                       <?php
+                                           }
+                                        ?>
+                            </tbody>
+                  </table>
+                </div>    
 
-        <div class="panel-footer"><?php include ("partes/footer.php");?></div>   
+                <div class="panel-footer"><?php include ("partes/footer.php");?></div>   
 
+            </div>
+        </div>
     </div>
 </div> <!-- /container -->
 	

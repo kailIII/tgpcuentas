@@ -69,107 +69,114 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
  </head>
 
   <body>
-	
-	<?php
-		include ("partes/nav.php");
-	?>
 
 <div class="container">
 
-  <div class="panel panel-primary">   
-    <div class="panel-heading">
-       <h3 class="panel-title"><span class="glyphicon glyphicon-chevron-right"></span>&nbsp;Baja de Firmantes</h3>
-    </div>  
+   <?php include ("partes/nav.php"); ?>
+      
+      <div class="row">
+      
+      <?php include ("partes/menu.php"); ?>
 
-    <div class="panel-body">
+        <div class="col-md-10">
 
-            <blockquote>
-              <p>Datos de la Cuenta</p>
-            </blockquote>
 
-            <form class="form-horizontal" role="form" action="#" method="POST">
-                <div class="form-group">
-                  <label class="col-sm-2 control-label">SAF</label>
-                  <div class="col-sm-3">
-                      <input type="text" class="form-control" name="saf" readonly value="<?php echo $row[0]['servicio']; ?>">
-                  </div>
-                </div>
-                 <div class="form-group">
-                  <label class="col-sm-2 control-label">Sector</label>
-                  <div class="col-sm-5">
-                      <input type="text" class="form-control" name="sector" readonly value="<?php echo $row[0]['sector']; ?>">
-                  </div>
-                </div>
+        <div class="panel panel-primary">   
+          <div class="panel-heading">
+             <h3 class="panel-title"><span class="glyphicon glyphicon-chevron-right"></span>&nbsp;Baja de Firmantes</h3>
+          </div>  
 
-                <div class="form-group">
-                  <label class="col-sm-2 control-label">Denominación</label>
-                  <div class="col-sm-6">
-                    <input type="text" class="form-control" name="denominacion" readonly value="<?php echo $row[0]['denominacion']; ?>">
-                  </div>
-                </div>
+          <div class="panel-body">
 
-                <div class="form-group">
-                  <label class="col-sm-2 control-label">Banco</label>
-                  <div class="col-sm-5">
-                    <input type="text" class="form-control" name="banco" readonly value="<?php echo $row[0]['banco']; ?>">
-                  </div>
-                </div>
-              </form>
-              
-               <blockquote>
-                <p>Firmante a dar de Baja</p>
-              </blockquote>
-              
-              <form class="form-horizontal" role="form" action="baja_firmante.php" method="POST">
+                  <blockquote>
+                    <p>Datos de la Cuenta</p>
+                  </blockquote>
 
-                <div class="form-group">
-                  <label class="col-sm-2 control-label">Apellido y Nombre</label>
-                  <div class="col-sm-5">
-                    <input type="text" class="form-control" readonly value="<?php echo $firmanteCuenta[0]['nombre']; ?>">
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label class="col-sm-2 control-label">DNI</label>
-                  <div class="col-sm-5">
-                    <input type="text" class="form-control" readonly value="<?php echo $firmanteCuenta[0]['dni']; ?>">
-                  </div>
-                </div>
-
-                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Fecha de Baja</label>
-                    <div class="col-sm-3">
-                      <div class="input-append date" id="dp3" data-date="" data-date-format="yyyy/mm/dd">
-                        <div class="input-group">
-                          <input class="form-control" type="text" value="<?php echo $firmanteCuenta[0]['fecha'];?>" name="fecha_baja" required autofocus placeholder="aaaa/mm/dd" title="Ingrese la Fecha de Baja">
-                          <span class="input-group-btn">
-                            <button class="btn btn-default" type="button"><span class="add-on"><span class="glyphicon glyphicon-calendar"></span></span></button>
-                          </span>
+                  <form class="form-horizontal" role="form" action="#" method="POST">
+                      <div class="form-group">
+                        <label class="col-sm-2 control-label">SAF</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" name="saf" readonly value="<?php echo $row[0]['servicio']; ?>">
                         </div>
                       </div>
-                    </div>
-                  </div>
+                       <div class="form-group">
+                        <label class="col-sm-2 control-label">Sector</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control" name="sector" readonly value="<?php echo $row[0]['sector']; ?>">
+                        </div>
+                      </div>
 
-                 <div class="form-group">
-                  <label class="col-sm-2 control-label">Resolución de Baja</label>
-                  <div class="col-sm-5">
-                    <input type="text" class="form-control" name="resolucion_baja" size="50" value="<?php echo $firmanteCuenta[0]['resalta'] ?>">
-                  </div>
-                </div>
+                      <div class="form-group">
+                        <label class="col-sm-2 control-label">Denominación</label>
+                        <div class="col-sm-6">
+                          <input type="text" class="form-control" name="denominacion" readonly value="<?php echo $row[0]['denominacion']; ?>">
+                        </div>
+                      </div>
 
-                <div class="form-group">
-                  <div class="col-sm-offset-2 col-sm-10">
-                    <button type="submit" class="btn btn-primary">Aceptar</button>
-                    <button type="button" class="btn btn-primary" onclick="location='modificar_firmante.php?id=<?php echo $_GET["idcta"]; ?>'">Cancelar</button>
-                      <input type="hidden" name="Guardar" value="1" />
-                       <input type="hidden" name="id" value="<?php echo $firmanteCuenta[0]['id']; ?>">
-                       <input type="hidden" name="idCta" value="<?php echo $_GET["idcta"]; ?>" >
-                  </div>
-                </div>
+                      <div class="form-group">
+                        <label class="col-sm-2 control-label">Banco</label>
+                        <div class="col-sm-5">
+                          <input type="text" class="form-control" name="banco" readonly value="<?php echo $row[0]['banco']; ?>">
+                        </div>
+                      </div>
+                    </form>
+                    
+                     <blockquote>
+                      <p>Firmante a dar de Baja</p>
+                    </blockquote>
+                    
+                    <form class="form-horizontal" role="form" action="baja_firmante.php" method="POST">
 
-              </form> 
-          </div>  
-        <div class="panel-footer"><?php include ("partes/footer.php");?></div>   
+                      <div class="form-group">
+                        <label class="col-sm-2 control-label">Apellido y Nombre</label>
+                        <div class="col-sm-5">
+                          <input type="text" class="form-control" readonly value="<?php echo $firmanteCuenta[0]['nombre']; ?>">
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="col-sm-2 control-label">DNI</label>
+                        <div class="col-sm-5">
+                          <input type="text" class="form-control" readonly value="<?php echo $firmanteCuenta[0]['dni']; ?>">
+                        </div>
+                      </div>
+
+                       <div class="form-group">
+                          <label class="col-sm-2 control-label">Fecha de Baja</label>
+                          <div class="col-sm-3">
+                            <div class="input-append date" id="dp3" data-date="" data-date-format="yyyy/mm/dd">
+                              <div class="input-group">
+                                <input class="form-control" type="text" value="<?php echo $firmanteCuenta[0]['fecha'];?>" name="fecha_baja" required autofocus placeholder="aaaa/mm/dd" title="Ingrese la Fecha de Baja">
+                                <span class="input-group-btn">
+                                  <button class="btn btn-default" type="button"><span class="add-on"><span class="glyphicon glyphicon-calendar"></span></span></button>
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                       <div class="form-group">
+                        <label class="col-sm-2 control-label">Resolución de Baja</label>
+                        <div class="col-sm-5">
+                          <input type="text" class="form-control" name="resolucion_baja" size="50" value="<?php echo $firmanteCuenta[0]['resalta'] ?>">
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                          <button type="submit" class="btn btn-primary">Aceptar</button>
+                          <button type="button" class="btn btn-primary" onclick="location='modificar_firmante.php?id=<?php echo $_GET["idcta"]; ?>'">Cancelar</button>
+                            <input type="hidden" name="Guardar" value="1" />
+                             <input type="hidden" name="id" value="<?php echo $firmanteCuenta[0]['id']; ?>">
+                             <input type="hidden" name="idCta" value="<?php echo $_GET["idcta"]; ?>" >
+                        </div>
+                      </div>
+
+                    </form> 
+                </div>  
+              <div class="panel-footer"><?php include ("partes/footer.php");?></div>   
+          </div>
+      </div>
     </div>
 </div> <!-- /container -->
 	

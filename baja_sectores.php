@@ -52,11 +52,16 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
 
   <body>
 	
-	<?php
-		include ("partes/nav.php");
-	?>
-
   <div class="container">
+
+     <?php include ("partes/nav.php"); ?>
+      
+      <div class="row">
+      
+      <?php include ("partes/menu.php"); ?>
+
+        <div class="col-md-10">
+
 
         <div class="panel panel-primary">   
           
@@ -110,6 +115,8 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
               <div class="panel-footer"><?php include ("partes/footer.php");?></div>  
 
           </div>
+      </div>
+    </div>
 
 </div> <!-- /container -->
 	

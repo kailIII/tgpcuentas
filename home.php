@@ -33,21 +33,30 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]){
  </head>
 
   <body>
-	
-	<?php
-		include ("partes/nav.php");
-	?>
 
     <div class="container">
-      <div class="panel panel-primary">
-        <div class="panel-heading">
-          <h3 class="panel-title"><span class="glyphicon glyphicon-chevron-right"></span> Tesorería General - Pcia. de La Rioja</h3>
+
+      <?php include ("partes/nav.php"); ?>
+
+      <div class="row">
+      
+      <?php include ("partes/menu.php"); ?>
+
+        <div class="col-md-10">
+          
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title"><span class="glyphicon glyphicon-chevron-right"></span> Tesorería General - Pcia. de La Rioja</h3>
+            </div>
+            <div class="panel-body">
+              <h1><small><p class="text-center"><span class="glyphicon glyphicon-list-alt"></span>  Sistema de Padrón de Cuentas Oficiales</p></small></h1>
+            </div>
+            <div class="panel-footer"><?php include ("partes/footer.php");?></div>
+          </div>
+
         </div>
-        <div class="panel-body">
-          <h1><small><p class="text-center"><span class="glyphicon glyphicon-list-alt"></span>  Sistema de Padrón de Cuentas Oficiales</p></small></h1>
-        </div>
-        <div class="panel-footer"><?php include ("partes/footer.php");?></div>
       </div>
+
     </div> <!-- /container -->
 	
 	
@@ -69,3 +78,4 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]){
 	window.location='index.php';
 	</script>";
 }		
+?>

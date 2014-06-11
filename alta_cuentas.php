@@ -46,74 +46,82 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
  </head>
 
   <body>
-	
-	<?php
-		include ("partes/nav.php");
-	?>
 
-<div class="container-fluid">
+<div class="container">
 
-  <div class="panel panel-primary">   
-    
-    <div class="panel-heading">
-          <h3 class="panel-title"><span class="glyphicon glyphicon-chevron-right"></span>&nbsp;Alta de Cuentas</h3>
-    </div>  
-    
-    <div class="panel-body">
+    <?php include ("partes/nav.php"); ?>
+      
+      <div class="row">
+      
+      <?php include ("partes/menu.php"); ?>
 
-          <table class="table table-hover">
-            <thead>
-                <tr class="info">
-                    <th>SAF</th>
-                    <th>Sector</th>
-                    <th>Denominaci&oacute;n</th>
-                    <th>Banco</th>
-                    <th>Inicio Tramite</th>
-                    <th>Operaciones</th>
-                </tr>
-            </thead>
-              <tbody>
-                     <?php
-                    for($i=0;$i<sizeof($row);$i++){
-                        ?>
-                    <tr>
-                        <td><?php echo $row[$i]["saf"]; ?></td>
-                        <td><?php echo $row[$i]["sector"]; ?></td>
-                        <td><?php echo $row[$i]["denominacion"]; ?></td>
-                        <td><?php echo $row[$i]["banco"]; ?></td>
-                        <td><?php echo $row[$i]["fecha"]; ?></td>
-                        <td>&nbsp;&nbsp;
-                            <a href="a_cuenta.php?id=<?php echo $row[$i]["id"];?>" title="Alta de Cuenta"><span class="glyphicon glyphicon-plus"></span></a>&nbsp;&nbsp;&nbsp;
-                            <a href="e_cuenta.php?id=<?php echo $row[$i]["id"];?>" title="Editar Cuenta"><span class="glyphicon glyphicon-list"></span></a>&nbsp;&nbsp;&nbsp;
-                            <a href="alta_cuentas.php?id=<?php echo $row[$i]["id"];?>&elim=1" title="Eliminar Cuenta"><span class="glyphicon glyphicon-remove"></span></a>
-                        </td>
-                    </tr>
-                    <?php
-                      }
-                    ?>
-                    <?php
-                       if(empty($row)){
-                    ?>     
-                    <tr>
-                        <td colspan="6">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="alert alert-danger">
-                                    <h4><p class="text-center">No existe registro de Apertura de Cuentas</p></h4>
+        <div class="col-md-10">
+
+
+          <div class="panel panel-primary">   
+            
+            <div class="panel-heading">
+                  <h3 class="panel-title"><span class="glyphicon glyphicon-chevron-right"></span>&nbsp;Alta de Cuentas</h3>
+            </div>  
+            
+            <div class="panel-body">
+
+                  <table class="table table-hover">
+                    <thead>
+                        <tr class="info">
+                            <th>SAF</th>
+                            <th>Sector</th>
+                            <th>Denominaci&oacute;n</th>
+                            <th>Banco</th>
+                            <th>Inicio Tramite</th>
+                            <th>Operaciones</th>
+                        </tr>
+                    </thead>
+                      <tbody>
+                             <?php
+                            for($i=0;$i<sizeof($row);$i++){
+                                ?>
+                            <tr>
+                                <td><?php echo $row[$i]["saf"]; ?></td>
+                                <td><?php echo $row[$i]["sector"]; ?></td>
+                                <td><?php echo $row[$i]["denominacion"]; ?></td>
+                                <td><?php echo $row[$i]["banco"]; ?></td>
+                                <td><?php echo $row[$i]["fecha"]; ?></td>
+                                <td>&nbsp;&nbsp;
+                                    <a href="a_cuenta.php?id=<?php echo $row[$i]["id"];?>" title="Alta de Cuenta"><span class="glyphicon glyphicon-plus"></span></a>&nbsp;&nbsp;&nbsp;
+                                    <a href="e_cuenta.php?id=<?php echo $row[$i]["id"];?>" title="Editar Cuenta"><span class="glyphicon glyphicon-list"></span></a>&nbsp;&nbsp;&nbsp;
+                                    <a href="alta_cuentas.php?id=<?php echo $row[$i]["id"];?>&elim=1" title="Eliminar Cuenta"><span class="glyphicon glyphicon-remove"></span></a>
+                                </td>
+                            </tr>
+                            <?php
+                              }
+                            ?>
+                            <?php
+                               if(empty($row)){
+                            ?>     
+                            <tr>
+                                <td colspan="6">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="alert alert-danger">
+                                            <h4><p class="text-center">No existe registro de Apertura de Cuentas</p></h4>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        </td>
-                    </tr>
-                   <?php
-                       }
-                    ?>
-              </tbody>
-          </table>
-        </div>    
+                                </td>
+                            </tr>
+                           <?php
+                               }
+                            ?>
+                      </tbody>
+                  </table>
+                </div>    
 
-        <div class="panel-footer"><?php include ("partes/footer.php");?></div>   
+                <div class="panel-footer"><?php include ("partes/footer.php");?></div>   
 
+            </div>
+
+        </div>
     </div>
 </div> <!-- /container -->
 	
@@ -135,4 +143,5 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
 	alert('Ud debe Iniciar Sesi\u00f3n para acceder a este contenido.');
 	window.location='index.php';
 	</script>";
-}		
+}	
+?>	

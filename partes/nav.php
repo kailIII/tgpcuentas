@@ -1,5 +1,5 @@
 <!-- Fixed navbar -->
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
       <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -11,7 +11,7 @@
           <a class="navbar-brand" href="home.php">Sistema de Padrón de Cuentas Oficiales</a>
         </div>
         <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
+          <!-- <ul class="nav navbar-nav">
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cuentas Oficiales <b class="caret"></b></a>
               <ul class="dropdown-menu">
@@ -35,12 +35,12 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administración <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                    <li> <a href="alta_usuarios.php">Alta de Usuarios</a></li>
-                    <li> <a href="#">Listado de Usuarios</a></li>
+                    <li> <a href="alta_usuarios.php"><span class="glyphicon glyphicon-user"></span> Alta de Usuarios</a></li>
+                    <li> <a href="#"><span class="glyphicon glyphicon-list"></span> Listado de Usuarios</a></li>
               </ul>
             </li>
 
-            <!-- <li class="dropdown">
+            <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Informes <b class="caret"></b></a>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu2">
                   <li role="presentation" class="dropdown-header">GENERAL</li>
@@ -62,11 +62,11 @@
                             <li><a href="#">General por Cuentas</a></li>
                             <li><a href="#">Autorizados por SAF</a></li>
                 </ul>
-            </li> -->
+            </li>
 
             <li><a href="informes/informes.php">Informes</a></li>
 
-          </ul>
+          </ul> -->
           <ul class="nav navbar-nav navbar-right">
 		  		<li class="dropdown">
 	              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>&nbsp;<?php echo $_SESSION["session_user"]; ?>&nbsp;<b class="caret"></b></a>

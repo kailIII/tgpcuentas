@@ -53,153 +53,160 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
  </head>
 
   <body>
-	
-	<?php
-		include ("partes/nav.php");
-	?>
 
 <div class="container">
 
-  <div class="panel panel-primary">   
-    <div class="panel-heading">
-       <h3 class="panel-title"><span class="glyphicon glyphicon-chevron-right"></span>&nbsp;Resoluci&oacute;n de Cuenta</h3>
-    </div>  
+  <?php include ("partes/nav.php"); ?>
+      
+      <div class="row">
+      
+      <?php include ("partes/menu.php"); ?>
 
-    <div class="panel-body">
-            <form class="form-horizontal" role="form" action="#">
-                <div class="form-group">
-                  <label class="col-sm-2 control-label">SAF</label>
-                  <div class="col-sm-3">
-                      <input type="text" class="form-control" readonly value="<?php echo $row[0]['saf']; ?>">
-                  </div>
-                </div>
-                 <div class="form-group">
-                  <label class="col-sm-2 control-label">Sector</label>
-                  <div class="col-sm-5">
-                      <input type="text" class="form-control" readonly value="<?php echo $row[0]['sector']; ?>">
-                  </div>
-                </div>
+        <div class="col-md-10">
 
-                <div class="form-group">
-                  <label class="col-sm-2 control-label">Denominación</label>
-                  <div class="col-sm-9">
-                    <input type="text" class="form-control" readonly value='<?php echo $row[0]['denominacion']; ?>' name="denominacion">
-                  </div>
-                </div>
+      <div class="panel panel-primary">   
+        <div class="panel-heading">
+           <h3 class="panel-title"><span class="glyphicon glyphicon-chevron-right"></span>&nbsp;Resoluci&oacute;n de Cuenta</h3>
+        </div>  
 
-                <div class="form-group">
-                  <label class="col-sm-2 control-label">Banco</label>
-                  <div class="col-sm-5">
-                    <input type="text" class="form-control" readonly value="<?php echo $row[0]['banco']; ?>">
-                  </div>
-                </div>
-            </form>
-
-               <hr>
-
-            <form action="a_cuenta.php" method="POST" class="form-horizontal">
-               <div class="form-group">
-                  <label class="col-sm-2 control-label">Tipo de Cuenta</label>
-                  <div class="col-sm-5">
-                      <select class="form-control" name="tipo" required autofocus title="Seleccione un Tipo de Cuenta">
-                        <option value="">Sin Especificar</option>
-                        <option value="OPERATIVA">OPERATIVA</option>
-                        <option value="CTA. UNICA">CTA. UNICA</option>
-                      </select>              
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label class="col-sm-2 control-label">Nro. Cuenta</label>
-                  <div class="col-sm-5">
-                    <input type="text" class="form-control" value="" placeholder="Nro. de Cuenta" name="nro_cta" required title="Ingrese el Nro. de Cuenta">
-                  </div>
-                </div>
-
-                      <?php
-                          if (isset($_GET["error"]) AND $_GET["error"]==2) {
-                        ?>
-                          <div class="form-group">
-                            <label class="col-sm-2 control-label">&nbsp;</label>
-                            <div class="col-sm-5">
-                                    <div class="alert alert-danger alert-dismissable">
-                                      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                      <strong>El Nro. de Cuenta: <?php echo $_GET['cta']; ?> Ya existe!</strong>
-                                    </div>       
-                            </div>
-                          </div>
-
-                          <div class="form-group">
-                            <label class="col-sm-2 control-label">Acto Administrativo</label>
-                            <div class="col-sm-5">
-                              <input type="text" class="form-control" value="<?php echo $_GET['aa'];?>" name="acto_adm" required title="Ingrese el Acto Administrativo">
-                            </div>
-                          </div>
-
-                           <div class="form-group">
-                            <label class="col-sm-2 control-label">Fecha Acto</label>
-                            <div class="col-sm-3">
-                              <div class="input-append date" id="dp3" data-date="" data-date-format="yyyy/mm/dd">
-                                <div class="input-group">
-                                  <input class="form-control" type="text" value="<?php echo $_GET["fa"]; ?>" name="fecha_acto" required placeholder="aaaa/mm/dd" title="Ingrese la Fecha del Acto">
-                                  <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button"><span class="add-on"><span class="glyphicon glyphicon-calendar"></span></span></button>
-                                  </span>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                      <?php
-                        }else
-
-                        {
-
-                      ?>    
-
-                <div class="form-group">
-                  <label class="col-sm-2 control-label">Acto Administrativo</label>
-                  <div class="col-sm-5">
-                    <input type="text" class="form-control" value="" placeholder="Acto Administrativo" name="acto_adm" required title="Ingrese el Acto Administrativo">
-                  </div>
-                </div>
-
-                 <div class="form-group">
-                  <label class="col-sm-2 control-label">Fecha Acto</label>
-                  <div class="col-sm-3">
-                    <div class="input-append date" id="dp3" data-date="" data-date-format="yyyy/mm/dd">
-                      <div class="input-group">
-                        <input class="form-control" type="text" value="" name="fecha_acto" required placeholder="aaaa/mm/dd" title="Ingrese la Fecha del Acto">
-                        <span class="input-group-btn">
-                          <button class="btn btn-default" type="button"><span class="add-on"><span class="glyphicon glyphicon-calendar"></span></span></button>
-                        </span>
+        <div class="panel-body">
+                <form class="form-horizontal" role="form" action="#">
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label">SAF</label>
+                      <div class="col-sm-3">
+                          <input type="text" class="form-control" readonly value="<?php echo $row[0]['saf']; ?>">
                       </div>
                     </div>
-                  </div>
-                </div>
+                     <div class="form-group">
+                      <label class="col-sm-2 control-label">Sector</label>
+                      <div class="col-sm-5">
+                          <input type="text" class="form-control" readonly value="<?php echo $row[0]['sector']; ?>">
+                      </div>
+                    </div>
 
-                <div class="form-group">
-                  <label class="col-sm-2 control-label">Observaciones</label>
-                  <div class="col-sm-5">
-                            <textarea class="form-control" placeholder="Observaciones" type="text" name="observacion"  value=""></textarea>
-                  </div>
-                </div>
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label">Denominación</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control" readonly value='<?php echo $row[0]['denominacion']; ?>' name="denominacion">
+                      </div>
+                    </div>
 
-                <?php
-                  }
-                ?>
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label">Banco</label>
+                      <div class="col-sm-5">
+                        <input type="text" class="form-control" readonly value="<?php echo $row[0]['banco']; ?>">
+                      </div>
+                    </div>
+                </form>
 
-                <div class="form-group">
-                  <div class="col-sm-offset-2 col-sm-10">
-                    <button type="submit" class="btn btn-primary">Aceptar</button>
-                    <button type="button" class="btn btn-primary" onclick="location='alta_cuentas.php'">Cancelar</button>
-                    <input type="hidden" name="Guardar" value="Si">
-                    <input type="hidden" name="id" value="<?php echo $row[0]["id"]; ?>">
-                  </div>
-                </div>
-              </form> 
-          </div>  
-        <div class="panel-footer"><?php include ("partes/footer.php");?></div>   
+                   <hr>
+
+                <form action="a_cuenta.php" method="POST" class="form-horizontal">
+                   <div class="form-group">
+                      <label class="col-sm-2 control-label">Tipo de Cuenta</label>
+                      <div class="col-sm-5">
+                          <select class="form-control" name="tipo" required autofocus title="Seleccione un Tipo de Cuenta">
+                            <option value="">Sin Especificar</option>
+                            <option value="OPERATIVA">OPERATIVA</option>
+                            <option value="CTA. UNICA">CTA. UNICA</option>
+                          </select>              
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label">Nro. Cuenta</label>
+                      <div class="col-sm-5">
+                        <input type="text" class="form-control" value="" placeholder="Nro. de Cuenta" name="nro_cta" required title="Ingrese el Nro. de Cuenta">
+                      </div>
+                    </div>
+
+                          <?php
+                              if (isset($_GET["error"]) AND $_GET["error"]==2) {
+                            ?>
+                              <div class="form-group">
+                                <label class="col-sm-2 control-label">&nbsp;</label>
+                                <div class="col-sm-5">
+                                        <div class="alert alert-danger alert-dismissable">
+                                          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                          <strong>El Nro. de Cuenta: <?php echo $_GET['cta']; ?> Ya existe!</strong>
+                                        </div>       
+                                </div>
+                              </div>
+
+                              <div class="form-group">
+                                <label class="col-sm-2 control-label">Acto Administrativo</label>
+                                <div class="col-sm-5">
+                                  <input type="text" class="form-control" value="<?php echo $_GET['aa'];?>" name="acto_adm" required title="Ingrese el Acto Administrativo">
+                                </div>
+                              </div>
+
+                               <div class="form-group">
+                                <label class="col-sm-2 control-label">Fecha Acto</label>
+                                <div class="col-sm-3">
+                                  <div class="input-append date" id="dp3" data-date="" data-date-format="yyyy/mm/dd">
+                                    <div class="input-group">
+                                      <input class="form-control" type="text" value="<?php echo $_GET["fa"]; ?>" name="fecha_acto" required placeholder="aaaa/mm/dd" title="Ingrese la Fecha del Acto">
+                                      <span class="input-group-btn">
+                                        <button class="btn btn-default" type="button"><span class="add-on"><span class="glyphicon glyphicon-calendar"></span></span></button>
+                                      </span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                          <?php
+                            }else
+
+                            {
+
+                          ?>    
+
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label">Acto Administrativo</label>
+                      <div class="col-sm-5">
+                        <input type="text" class="form-control" value="" placeholder="Acto Administrativo" name="acto_adm" required title="Ingrese el Acto Administrativo">
+                      </div>
+                    </div>
+
+                     <div class="form-group">
+                      <label class="col-sm-2 control-label">Fecha Acto</label>
+                      <div class="col-sm-3">
+                        <div class="input-append date" id="dp3" data-date="" data-date-format="yyyy/mm/dd">
+                          <div class="input-group">
+                            <input class="form-control" type="text" value="" name="fecha_acto" required placeholder="aaaa/mm/dd" title="Ingrese la Fecha del Acto">
+                            <span class="input-group-btn">
+                              <button class="btn btn-default" type="button"><span class="add-on"><span class="glyphicon glyphicon-calendar"></span></span></button>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label">Observaciones</label>
+                      <div class="col-sm-5">
+                                <textarea class="form-control" placeholder="Observaciones" type="text" name="observacion"  value=""></textarea>
+                      </div>
+                    </div>
+
+                    <?php
+                      }
+                    ?>
+
+                    <div class="form-group">
+                      <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-primary">Aceptar</button>
+                        <button type="button" class="btn btn-primary" onclick="location='alta_cuentas.php'">Cancelar</button>
+                        <input type="hidden" name="Guardar" value="Si">
+                        <input type="hidden" name="id" value="<?php echo $row[0]["id"]; ?>">
+                      </div>
+                    </div>
+                  </form> 
+              </div>  
+            <div class="panel-footer"><?php include ("partes/footer.php");?></div>   
+        </div>
+
     </div>
+  </div>
 </div> <!-- /container -->
 	
 	

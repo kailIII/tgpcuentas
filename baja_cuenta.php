@@ -61,113 +61,121 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
  </head>
 
   <body>
-	
-	<?php
-		include ("partes/nav.php");
-	?>
 
 <div class="container">
 
-  <div class="panel panel-primary">   
-    <div class="panel-heading">
-       <h3 class="panel-title"><span class="glyphicon glyphicon-chevron-right"></span>&nbsp;Baja de Cuenta</h3>
-    </div>  
+   <?php include ("partes/nav.php"); ?>
+      
+      <div class="row">
+      
+      <?php include ("partes/menu.php"); ?>
 
-    <div class="panel-body">
+        <div class="col-md-10">
 
-            
-            <form action="#" class="form-horizontal">
-               <div class="form-group">
-                  <label class="col-sm-2 control-label">Tipo de Cuenta</label>
-                  <div class="col-sm-3">
-                      <input type="text" class="form-control" readonly value="<?php echo $row[0]['fdopropio']; ?>">             
-                  </div>
-                </div>
 
-                <div class="form-group">
-                  <label class="col-sm-2 control-label">Nro. Cuenta</label>
-                  <div class="col-sm-3">
-                    <input type="text" class="form-control" readonly value="<?php echo $row[0]['cta']; ?>">
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label class="col-sm-2 control-label">Acto Administrativo</label>
-                  <div class="col-sm-5">
-                    <input type="text" class="form-control" readonly value="<?php echo $row[0]['actoadm']; ?>">
-                  </div>
-                </div>
-
-                 <div class="form-group">
-                  <label class="col-sm-2 control-label">Fecha Acto</label>
-                  <div class="col-sm-3">
-                    <input type="text" class="form-control" readonly value="<?php echo $row[0]['fecha']; ?>">
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label class="col-sm-2 control-label">Observaciones</label>
-                  <div class="col-sm-5">
-                        <input type="text" class="form-control" readonly name="observacion"  value="<?php echo $row[0]['observaciones']; ?>">
-                  </div>
-                </div>
-            </form>
-
-            <form class="form-horizontal" role="form" action="baja_cuenta.php" method="POST">
-                <div class="form-group">
-                  <label class="col-sm-2 control-label">SAF</label>
-                  <div class="col-sm-3">
-                      <input type="text" class="form-control" name="saf" readonly value="<?php echo $row[0]['servicio']; ?>">
-                  </div>
-                </div>
-                 <div class="form-group">
-                  <label class="col-sm-2 control-label">Sector</label>
-                  <div class="col-sm-5">
-                      <input type="text" class="form-control" name="sector" readonly value="<?php echo $row[0]['sector']; ?>">
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label class="col-sm-2 control-label">Denominación</label>
-                  <div class="col-sm-6">
-                    <input type="text" class="form-control" name="denominacion" readonly value="<?php echo $row[0]['denominacion']; ?>">
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label class="col-sm-2 control-label">Banco</label>
-                  <div class="col-sm-5">
-                    <input type="text" class="form-control" name="banco" readonly value="<?php echo $row[0]['banco']; ?>">
-                  </div>
-                </div>
-              
-              <hr>
-
-                  <div class="form-group">
-                  <label class="col-sm-2 control-label">Fecha Inicio de Baja</label>
-                  <div class="col-sm-3">
-                    <div class="input-append date" id="dp3" data-date="" data-date-format="yyyy/mm/dd">
-                      <div class="input-group">
-                        <input class="form-control" type="text" value="" name="fec_baja" required autofocus placeholder="aaaa/mm/dd" title="Ingrese la Fecha Inicial de Baja">
-                        <span class="input-group-btn">
-                          <button class="btn btn-default" type="button"><span class="add-on"><span class="glyphicon glyphicon-calendar"></span></span></button>
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <div class="col-sm-offset-2 col-sm-10">
-                    <button type="submit" class="btn btn-primary">Aceptar</button>
-                    <button type="button" class="btn btn-primary" onclick="location='edit_cuentas.php'">Cancelar</button>
-                        <input type="hidden" name="Guardar" value="Si" />
-                        <input type="hidden" name="id" value="<?php echo $row[0]["idcta"]; ?>"/>
-                  </div>
-                </div>
-              </form> 
+        <div class="panel panel-primary">   
+          <div class="panel-heading">
+             <h3 class="panel-title"><span class="glyphicon glyphicon-chevron-right"></span>&nbsp;Baja de Cuenta</h3>
           </div>  
-        <div class="panel-footer"><?php include ("partes/footer.php");?></div>   
+
+          <div class="panel-body">
+
+                  
+                  <form action="#" class="form-horizontal">
+                     <div class="form-group">
+                        <label class="col-sm-2 control-label">Tipo de Cuenta</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" readonly value="<?php echo $row[0]['fdopropio']; ?>">             
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="col-sm-2 control-label">Nro. Cuenta</label>
+                        <div class="col-sm-3">
+                          <input type="text" class="form-control" readonly value="<?php echo $row[0]['cta']; ?>">
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="col-sm-2 control-label">Acto Administrativo</label>
+                        <div class="col-sm-5">
+                          <input type="text" class="form-control" readonly value="<?php echo $row[0]['actoadm']; ?>">
+                        </div>
+                      </div>
+
+                       <div class="form-group">
+                        <label class="col-sm-2 control-label">Fecha Acto</label>
+                        <div class="col-sm-3">
+                          <input type="text" class="form-control" readonly value="<?php echo $row[0]['fecha']; ?>">
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="col-sm-2 control-label">Observaciones</label>
+                        <div class="col-sm-5">
+                              <input type="text" class="form-control" readonly name="observacion"  value="<?php echo $row[0]['observaciones']; ?>">
+                        </div>
+                      </div>
+                  </form>
+
+                  <form class="form-horizontal" role="form" action="baja_cuenta.php" method="POST">
+                      <div class="form-group">
+                        <label class="col-sm-2 control-label">SAF</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" name="saf" readonly value="<?php echo $row[0]['servicio']; ?>">
+                        </div>
+                      </div>
+                       <div class="form-group">
+                        <label class="col-sm-2 control-label">Sector</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control" name="sector" readonly value="<?php echo $row[0]['sector']; ?>">
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="col-sm-2 control-label">Denominación</label>
+                        <div class="col-sm-6">
+                          <input type="text" class="form-control" name="denominacion" readonly value="<?php echo $row[0]['denominacion']; ?>">
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="col-sm-2 control-label">Banco</label>
+                        <div class="col-sm-5">
+                          <input type="text" class="form-control" name="banco" readonly value="<?php echo $row[0]['banco']; ?>">
+                        </div>
+                      </div>
+                    
+                    <hr>
+
+                        <div class="form-group">
+                        <label class="col-sm-2 control-label">Fecha Inicio de Baja</label>
+                        <div class="col-sm-3">
+                          <div class="input-append date" id="dp3" data-date="" data-date-format="yyyy/mm/dd">
+                            <div class="input-group">
+                              <input class="form-control" type="text" value="" name="fec_baja" required autofocus placeholder="aaaa/mm/dd" title="Ingrese la Fecha Inicial de Baja">
+                              <span class="input-group-btn">
+                                <button class="btn btn-default" type="button"><span class="add-on"><span class="glyphicon glyphicon-calendar"></span></span></button>
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                          <button type="submit" class="btn btn-primary">Aceptar</button>
+                          <button type="button" class="btn btn-primary" onclick="location='edit_cuentas.php'">Cancelar</button>
+                              <input type="hidden" name="Guardar" value="Si" />
+                              <input type="hidden" name="id" value="<?php echo $row[0]["idcta"]; ?>"/>
+                        </div>
+                      </div>
+                    </form> 
+                </div>  
+              <div class="panel-footer"><?php include ("partes/footer.php");?></div>   
+          </div>
+
+      </div>
     </div>
 </div> <!-- /container -->
 	

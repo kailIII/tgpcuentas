@@ -52,7 +52,7 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
      
       <div class="col-sm-10">
 
-        <div class="panel panel-danger">   
+        <div class="panel panel-success">   
           
           <div class="panel-heading">
                 <h3 class="panel-title"><span class="glyphicon glyphicon-chevron-right"></span>&nbsp;Informes de Cuentas</h3>

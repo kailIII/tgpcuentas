@@ -15,28 +15,28 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cuentas Oficiales <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="../../apertura_cta.php"><span class="glyphicon glyphicon-folder-open"></span> Apertura de Cuentas</a></li>
+                <li><a href="../apertura_cta.php"><span class="glyphicon glyphicon-folder-open"></span> Apertura de Cuentas</a></li>
                 <li><a href="../../alta_cuentas.php"><span class="glyphicon glyphicon-floppy-saved"></span> Alta de Cuentas</a></li>
                 <li><a href="../../alta_sectores.php"><span class="glyphicon glyphicon-floppy-saved"></span> Alta de Sectores</a></li>      
-                <li><a href="../../edit_cuentas.php"><span class="glyphicon glyphicon-list"></span> Modificacion de Cuentas</a></li>
-                <li><a href="../../bajas_cuentas.php"><span class="glyphicon glyphicon-trash"></span> Baja de Cuentas</a></li>
-                <li><a href="../../baja_sectores.php"><span class="glyphicon glyphicon-trash"></span> Baja de Sectores</a></li>
+                <li><a href="../edit_cuentas.php"><span class="glyphicon glyphicon-list"></span> Modificacion de Cuentas</a></li>
+                <li><a href="../bajas_cuentas.php"><span class="glyphicon glyphicon-trash"></span> Baja de Cuentas</a></li>
+                <li><a href="../baja_sectores.php"><span class="glyphicon glyphicon-trash"></span> Baja de Sectores</a></li>
               </ul>
             </li>
 
              <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Firmantes <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="../../alta_firmantes.php"><span class="glyphicon glyphicon-user"></span> Agregar Firmantes</a></li>
-                <li><a href="../../buscar_firmantes.php"><span class="glyphicon glyphicon-search"></span> Buscar Firmantes</a></li>
+                <li><a href="../alta_firmantes.php"><span class="glyphicon glyphicon-user"></span> Agregar Firmantes</a></li>
+                <li><a href="../buscar_firmantes.php"><span class="glyphicon glyphicon-search"></span> Buscar Firmantes</a></li>
               </ul>
             </li>
 
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administración <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                    <li> <a href="../../alta_usuarios.php">Alta de Usuarios</a></li>
-                    <li> <a href="../../#">Listado de Usuarios</a></li>
+                    <li> <a href="../alta_usuarios.php"><span class="glyphicon glyphicon-user"></span> Alta de Usuarios</a></li>
+                    <li> <a href="../#"><span class="glyphicon glyphicon-list"></span> Listado de Usuarios</a></li>
               </ul>
             </li>
             
@@ -71,7 +71,7 @@
 		  		<li class="dropdown">
 	              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>&nbsp;<?php echo $_SESSION["session_user"]; ?>&nbsp;<b class="caret"></b></a>
 	              <ul class="dropdown-menu">
-	                <li><a href="../../salir.php"><span class="glyphicon glyphicon-log-out"></span> Cerrar Sesión</a></li>
+	                <li><a href="../salir.php"><span class="glyphicon glyphicon-log-out"></span> Cerrar Sesión</a></li>
 	              </ul>
             	</li>
 		  </ul>
