@@ -136,7 +136,7 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.js"></script>
 
           
 </body>
