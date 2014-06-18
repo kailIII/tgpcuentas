@@ -65,11 +65,21 @@ include("paginator.inc.php");
 
   <body>
 	
-	<?php
-		include ("partes/nav.php");
-	?>
-
     <div class="container-fluid">
+
+      <?php include ("partes/nav2.php"); ?>
+
+      <div class="row"> 
+
+    <div class="col-md-12">
+          <ul class="breadcrumb" style="margin-bottom: 5px;">
+            <li><a href="home.php">INICIO</a></li>
+            <li>CUENTAS OFICIALES</li>
+            <li class="active">MODIFICACIÓN DE CUENTAS</li>
+          </ul>
+    </div> 
+
+    <div class="col-md-12">
 
       <div class="panel panel-primary">
         
@@ -190,7 +200,11 @@ include("paginator.inc.php");
         </div>
         <div class="panel-footer"><?php include ("partes/footer.php");?></div>
       </div>
-    </div> <!-- /container -->
+
+      </div>
+    </div>
+
+  </div> <!-- /container -->
 	
 	
 	

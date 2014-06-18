@@ -63,7 +63,7 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
             <li><a href="home.php">INICIO</a></li>
             <li>CUENTAS OFICIALES</li>
             <li><a href="alta_cuentas.php">ALTA DE CUENTAS</a></li>
-            <li>RESOLUCION DE CUENTA</li>
+            <li class="active">RESOLUCION DE CUENTA</li>
           </ul>
       </div>
       

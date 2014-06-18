@@ -12,10 +12,34 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
         $obj1 = new Saf();
         $list_saf = $obj1->Ordenar_Saf();
 
-         
-    //if (isset($_POST["Buscar"]) AND $_POST["Buscar"] == 1) 
-    //{        
- 
+        //SCRIPT PARA VOLVER A TRAS Y MANTENER LOS DATOS
+        if (!empty($_GET["cta"])) {
+          
+            if (empty($_GET["saf"]) AND empty($_GET["cta"])) 
+           {
+                if (!empty($_GET["firmante"])) 
+                            {
+                                 $obj4 = new Cuentas();
+                                 $ctas = $obj4->rCuenta_2($_GET["firmante"]);
+                            }
+
+            }else{
+
+                    if (!empty($_GET["saf"])) 
+                    {
+                        $obj2 = new Cuentas();
+                        $ctas = $obj2->rCuenta($_GET["saf"], $_GET["cta"]);
+                    }else{
+                            if (!empty($_GET["cta"])) {
+                                $obj2 = new Cuentas();
+                                $ctas = $obj2->rCuenta($_GET["saf"], $_GET["cta"]);
+                            }
+                    }                  
+
+                            
+                 }
+        }
+
          if (empty($_POST["saf"]) AND empty($_POST["cta"])) 
            {
                 if (!empty($_POST["firmante"])) 
@@ -39,7 +63,7 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
 
                             
                  }
-   // }
+
              
 ?>
 
@@ -67,12 +91,22 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
  </head>
 
   <body>
-	
-	<?php
-		include ("partes/nav.php");
-	?>
 
     <div class="container-fluid">
+
+       <?php include ("partes/nav2.php"); ?>
+
+      <div class="row"> 
+
+    <div class="col-md-12">
+          <ul class="breadcrumb" style="margin-bottom: 5px;">
+            <li><a href="home.php">INICIO</a></li>
+            <li>CUENTAS OFICIALES</li>
+            <li class="active">MODIFICACIÓN DE CUENTAS</li>
+          </ul>
+    </div> 
+
+    <div class="col-md-12">
 
       <div class="panel panel-primary">
         
@@ -223,7 +257,11 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
         </div>
         <div class="panel-footer"><?php include ("partes/footer.php");?></div>
       </div>
-    </div> <!-- /container -->
+      
+      </div>
+    </div>
+
+  </div> <!-- /container -->
 	
 	
 	

@@ -61,6 +61,14 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
     <?php include ("partes/nav.php"); ?>
       
       <div class="row">
+
+        <div class="col-md-12">
+          <ul class="breadcrumb" style="margin-bottom: 5px;">
+            <li><a href="home.php">INICIO</a></li>
+            <li>CUENTAS OFICIALES</li>
+            <li class="active">APERTURA DE SECTORES</li>
+          </ul>
+      </div>  
       
         <?php include ("partes/menu.php"); ?>
 
@@ -107,7 +115,7 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
                       <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
                           <button type="submit" class="btn btn-primary">Aceptar</button>
-                          <button type="button" class="btn btn-primary" onclick="location='home.php'">Cancelar</button>
+                          <button type="button" class="btn btn-default" onclick="location='home.php'">Cancelar</button>
                           <input type="hidden" name="Guardar" value="Si" />
                         </div>
                       </div>

@@ -78,12 +78,25 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
  </head>
 
   <body>
-	
-	<?php
-		include ("partes/nav.php");
-	?>
 
-<div class="container-fluid">
+<div class="container">
+
+  <?php include ("partes/nav.php"); ?>
+
+      <div class="row">
+
+      <div class="col-md-12">
+          <ul class="breadcrumb" style="margin-bottom: 5px;">
+            <li><a href="home.php">INICIO</a></li>
+            <li>CUENTAS OFICIALES</li>
+            <li><a href="edit_cuentas1.php?cta=<?php echo $row[0]["cta"]; ?>&&saf=<?php echo NULL; ?>">MODIFICACIÓN DE CUENTAS</a></li>
+            <li class="active">MODIFICAR FIRMANTE</li>
+          </ul>
+    </div>  
+
+      <?php include ("partes/menu.php"); ?>
+
+        <div class="col-md-10">
 
   <div class="panel panel-primary">   
     
@@ -273,6 +286,9 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
         </div>
       <div class="panel-footer"><?php include ("partes/footer.php");?></div>              
     </div>
+
+  </div>
+</div>
 
 </div> <!-- /container -->
 	
