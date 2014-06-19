@@ -37,6 +37,7 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.css" rel="stylesheet">
     <link  href="css/datepicker.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy this line! -->

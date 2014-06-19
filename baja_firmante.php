@@ -53,6 +53,7 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.css" rel="stylesheet">
     <link  href="css/datepicker.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy this line! -->
@@ -73,11 +74,19 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
    <?php include ("partes/nav.php"); ?>
       
       <div class="row">
+
+        <div class="col-md-12">
+          <ul class="breadcrumb" style="margin-bottom: 5px;">
+            <li><a href="home.php">INICIO</a></li>
+            <li>CUENTAS OFICIALES</li>
+            <li><a href="alta_cuentas.php">ALTA DE CUENTAS</a></li>
+            <li class="active">INICIO DE BAJA DE FIRMANTES</li>
+          </ul>
+      </div>
       
       <?php include ("partes/menu.php"); ?>
 
         <div class="col-md-10">
-
 
         <div class="panel panel-primary">   
           <div class="panel-heading">
@@ -163,7 +172,7 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
                       <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
                           <button type="submit" class="btn btn-primary">Aceptar</button>
-                          <button type="button" class="btn btn-primary" onclick="location='modificar_firmante.php?id=<?php echo $_GET["idcta"]; ?>'">Cancelar</button>
+                          <button type="button" class="btn btn-default" onclick="location='modificar_firmante.php?id=<?php echo $_GET["idcta"]; ?>'">Cancelar</button>
                             <input type="hidden" name="Guardar" value="1" />
                              <input type="hidden" name="id" value="<?php echo $firmanteCuenta[0]['id']; ?>">
                              <input type="hidden" name="idCta" value="<?php echo $_GET["idcta"]; ?>" >

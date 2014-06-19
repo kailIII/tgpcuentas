@@ -52,6 +52,7 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="shadowbox/shadowbox.css">
     <script type="text/javascript" src="shadowbox/shadowbox.js"></script>
         <script type="text/javascript">
@@ -70,12 +71,25 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
  </head>
 
   <body>
-	
-	<?php
-		include ("partes/nav.php");
-	?>
 
-<div class="container-fluid">
+<div class="container">
+
+  <?php include ("partes/nav.php"); ?>
+      
+      <div class="row">
+
+       <div class="col-md-12">
+          <ul class="breadcrumb" style="margin-bottom: 5px;">
+            <li><a href="home.php">INICIO</a></li>
+            <li>CUENTAS OFICIALES</li>
+            <li><a href="edit_cuentas1.php?cta=<?php echo $row[0]["cta"]; ?>&&saf=<?php echo NULL; ?>">MODIFICACIÓN DE CUENTAS</a></li>
+            <li class="active">RESOLUCIONES DE CUENTAS</li>
+          </ul>
+    </div>  
+      
+      <?php include ("partes/menu.php"); ?>
+
+        <div class="col-md-10">
 
   <div class="panel panel-primary">   
     
@@ -137,19 +151,20 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
           </div>
 
             <div class="row">
+              <div class="col-sm-12">
 
                 <form class="form-horizontal" role="form" action="resoluciones.php" method="POST" enctype="multipart/form-data">
                  
                   <div class="form-group">
                     <label class="col-sm-2 control-label">Cargar Resolución</label>
-                    <div class="col-sm-3">
+                    <div class="col-sm-4">
                        <input type="file" class="form-control" name="foto" required title="Seleccione la Resolucion Escaneada">
                     </div>
                   </div>              
     
                   <div class="form-group">
                     <label class="col-sm-2 control-label">Motivo</label>
-                    <div class="col-sm-3">
+                    <div class="col-sm-4">
                         <select class="form-control" name="motivo" required title="Seleccione el Motivo de la Resolucion">
                           <option value="">Sin Especificar</option>
                           <option value="CREACION">CREACION</option>
@@ -162,14 +177,14 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
                    <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
                           <button type="submit" class="btn btn-primary">Aceptar</button>
-                          <button type="button" class="btn btn-primary" onclick="location='edit_cuentas.php'">Cancelar</button>
+                          <button type="button" class="btn btn-default" onclick="location='edit_cuentas.php'">Cancelar</button>
                           <input type="hidden" name="Guardar" value="Si" />
                           <input type="hidden" name="id" value="<?php echo $row[0]["idcta"]; ?>"/>
                           <input type="hidden" name="id_cta" value="<?echo $row[0]['cta'];?>" />                        
                         </div>
                       </div>
                 </form>
-
+              </div>
             </div>
 
             <?php
@@ -198,6 +213,9 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
       <div class="panel-footer"><?php include ("partes/footer.php");?></div>   
 
     </div>
+
+   </div>
+  </div>
 
 </div> <!-- /container -->
 	

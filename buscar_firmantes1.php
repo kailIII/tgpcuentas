@@ -58,6 +58,7 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy this line! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -71,12 +72,24 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
  </head>
 
   <body>
-	
-	<?php
-		include ("partes/nav.php");
-	?>
 
-    <div class="container-fluid">
+    <div class="container">
+
+      <?php include ("partes/nav.php"); ?>
+      
+      <div class="row">
+
+        <div class="col-md-12">
+          <ul class="breadcrumb" style="margin-bottom: 5px;">
+            <li><a href="home.php">INICIO</a></li>
+            <li>FIRMANTES</li>
+            <li class="active">BÚSQUEDA DE FIRMANTES</li>
+          </ul>
+      </div>
+      
+      <?php include ("partes/menu.php"); ?>
+
+        <div class="col-md-10">
 
       <div class="panel panel-primary">
         
@@ -87,7 +100,7 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
         <div class="panel-body">
 
             <div class="row">
-              <div class="col-md-6 col-md-offset-3">
+              <div class="col-md-10 col-md-offset-1">
 
                 <h4><p class="text-center">Buscar Firmante por:</p></h4>
                   <center>
@@ -207,7 +220,9 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
         </div>
         <div class="panel-footer"><?php include ("partes/footer.php");?></div>
       </div>
-    </div> <!-- /container -->
+    </div>
+  </div>
+</div> <!-- /container -->
 	
 	
 	

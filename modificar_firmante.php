@@ -64,6 +64,7 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.css" rel="stylesheet">
     <link  href="css/datepicker.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy this line! -->
@@ -271,7 +272,7 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
                      <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
                           <button type="submit" class="btn btn-primary">Aceptar</button>
-                          <button type="button" class="btn btn-primary" onclick="location='modificar_firmante.php?id=<?php echo $id; ?>'">Cancelar</button>
+                          <button type="button" class="btn btn-default" onclick="location='modificar_firmante.php?id=<?php echo $id; ?>'">Cancelar</button>
                           <input type="hidden" name="Guardar" value="2" />
                         </div>
                       </div>
