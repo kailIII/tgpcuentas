@@ -38,6 +38,13 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
         exit;
     }
 
+    if (isset($_POST["Eliminar"]) and $_POST["Eliminar"] == "Si") {
+        
+        $obj6 = new Resoluciones();
+        $obj6->eliminarResoluciones($_POST["id"], $_POST["id_cta"]);
+        exit;
+    }
+
 
  
 ?>
@@ -53,6 +60,9 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/bootstrap-theme.css" rel="stylesheet">
+    <link href="css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
+    <script src="js/jquery.min.js"></script>
+    <script src="js/fileinput.js" type="text/javascript"></script>
     <link rel="stylesheet" type="text/css" href="shadowbox/shadowbox.css">
     <script type="text/javascript" src="shadowbox/shadowbox.js"></script>
         <script type="text/javascript">
@@ -80,7 +90,7 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
 
        <div class="col-md-12">
           <ul class="breadcrumb" style="margin-bottom: 5px;">
-            <li><a href="home.php">INICIO</a></li>
+            <li><a href="home.php"><span class="glyphicon glyphicon-home"></span></a></li>
             <li>CUENTAS OFICIALES</li>
             <li><a href="edit_cuentas1.php?cta=<?php echo $row[0]["cta"]; ?>&&saf=<?php echo NULL; ?>">MODIFICACIÓN DE CUENTAS</a></li>
             <li class="active">RESOLUCIONES DE CUENTAS</li>
@@ -150,19 +160,19 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
                   </div>
           </div>
 
-            <div class="row">
+          <div class="row">
               <div class="col-sm-12">
 
                 <form class="form-horizontal" role="form" action="resoluciones.php" method="POST" enctype="multipart/form-data">
-                 
-                  <div class="form-group">
-                    <label class="col-sm-2 control-label">Cargar Resolución</label>
-                    <div class="col-sm-4">
-                       <input type="file" class="form-control" multiple name="foto" required title="Seleccione la Resolucion Escaneada">
+                    
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label">Cargar Resolución</label>
+                        <div class="col-sm-7">
+                           <input id="file-1" type="file" class="file" name="foto" required title="Seleccione la Resolucion Escaneada" multiple=true data-preview-file-type="any">
+                        </div>
                     </div>
-                  </div>              
-    
-                  <div class="form-group">
+
+                     <div class="form-group">
                     <label class="col-sm-2 control-label">Motivo</label>
                     <div class="col-sm-4">
                         <select class="form-control" name="motivo" required title="Seleccione el Motivo de la Resolucion">
@@ -180,31 +190,37 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
                           <button type="button" class="btn btn-default" onclick="location='edit_cuentas.php'">Cancelar</button>
                           <input type="hidden" name="Guardar" value="Si" />
                           <input type="hidden" name="id" value="<?php echo $row[0]["idcta"]; ?>"/>
-                          <input type="hidden" name="id_cta" value="<?echo $row[0]['cta'];?>" />                        
+                          <input type="hidden" name="id_cta" value="<?php echo $row[0]['cta'];?>" />                        
                         </div>
                       </div>
                 </form>
+
               </div>
             </div>
+
 
             <?php
               }
 
               for ($i=0; $i < sizeof($resolucion); $i++) { 
             ?>
-              
+              <form action="resoluciones.php" method="POST">
               <div class="row">
                 <div class="col-sm-4 col-md-2">
                   <div class="thumbnail">
                     <img src="resoluciones/<?php echo $resolucion[$i]['direccion']; ?>.jpg" alt="Cuenta Nro: <?php echo $resolucion[$i]['cuenta']; ?> - Motivo: <?php echo $resolucion[$i]['motivo']; ?>">
                     <div class="caption">
-                      <p class="text-center bg-danger">Motivo: <?php echo $resolucion[$i]['motivo']; ?></p>
-                      <p class="text-center"><a href="resoluciones/<?php echo $resolucion[$i]['direccion']; ?>.jpg" rel="shadowbox[Mixed];" title="Cuenta Nro: <?php echo $resolucion[$i]['cuenta']; ?> - Motivo: <?php echo $resolucion[$i]['motivo']; ?>" class="btn btn-primary" role="button">Ver</a></p>
+                      <p class="text-center bg-danger">Motivo: <strong><?php echo $resolucion[$i]['motivo']; ?></strong></p>
+                      <p class="text-center"><a href="resoluciones/<?php echo $resolucion[$i]['direccion']; ?>.jpg" rel="shadowbox[Mixed];" title="Cuenta Nro: <?php echo $resolucion[$i]['cuenta']; ?> - Motivo: <?php echo $resolucion[$i]['motivo']; ?>" class="btn btn-primary btn-sm" role="button"><span class="glyphicon glyphicon-eye-open"></span></a>
+                        <button type="submit" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></button></p>
+                        <input type="hidden" name="Eliminar" value="Si" />
+                        <input type="hidden" name="id" value="<?php echo $resolucion[$i]["id"]; ?>"/>
+                        <input type="hidden" name="id_cta" value="<?php echo $resolucion[$i]['id_cuenta'];?>" />  
                     </div>
                   </div>
                 </div>
               </div>
-
+              </form>
            <?php     
                 }
             ?>
@@ -223,7 +239,6 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
 
           

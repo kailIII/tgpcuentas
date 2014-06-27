@@ -162,7 +162,7 @@ class Resoluciones {
                 
                 if ($tamano_limite < $tamano_archivo){
                     echo "<script type='text/javascript'>
-                    alert ('La imagen no puede superar los 3Mb de tamaño.');
+                    alert ('La imagen no puede superar los 3Mb.');
                     window.location = 'modificar_firmante.php?id=$id_cta';
                     </script>";
                 }else{
@@ -198,6 +198,17 @@ class Resoluciones {
                     }
                 }
             }
+
+     public function eliminarResoluciones($id, $id_cta) {
+        $sql = "DELETE FROM resoluciones WHERE id = '$id' AND id_cuenta = '$id_cta'";
+        $res = mysql_query($sql, Conectar::con());
+
+
+        echo "<script type='text/javascript'>
+              alert ('Resolucion Eliminada Correctamente.');
+              window.location = 'resoluciones.php?id=$id_cta';
+              </script>";
+    }
 
 
 }
