@@ -14,7 +14,7 @@ class Usuarios
 		}else
 		{
 	
-			$sql="SELECT id, ape_nom, user, pass FROM usuarios WHERE user ='".$_POST["usuario"]."' AND pass='".$contrasena."'";
+			$sql="SELECT perfil, ape_nom, user, pass FROM usuarios, permisos WHERE usuarios.id_perfil = permisos.id AND user ='".$_POST["usuario"]."' AND pass='".$contrasena."'";
 			$res=mysql_query($sql,Conectar::con());	
 			if (mysql_num_rows($res)==0)
 			{
@@ -23,8 +23,9 @@ class Usuarios
 			{
 				if ($reg=mysql_fetch_array($res))
 				{
-					$_SESSION["session_user"]=$reg["ape_nom"];
-					$_SESSION["session_perfil"]=$reg["id"];
+					$_SESSION["session_user"]=$reg["user"];
+					$_SESSION["session_name"]=$reg["ape_nom"];
+					$_SESSION["session_perfil"]=$reg["perfil"];
 					header("Location: home.php");
 				}
 			}

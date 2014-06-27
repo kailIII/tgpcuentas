@@ -3,7 +3,7 @@ require_once("class/class.php");
 require_once("class/class_usuarios.php");
 
 //ABRE LA SESION
-if ($_SESSION["session_user"] and $_SESSION["session_perfil"]){
+if ($_SESSION["session_user"] and $_SESSION["session_name"] and $_SESSION["session_perfil"]){
 	$obj=new Usuarios();
 	$perfil=$obj->get_permisos_por_id(); 
 ?>

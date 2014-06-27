@@ -158,7 +158,7 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
                   <div class="form-group">
                     <label class="col-sm-2 control-label">Cargar Resolución</label>
                     <div class="col-sm-4">
-                       <input type="file" class="form-control" name="foto" required title="Seleccione la Resolucion Escaneada">
+                       <input type="file" class="form-control" multiple name="foto" required title="Seleccione la Resolucion Escaneada">
                     </div>
                   </div>              
     

@@ -67,14 +67,52 @@
             <li><a href="informes/informes.php">Informes</a></li>
 
           </ul> -->
+          <!-- <ul class="nav navbar-nav navbar-right">
+  		  		<li class="dropdown">
+  	              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>&nbsp;<?php echo $_SESSION["session_user"]; ?>&nbsp;<b class="caret"></b></a>
+  	              <ul class="dropdown-menu">
+  	                <li><a href="salir.php"><span class="glyphicon glyphicon-log-out"></span> Cerrar Sesión</a></li>
+  	              </ul>
+            </li>
+		      </ul> -->
           <ul class="nav navbar-nav navbar-right">
-		  		<li class="dropdown">
-	              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>&nbsp;<?php echo $_SESSION["session_user"]; ?>&nbsp;<b class="caret"></b></a>
-	              <ul class="dropdown-menu">
-	                <li><a href="salir.php"><span class="glyphicon glyphicon-log-out"></span> Cerrar Sesión</a></li>
-	              </ul>
-            	</li>
-		  </ul>
+            <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <span class="glyphicon glyphicon-user"></span> 
+                        <?php echo $_SESSION["session_user"]; ?>
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <div class="navbar-login">
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <p class="text-center">
+                                            <span class="glyphicon glyphicon-user icon-size"></span>
+                                        </p>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <p class="text-left"><strong><?php echo $_SESSION["session_name"]; ?></strong></p>
+                                        <p class="text-left small"><?php echo $_SESSION["session_perfil"]; ?></p>
+                                        <button type="button" class="btn btn-primary btn-sm btn-lg" onclick="location='home.php'">Actualizar Datos</button>
+                                    </div>
+                                </div>
+                            </div>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                  <div class="navbar-login navbar-login-session">
+                                      <div class="row">
+                                          <div class="col-lg-12">
+                                              <p class="text-center">
+                                                  <a href="salir.php" class="btn btn-danger">Cerrar Sesion</a>
+                                              </p>
+                                          </div>
+                                      </div>
+                                  </div>
+                            </li>
+            </li>
+          </ul>
         </div><!--/.nav-collapse -->
       </div>
     </div>
