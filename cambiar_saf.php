@@ -75,7 +75,7 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
 
         <div class="col-md-12">
           <ul class="breadcrumb" style="margin-bottom: 5px;">
-            <li><a href="home.php">INICIO</a></li>
+            <li><a href="home.php"><span class="glyphicon glyphicon-home"></a></li>
             <li>CUENTAS OFICIALES</li>
             <li><a href="edit_cuentas1.php?cta=<?php echo $row[0]["cta"]; ?>&&saf=<?php echo NULL; ?>">MODIFICACIÓN DE CUENTAS</a></li>
             <li class="active">MODIFICACIÓN DE SAF Y SECTOR EN LA CUENTA</li>

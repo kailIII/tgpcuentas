@@ -74,7 +74,7 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
 
         <div class="col-md-12">
           <ul class="breadcrumb" style="margin-bottom: 5px;">
-            <li><a href="home.php">INICIO</a></li>
+            <li><a href="home.php"><span class="glyphicon glyphicon-home"></a></li>
             <li>CUENTAS OFICIALES</li>
             <li class="active">BAJA DEFINITIVA DE CUENTAS OFICIALES </li>
           </ul>

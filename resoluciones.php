@@ -34,7 +34,7 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
     if (isset($_POST["Guardar"]) and $_POST["Guardar"] == "Si") {
         
         $obj6 = new Resoluciones();
-        $obj6->guardarResolucionNueva($_POST["id"], $_POST["id_cta"], $_FILES["foto"], $_POST["motivo"]);
+        $obj6->guardarResolucionNueva();
         exit;
     }
 
@@ -162,18 +162,60 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
 
           <div class="row">
               <div class="col-sm-12">
+                  
+                  
+                <form class="form-horizontal" action="#" method="POST" role="form">
 
-                <form class="form-horizontal" role="form" action="resoluciones.php" method="POST" enctype="multipart/form-data">
+                  <div class="form-group">
                     
-                    <div class="form-group">
-                      <label class="col-sm-2 control-label">Cargar Resolución</label>
-                        <div class="col-sm-7">
-                           <input id="file-1" type="file" class="file" name="foto" required title="Seleccione la Resolucion Escaneada" multiple=true data-preview-file-type="any">
+                    <label class="col-sm-3 control-label">Imágenes a Cargar</label>
+                    <div class="col-sm-4">
+                        <div class="input-group">
+                          <input type="text" name="cant_archivos" class="form-control" placeholder="Cantidad de Imagenes a Cargar">
+                          <span class="input-group-btn">
+                            <button class="btn btn-success" type="submit"><span class="glyphicon glyphicon-refresh"></span></button>
+                          </span>
                         </div>
                     </div>
+            
+                  </div>
 
-                     <div class="form-group">
-                    <label class="col-sm-2 control-label">Motivo</label>
+                </form>
+
+
+              </div>
+          </div>
+
+          <div class="row">
+              <div class="col-sm-12">
+
+                <form class="form-horizontal" role="form" action="resoluciones.php" method="POST" enctype="multipart/form-data">
+                        
+
+                    <?php 
+                        if(isset($_POST['cant_archivos'])){ 
+                            $cant = $_POST['cant_archivos']; 
+                        } 
+                        else{ 
+                            $cant = 1; 
+                        } 
+                         
+                        $x = 1; 
+                        while($x <= $cant){ 
+                            echo "<div class='form-group'>
+                                    <label class='col-sm-3 control-label'>Cargar Resolución $x</label>
+                                      <div class='col-sm-6'>
+                                         <input id='file-1' type='file' class='file' name='foto$x' title='Seleccione la Resolucion Escaneada' data-preview-file-type='any'>
+                                      </div>
+                                  </div>"; 
+                            $x++; 
+                        } 
+                         
+                        echo "<input type='hidden' value='$cant'  name='cant'/>"; 
+                    ?>
+
+                    <div class="form-group">
+                    <label class="col-sm-3 control-label">Motivo</label>
                     <div class="col-sm-4">
                         <select class="form-control" name="motivo" required title="Seleccione el Motivo de la Resolucion">
                           <option value="">Sin Especificar</option>
@@ -185,7 +227,7 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
                   </div>
 
                    <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
+                        <div class="col-sm-offset-3 col-sm-10">
                           <button type="submit" class="btn btn-primary">Aceptar</button>
                           <button type="button" class="btn btn-default" onclick="location='edit_cuentas.php'">Cancelar</button>
                           <input type="hidden" name="Guardar" value="Si" />
@@ -197,15 +239,14 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
 
               </div>
             </div>
-
-
+    
+            <div class="row">
             <?php
               }
-
               for ($i=0; $i < sizeof($resolucion); $i++) { 
             ?>
               <form action="resoluciones.php" method="POST">
-              <div class="row">
+              
                 <div class="col-sm-4 col-md-2">
                   <div class="thumbnail">
                     <img src="resoluciones/<?php echo $resolucion[$i]['direccion']; ?>.jpg" alt="Cuenta Nro: <?php echo $resolucion[$i]['cuenta']; ?> - Motivo: <?php echo $resolucion[$i]['motivo']; ?>">
@@ -219,11 +260,11 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
                     </div>
                   </div>
                 </div>
-              </div>
               </form>
            <?php     
                 }
             ?>
+            </div>
         </div>   
 
       <div class="panel-footer"><?php include ("partes/footer.php");?></div>   

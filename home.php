@@ -43,7 +43,7 @@ if ($_SESSION["session_user"] and $_SESSION["session_name"] and $_SESSION["sessi
           <ul class="breadcrumb" style="margin-bottom: 5px;">
            <!--  <li><a href="active">Inicio</a></li>
             <li><a href="#">Library</a></li> -->
-            <li class="active">INICIO</li>
+            <li class="active"><span class="glyphicon glyphicon-home"></span></li>
           </ul>
       </div>  
 

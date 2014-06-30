@@ -74,7 +74,7 @@ include("paginator.inc.php");
 
     <div class="col-md-12">
           <ul class="breadcrumb" style="margin-bottom: 5px;">
-            <li><a href="home.php">INICIO</a></li>
+            <li><a href="home.php"><span class="glyphicon glyphicon-home"></a></li>
             <li>CUENTAS OFICIALES</li>
             <li class="active">MODIFICACIÓN DE CUENTAS</li>
           </ul>

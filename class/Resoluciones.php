@@ -19,11 +19,24 @@ class Resoluciones {
         return $this->resolucion;
 	}
 
-    public function guardarResolucionNueva($id_cta, $cta, $foto, $motivo){        
-                $tipo_archivo = $_FILES["foto"]["type"];
-                $tamano_archivo = $_FILES["foto"]["size"];
-                
+    public function guardarResolucionNueva(){        
+                $x = 1; 
+                $tipo_archivo = $_FILES["foto".$x]["type"];
+                $tamano_archivo = $_FILES["foto".$x]["size"];
+                                
                 $tamano_limite = 3072000;
+
+                 $cant = $_POST["cant"]; 
+                         
+                 $cta = $_POST["id_cta"];
+                 $id_cta = $_POST["id"];
+                 $motivo = $_POST["motivo"];
+
+                 $no_sub = 0; 
+                 $sub = 0;   
+
+        while($x <= $cant){ 
+            
                 
                 if ($tamano_limite < $tamano_archivo){
                     echo "<script type='text/javascript'>
@@ -40,19 +53,28 @@ class Resoluciones {
                         $aleatorio1 = date("d-m-y");
                         $aleatorio2 = rand();
                         
-                        $aleatorio = $aleatorio1.$aleatorio2;   
+                        $aleatorio = $aleatorio1.$aleatorio2; 
                         
-                        copy($_FILES["foto"]["tmp_name"],"resoluciones/".$_FILES["foto"]["name"]);
-                        $thumb=new thumbnail("resoluciones/".$_FILES["foto"]["name"]);    
-                        $thumb->size_width(600);//setea el ancho de la copia
-                        $thumb->size_height(500);//setea el alto de la copia
-                        $thumb->jpeg_quality(150);//setea la calidad jpg
-                        $nom=$aleatorio.".jpg";
-                        $thumb->save("resoluciones/$nom");    //guardarla en el servidor
-                        unlink("resoluciones/".$_FILES["foto"]["name"]);
+                            if(is_uploaded_file($_FILES["foto".$x]['tmp_name'])){ 
+                                
+                                    copy($_FILES["foto".$x]["tmp_name"],"resoluciones/".$_FILES["foto".$x]["name"]);
+                                    $thumb=new thumbnail("resoluciones/".$_FILES["foto".$x]["name"]);    
+                                    $thumb->size_width(600);//setea el ancho de la copia
+                                    $thumb->size_height(500);//setea el alto de la copia
+                                    $thumb->jpeg_quality(150);//setea la calidad jpg
+                                    $nom=$aleatorio.".jpg";
+                                    $thumb->save("resoluciones/$nom");    //guardarla en el servidor
+                                    unlink("resoluciones/".$_FILES["foto".$x]["name"]);
+                                    $sub++; 
+                                }
+                                    else{
+                                        $no_sub++;
+                                    }
+                                $x++;
+                            }
                                 
                         $sql="INSERT INTO resoluciones(id, id_cuenta, cuenta, direccion, motivo) 
-                              VALUES (null,'$id_cta','$cta','$aleatorio', '$motivo')";
+                              VALUES (null,'$id_cta', '$cta', '$aleatorio', '$motivo')";
                         $res=mysql_query($sql,Conectar::con());
        
                         echo "<script type='text/javascript'>
