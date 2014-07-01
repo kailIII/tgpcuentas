@@ -115,7 +115,7 @@ class Cuentas {
     }
 
     public function idBanco($banco) {
-        $sql = "SELECT nombre FROM banco WHERE id = '$banco'";
+        $sql = "SELECT id, nombre FROM banco WHERE id = '$banco'";
         $res = mysql_query($sql, Conectar::con());
         while ($reg = mysql_fetch_assoc($res)) {
             $this->cuentas[] = $reg;

@@ -6,38 +6,12 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
     $obj = new Usuarios();
     $perfil = $obj->get_permisos_por_id();
   
-     require_once 'class/saf.php';
+        require_once 'class/saf.php';
         require_once 'class/sectores.php';
         require_once 'class/bancos.php';
         require_once 'class/cuentas.php';
         require_once 'class/Resoluciones.php';
-  
-    $obj1 = new Saf();
-    $saf = $obj1->Ordenar_Saf();
-    
-    $obj2 = new Sectores();
-    $sector = $obj2->Ordenar_Sector();
-    
-    $obj3 = new Bancos();
-    $banco = $obj3->Ordenar_Banco();
-    
-    $obj4 = new Cuentas();
-    if (isset($_POST["Guardar"]) and $_POST["Guardar"] == 1 ) {
-        
-        $obj6 = new Cuentas();
-        $id_cta = $obj6->idCta($_POST["saf"]);
-        $saf = $id_cta[0]['servicio'];
 
-        $obj7 = new Cuentas();
-        $id_banco = $obj7->idBanco($_POST["banco"]);
-        $banco = $id_banco[0]['nombre'];
-        
-        $obj4->editarCuenta_2($_POST["id"], $saf, $_POST["sector"], $_POST["denominacion"], $banco, $_POST["tipo"], $_POST["nro_cta"], $_POST["acto_adm"], $_POST["fecha_acto"], $_POST["observacion"]);
-        
-        $obj8 = new Resoluciones();
-        $obj8->guardarResolucionModificacion($_POST["id"], $_POST["nro_cta"], $_FILES["foto"]);
-        exit;
-    }
 
      if (!empty($_GET["id"])) 
          {
@@ -45,6 +19,31 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
              $obj5 = new Cuentas();
              $row = $obj5->idCuentaEdit_2($id);
          } 
+  
+        $obj1 = new Saf();
+        $saf = $obj1->Ordenar_Saf();
+        
+        $obj2 = new Sectores();
+        $sector = $obj2->Ordenar_Sector();
+        
+        $obj3 = new Bancos();
+        $banco = $obj3->Ordenar_Banco();
+    
+    
+    if (isset($_POST["Guardar"]) and $_POST["Guardar"] == 1 ) {
+
+        $obj6 = new Cuentas();
+        $id_cta = $obj6->idCta($_POST["saf"]);
+        $saf = $id_cta[0]["servicio"];
+
+        $obj4 = new Cuentas();
+        $obj4->editarCuenta_2($_POST["id"], $saf, $_POST["sector"], $_POST["denominacion"], $_POST["banco"], $_POST["tipo"], $_POST["nro_cta"], $_POST["acto_adm"], $_POST["fecha_acto"], $_POST["observacion"]);
+        
+        $obj8 = new Resoluciones();
+        $obj8->guardarResolucionModificacion();
+        exit;
+    }
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -220,16 +219,16 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
                             <select class="form-control" name="banco">
                             <?php
                                 $cta4 = $row[0]["id"];
-                                
+
                                 for($i=0;$i<sizeof($banco);$i++){
                                     ?>
                                 
-                                <option value="<?php echo $banco[$i]["nombre"]; ?>" 
-                                <?php if ($banco[$i]["id"]==$cta4)
+                                <option value="<?php echo $banco[$i]['nombre']; ?>" 
+                                <?php if ($banco[$i]['id']==$cta4)
                                 {
                                 echo 'selected';
                                 }
-                                echo '>'.$banco[$i]["nombre"];
+                                echo '>'.$banco[$i]['nombre'];
                                 }
                                 ?>
 
@@ -237,7 +236,6 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
                         </div>
                       </div>
 
-              
               <hr>
 
                  <?php 

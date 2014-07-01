@@ -162,35 +162,21 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
 
           <div class="row">
               <div class="col-sm-12">
-                  
-                  
-                <form class="form-horizontal" action="#" method="POST" role="form">
-
-                  <div class="form-group">
-                    
-                    <label class="col-sm-3 control-label">Imágenes a Cargar</label>
-                    <div class="col-sm-4">
-                        <div class="input-group">
-                          <input type="text" name="cant_archivos" class="form-control" placeholder="Cantidad de Imagenes a Cargar">
-                          <span class="input-group-btn">
-                            <button class="btn btn-success" type="submit"><span class="glyphicon glyphicon-refresh"></span></button>
-                          </span>
-                        </div>
-                    </div>
-            
-                  </div>
-
-                </form>
-
-
-              </div>
-          </div>
-
-          <div class="row">
-              <div class="col-sm-12">
 
                 <form class="form-horizontal" role="form" action="resoluciones.php" method="POST" enctype="multipart/form-data">
-                        
+                     
+                    
+                    <div class="form-group">
+                    <label class="col-sm-3 control-label">Motivo</label>
+                      <div class="col-sm-4">
+                          <select class="form-control" name="motivo" required title="Seleccione el Motivo de la Resolucion">
+                            <option value="">Sin Especificar</option>
+                            <option value="CREACION">CREACION</option>
+                            <option value="MODIFICACION">MODIFICACION</option>
+                            <option value="BAJA">BAJA</option>
+                          </select>
+                      </div>
+                  </div>    
 
                     <?php 
                         if(isset($_POST['cant_archivos'])){ 
@@ -204,7 +190,7 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
                         while($x <= $cant){ 
                             echo "<div class='form-group'>
                                     <label class='col-sm-3 control-label'>Cargar Resolución $x</label>
-                                      <div class='col-sm-6'>
+                                      <div class='col-sm-5'>
                                          <input id='file-1' type='file' class='file' name='foto$x' title='Seleccione la Resolucion Escaneada' data-preview-file-type='any'>
                                       </div>
                                   </div>"; 
@@ -214,17 +200,15 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
                         echo "<input type='hidden' value='$cant'  name='cant'/>"; 
                     ?>
 
-                    <div class="form-group">
-                    <label class="col-sm-3 control-label">Motivo</label>
-                    <div class="col-sm-4">
-                        <select class="form-control" name="motivo" required title="Seleccione el Motivo de la Resolucion">
-                          <option value="">Sin Especificar</option>
-                          <option value="CREACION">CREACION</option>
-                          <option value="MODIFICACION">MODIFICACION</option>
-                          <option value="BAJA">BAJA</option>
-                        </select>
+                    <!-- Button trigger modal -->
+                   <div class="form-group">
+                      <label class="col-sm-2 control-label">&nbsp;</label>
+                      <div class="col-sm-6">
+                          <p class="text-right text-muted">* Cantidad de Resoluciones Escaneadas <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal">
+                            <span class="glyphicon glyphicon-plus"></span>
+                          </button></p>
+                      </div>
                     </div>
-                  </div>
 
                    <div class="form-group">
                         <div class="col-sm-offset-3 col-sm-10">
@@ -265,7 +249,39 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
                 }
             ?>
             </div>
-        </div>   
+        </div>  
+
+        <!-- Modal  para ingresar la cantidad de INPUT FILE-->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Cantidad de Imagenes a Cargar</h4>
+              </div>
+              <div class="modal-body">
+                <form class="form-horizontal" action="#" method="POST" role="form">
+
+                  <div class="form-group">
+                    
+                    <label class="col-sm-4 control-label">Imágenes a Cargar</label>
+                    <div class="col-sm-5">
+                        <div class="input-group">
+                          <input type="text" name="cant_archivos" class="form-control" autofocus>
+                          <span class="input-group-btn">
+                            <button class="btn btn-success" type="submit"><span class="glyphicon glyphicon-refresh"></span></button>
+                          </span>
+                        </div>
+                    </div>
+            
+                  </div>
+
+                </form>
+              </div>
+             
+            </div>
+          </div>
+        </div> 
 
       <div class="panel-footer"><?php include ("partes/footer.php");?></div>   
 
