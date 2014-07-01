@@ -59,6 +59,9 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/bootstrap-theme.css" rel="stylesheet">
     <link  href="css/datepicker.css" rel="stylesheet">
+    <link href="css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
+    <script src="js/jquery.min.js"></script>
+    <script src="js/fileinput.js" type="text/javascript"></script>
 
     <!-- Just for debugging purposes. Don't actually copy this line! -->
     <!--[if lt IE 9]><script src="assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -237,12 +240,37 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
               
               <hr>
 
-                 <div class="form-group">
-                   <label class="col-sm-2 control-label">Resolución de Modificacion</label>
-                   <div class="col-sm-5">
-                     <input type="file" class="form-control" name="foto" required title="Seleccione la Resolucion Escaneada">
-                   </div>
-                 </div> 
+                 <?php 
+                        if(isset($_POST['cant_archivos'])){ 
+                            $cant = $_POST['cant_archivos']; 
+                        } 
+                        else{ 
+                            $cant = 1; 
+                        } 
+                         
+                        $x = 1; 
+                        while($x <= $cant){ 
+                            echo "<div class='form-group'>
+                                    <label class='col-sm-2 control-label'>Resolución de Modificación $x</label>
+                                      <div class='col-sm-6'>
+                                         <input id='file-1' type='file' class='file' name='foto$x' title='Seleccione la Resolucion Escaneada' data-preview-file-type='any'>
+                                      </div>
+                                  </div>"; 
+                            $x++; 
+                        } 
+                         
+                        echo "<input type='hidden' value='$cant'  name='cant'/>"; 
+                    ?>
+
+            <!-- Button trigger modal -->
+             <div class="form-group">
+                <label class="col-sm-2 control-label">&nbsp;</label>
+                <div class="col-sm-6">
+                    <p class="text-right text-muted">* Cantidad de Resoluciones Escaneadas <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal">
+                      <span class="glyphicon glyphicon-plus"></span>
+                    </button></p>
+                </div>
+              </div>
 
                 <div class="form-group">
                   <div class="col-sm-offset-2 col-sm-10">
@@ -253,6 +281,40 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
                   </div>
                 </div>
               </form> 
+   
+
+        <!-- Modal  para ingresar la cantidad de INPUT FILE-->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Cantidad de Imagenes a Cargar</h4>
+              </div>
+              <div class="modal-body">
+                <form class="form-horizontal" action="#" method="POST" role="form">
+
+                  <div class="form-group">
+                    
+                    <label class="col-sm-4 control-label">Imágenes a Cargar</label>
+                    <div class="col-sm-5">
+                        <div class="input-group">
+                          <input type="text" name="cant_archivos" class="form-control" autofocus>
+                          <span class="input-group-btn">
+                            <button class="btn btn-success" type="submit"><span class="glyphicon glyphicon-refresh"></span></button>
+                          </span>
+                        </div>
+                    </div>
+            
+                  </div>
+
+                </form>
+              </div>
+             
+            </div>
+          </div>
+        </div>
+
           </div>  
         <div class="panel-footer"><?php include ("partes/footer.php");?></div>   
     </div>
@@ -266,7 +328,6 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/bootstrap-datepicker.js" charset="UTF-8"></script>
     <script>
