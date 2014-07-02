@@ -141,7 +141,7 @@ class Cuentas {
 
         echo "<script type='text/javascript'>
             alert ('Cuenta Editada Correctamente.');
-            window.location = 'edit_cuentas.php';
+            window.location = 'edit_cuentas1.php?cta=$cta&&saf=';
             </script>";
     }
     

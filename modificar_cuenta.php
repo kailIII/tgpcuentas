@@ -297,7 +297,7 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
                     <label class="col-sm-4 control-label">Imágenes a Cargar</label>
                     <div class="col-sm-5">
                         <div class="input-group">
-                          <input type="text" name="cant_archivos" class="form-control" autofocus>
+                          <input type="text" name="cant_archivos" class="form-control">
                           <span class="input-group-btn">
                             <button class="btn btn-success" type="submit"><span class="glyphicon glyphicon-refresh"></span></button>
                           </span>

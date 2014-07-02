@@ -155,13 +155,18 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
           <div class="row">
                   <div class="col-sm-5">
                       <div class="alert alert-danger">
-                          <h4><p class="text-center">Cuenta sin Resoluciones Escaneadas</p></h4>
+                         <p class="text-center">Cuenta sin Resoluciones Escaneadas</p>
                       </div>
                   </div>
           </div>
 
           <div class="row">
               <div class="col-sm-12">
+                <hr>
+
+                <blockquote>
+                          <p>Cargar Resoluciones Escaneadas</p>
+               </blockquote>
 
                 <form class="form-horizontal" role="form" action="resoluciones.php" method="POST" enctype="multipart/form-data">
                      
@@ -191,7 +196,7 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
                             echo "<div class='form-group'>
                                     <label class='col-sm-3 control-label'>Cargar Resolución $x</label>
                                       <div class='col-sm-5'>
-                                         <input id='file-1' type='file' class='file' name='foto$x' title='Seleccione la Resolucion Escaneada' data-preview-file-type='any'>
+                                         <input id='file-1' type='file' class='file' name='foto$x' value='1' title='Seleccione la Resolucion Escaneada' data-preview-file-type='any'>
                                       </div>
                                   </div>"; 
                             $x++; 

@@ -43,7 +43,7 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
     $obj8 = new Resoluciones();
     if (isset($_POST["Guardar"]) and $_POST["Guardar"] == 2) {
 
-        $obj8->guardarResolucionFirmante($row[0]["idCta"], $row[0]["cta"], $_FILES["foto"]);
+        $obj8->guardarResolucionFirmante($row[0]["idCta"], $row[0]["cta"]);
         
         $obj7 = new FirmanteCuentas();
         $obj7->addFirmanteCuentas($row[0]["cta"], $_POST["doc"], $_POST["fecha"], $id, $_POST["resolucion"]);
@@ -66,7 +66,9 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/bootstrap-theme.css" rel="stylesheet">
     <link  href="css/datepicker.css" rel="stylesheet">
-
+    <link href="css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
+    <script src="js/jquery.min.js"></script>
+    <script src="js/fileinput.js" type="text/javascript"></script>
     <!-- Just for debugging purposes. Don't actually copy this line! -->
     <!--[if lt IE 9]><script src="assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
 
@@ -91,7 +93,7 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
             <li><a href="home.php"><span class="glyphicon glyphicon-home"></a></li>
             <li>CUENTAS OFICIALES</li>
             <li><a href="edit_cuentas1.php?cta=<?php echo $row[0]["cta"]; ?>&&saf=<?php echo NULL; ?>">MODIFICACIÓN DE CUENTAS</a></li>
-            <li class="active">MODIFICAR FIRMANTE</li>
+            <li class="active">ASIGNAR - MODIFICAR FIRMANTE</li>
           </ul>
     </div>  
 
@@ -207,16 +209,21 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
         <div class="panel-body">
             
             <div class="row">
+              <div class="col-sm-12">
                 
                 <form class="form-horizontal" role="form" action="modificar_firmante.php?id=<?php echo $id; ?>" method="POST" enctype="multipart/form-data">
                      <div class="form-group">
-                            <label class="col-sm-2 control-label">Ingrese DNI</label>
+                            <label class="col-sm-3 control-label">Ingrese DNI</label>
                             <div class="col-sm-3">
-                                <input type="text" class="form-control" placeholder="DNI del Firmante" name="dni" title="Ingrese DNI del Firmante">
-                            </div>
-                            <div class="col-sm-1">
-                                <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span></button>                               
-                                <input type="hidden" name="Buscar" value="1">
+                            
+                               <div class="input-group">
+                                  <input type="text" class="form-control" placeholder="DNI del Firmante" name="dni" title="Ingrese DNI del Firmante">
+                                  <span class="input-group-btn">
+                                    <button class="btn btn-success" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+                                  </span>
+                                  <input type="hidden" name="Buscar" value="1">
+                              </div>
+
                             </div>
                     </div>
 
@@ -225,21 +232,21 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
                      ?>
 
                      <div class="form-group">
-                        <label class="col-sm-2 control-label">Apellido y Nombre</label>
+                        <label class="col-sm-3 control-label">Apellido y Nombre</label>
                             <div class="col-sm-5">
                                <input type="text" class="form-control" name="nombre" readonly value="<?php echo $idFirmante[0]["nombre"]; ?>">
                             </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">DNI</label>
+                        <label class="col-sm-3 control-label">DNI</label>
                             <div class="col-sm-5">
                                <input type="text" class="form-control" name="doc" readonly value="<?php echo $idFirmante[0]["dni"]; ?>">
                             </div>
                     </div>
 
                     <div class="form-group">
-                      <label class="col-sm-2 control-label">Fecha de Alta</label>
+                      <label class="col-sm-3 control-label">Fecha de Alta</label>
                       <div class="col-sm-3">
                         <div class="input-append date" id="dp3" data-date="" data-date-format="yyyy/mm/dd">
                           <div class="input-group">
@@ -253,24 +260,46 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Resolución Alta</label>
+                        <label class="col-sm-3 control-label">Resolución Alta</label>
                             <div class="col-sm-5">
                                <input type="text" class="form-control" name="resolucion" title="Ingrese Resolucion Alta" required>
                             </div>
                     </div>
 
-                    <div class="form-group">
-                       <label class="col-sm-2 control-label">Cargar Resolución</label>
-                       <div class="col-sm-3">
-                         <input type="file" class="form-control" name="foto" title="Seleccione la Resolucion Escaneada">
-                       </div>
-                       <div class="col-sm-3">
-                          <h6 class="text-danger"><span class="glyphicon glyphicon-asterisk"></span> Solo archivos JPG</h6>
-                       </div>
-                     </div> 
+                    <?php 
+                        if(isset($_POST['cant_archivos'])){ 
+                            $cant = $_POST['cant_archivos']; 
+                        } 
+                        else{ 
+                            $cant = 1; 
+                        } 
+                         
+                        $x = 1; 
+                        while($x <= $cant){ 
+                            echo "<div class='form-group'>
+                                    <label class='col-sm-3 control-label'>Carga Resolución $x</label>
+                                      <div class='col-sm-5'>
+                                         <input id='file-1' type='file' class='file' name='foto$x' title='Seleccione la Resolucion Escaneada' data-preview-file-type='any'>
+                                      </div>
+                                  </div>"; 
+                            $x++; 
+                        } 
+                         
+                        echo "<input type='hidden' value='$cant'  name='cant'/>"; 
+                    ?>
+
+                    <!-- Button trigger modal -->
+                     <div class="form-group">
+                        <label class="col-sm-3 control-label">&nbsp;</label>
+                        <div class="col-sm-5">
+                            <p class="text-right text-muted">* Cantidad de Resoluciones Escaneadas <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal">
+                              <span class="glyphicon glyphicon-plus"></span>
+                            </button></p>
+                        </div>
+                      </div> 
 
                      <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
+                        <div class="col-sm-offset-3 col-sm-10">
                           <button type="submit" class="btn btn-primary">Aceptar</button>
                           <button type="button" class="btn btn-default" onclick="location='modificar_firmante.php?id=<?php echo $id; ?>'">Cancelar</button>
                           <input type="hidden" name="Guardar" value="2" />
@@ -282,8 +311,44 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
                         ?>
 
                 </form>
-
+              
+              </div>
             </div>
+
+            <!-- Modal  para ingresar la cantidad de INPUT FILE-->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Cantidad de Imagenes a Cargar</h4>
+                  </div>
+                  <div class="modal-body">
+                    <form class="form-horizontal" action="modificar_firmante.php?id=<?php echo $id; ?>" method="POST" role="form">
+
+                      <div class="form-group">
+                        
+                        <label class="col-sm-4 control-label">Imágenes a Cargar</label>
+                        <div class="col-sm-5">
+                            <div class="input-group">
+                              <input type="text" name="cant_archivos" class="form-control" autofocus>
+                              <input type="hidden" name="dni" value="<?php echo $idFirmante[0]["dni"]; ?>">
+                              <input type="hidden" name="Buscar" value="1">
+                              <span class="input-group-btn">
+                                <button class="btn btn-success" type="submit"><span class="glyphicon glyphicon-refresh"></span></button>
+                              </span>
+                            </div>
+                        </div>
+                
+                      </div>
+
+                    </form>
+                  </div>
+                 
+                </div>
+              </div>
+            </div>
+
         </div>
       <div class="panel-footer"><?php include ("partes/footer.php");?></div>              
     </div>
@@ -297,7 +362,6 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/bootstrap-datepicker.js" charset="UTF-8"></script>
     <script>
