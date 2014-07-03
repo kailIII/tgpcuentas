@@ -61,12 +61,12 @@ include("paginator.inc.php");
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <style type="text/css"> body { padding-top: 70px; padding-bottom: 40px; background-color: #eee; } </style>
+    <style type="text/css"> body {padding-bottom: 40px; background-color: #eee; } </style>
  </head>
 
   <body>
 	
-    <div class="container-fluid">
+    <div class="container">
 
       <?php include ("partes/nav2.php"); ?>
 
