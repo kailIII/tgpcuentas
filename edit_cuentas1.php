@@ -209,30 +209,58 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
                                 {
                                 for($i=0;$i<sizeof($ctas);$i++){
                                  
-                                    
-                                ?>
+                                    if (isset($ctas[$i]["fecbaja"])) 
+                                    {
+
+                                    ?>
                                 <tr>
-                                    <td><?php echo $ctas[$i]["cta"]; ?></td>
-                                    <td><?php echo $ctas[$i]["saf"]; ?></td>
-                                    <td><?php echo $ctas[$i]["sector"]; ?></td>
-                                    <td><?php echo $ctas[$i]["denominacion"]; ?></td>
-                                    <td><?php echo $ctas[$i]["banco"]; ?></td>
-                                    <td><?php echo $ctas[$i]["actoadm"]; ?></td>
-                                    <td><?php echo $ctas[$i]["fecha"]; ?></td>
-                                    <td><?php echo $ctas[$i]["observaciones"]; ?></td>
-                                    <td><?php echo $ctas[$i]["actobaja"]; ?></td>
-                                    <td><?php echo $ctas[$i]["fecbaja"]; ?></td>
-                                    <td>&nbsp;
-                                        <a href="modificar_firmante.php?id=<?php echo $ctas[$i]["id"];?>" title="Modificar Firmante"><span class="glyphicon glyphicon-user"></span></a>
-                                        <a href="cambiar_saf.php?id=<?php echo $ctas[$i]["id"];?>" title="Cambiar SAF"><span class="glyphicon glyphicon-transfer"></span></a>
-                                        <a href="baja_cuenta.php?id=<?php echo $ctas[$i]["id"];?>" title="Baja de Cuenta"><span class="glyphicon glyphicon-trash"></span></a>
-                                        <a href="modificar_cuenta.php?id=<?php echo $ctas[$i]["id"];?>" title="Modificar Cuenta"><span class="glyphicon glyphicon-list"></span></a>
-                                        <a href="resoluciones.php?id=<?php echo $ctas[$i]["id"];?>" title="Resoluciones de Cuenta"><span class="glyphicon glyphicon-file"></span></a>
-                                    </td>
+                                      <td style="background-color: #FFD5D5"><?php echo $ctas[$i]["cta"]; ?></td>
+                                      <td style="background-color: #FFD5D5"><?php echo $ctas[$i]["saf"]; ?></td>
+                                      <td style="background-color: #FFD5D5"><?php echo $ctas[$i]["sector"]; ?></td>
+                                      <td style="background-color: #FFD5D5"><?php echo $ctas[$i]["denominacion"]; ?></td>
+                                      <td style="background-color: #FFD5D5"><?php echo $ctas[$i]["banco"]; ?></td>
+                                      <td style="background-color: #FFD5D5"><?php echo $ctas[$i]["actoadm"]; ?></td>
+                                      <td style="background-color: #FFD5D5"><?php echo $ctas[$i]["fecha"]; ?></td>
+                                      <td style="background-color: #FFD5D5"><?php echo $ctas[$i]["observaciones"]; ?></td>
+                                      <td style="background-color: #FFD5D5"><?php echo $ctas[$i]["actobaja"]; ?></td>
+                                      <td style="background-color: #FFD5D5"><?php echo $ctas[$i]["fecbaja"]; ?></td>
+                                      <td style="background-color: #FFD5D5">&nbsp;
+                                          <a href="resoluciones.php?id=<?php echo $ctas[$i]["id"];?>" title="Resoluciones de Cuenta"><span class="glyphicon glyphicon-file"></span></a>
+                                      </td>
                                 </tr>
                                 <?php
-                                  }
-                                }
+
+                                    }//end if
+
+                                      else{
+
+                                          ?>
+                                          <tr>
+                                                <td><?php echo $ctas[$i]["cta"]; ?></td>
+                                                <td><?php echo $ctas[$i]["saf"]; ?></td>
+                                                <td><?php echo $ctas[$i]["sector"]; ?></td>
+                                                <td><?php echo $ctas[$i]["denominacion"]; ?></td>
+                                                <td><?php echo $ctas[$i]["banco"]; ?></td>
+                                                <td><?php echo $ctas[$i]["actoadm"]; ?></td>
+                                                <td><?php echo $ctas[$i]["fecha"]; ?></td>
+                                                <td><?php echo $ctas[$i]["observaciones"]; ?></td>
+                                                <td><?php echo $ctas[$i]["actobaja"]; ?></td>
+                                                <td><?php echo $ctas[$i]["fecbaja"]; ?></td>
+                                                <td>&nbsp;
+                                                    <a href="modificar_firmante.php?id=<?php echo $ctas[$i]["id"];?>" title="Modificar Firmante"><span class="glyphicon glyphicon-user"></span></a>
+                                                    <a href="cambiar_saf.php?id=<?php echo $ctas[$i]["id"];?>" title="Cambiar SAF"><span class="glyphicon glyphicon-transfer"></span></a>
+                                                    <a href="baja_cuenta.php?id=<?php echo $ctas[$i]["id"];?>" title="Baja de Cuenta"><span class="glyphicon glyphicon-trash"></span></a>
+                                                    <a href="modificar_cuenta.php?id=<?php echo $ctas[$i]["id"];?>" title="Modificar Cuenta"><span class="glyphicon glyphicon-list"></span></a>
+                                                    <a href="resoluciones.php?id=<?php echo $ctas[$i]["id"];?>" title="Resoluciones de Cuenta"><span class="glyphicon glyphicon-file"></span></a>
+                                                </td>
+                                          </tr>
+                                        <?php
+
+                                          }// end else
+                                    
+                                     }//end for
+
+                                }//en if empty
                                 ?>
                                 
                                 <?php

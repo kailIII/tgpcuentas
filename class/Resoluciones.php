@@ -156,11 +156,20 @@ class Resoluciones {
                 }
             }
 
-    public function guardarResolucionBaja($id_cta, $cta, $foto){        
-                $tipo_archivo = $_FILES["foto"]["type"];
-                $tamano_archivo = $_FILES["foto"]["size"];
-                
+    public function guardarResolucionBaja(){        
+                $x = 1; 
+                $tipo_archivo = $_FILES["foto".$x]["type"];
+                $tamano_archivo = $_FILES["foto".$x]["size"];
+                                
                 $tamano_limite = 3072000;
+
+                 $cant = $_POST["cant"]; 
+                         
+                 $cta = $_POST["nro_cta"];
+                 $id_cta = $_POST["id"];
+
+                 $no_sub = 0; 
+                 $sub = 0;   
                 
                 if ($tamano_limite < $tamano_archivo){
                     echo "<script type='text/javascript'>
@@ -174,28 +183,42 @@ class Resoluciones {
                         window.location = 'baja_cuenta_definitiva.php?id=$id_cta';
                         </script>";  
                     }else{
-                        $aleatorio1 = date("d-m-y");
-                        $aleatorio2 = rand();
-                        
-                        $aleatorio = $aleatorio1.$aleatorio2;   
-                        
-                        copy($_FILES["foto"]["tmp_name"],"resoluciones/".$_FILES["foto"]["name"]);
-                        $thumb=new thumbnail("resoluciones/".$_FILES["foto"]["name"]);    
-                        $thumb->size_width(600);//setea el ancho de la copia
-                        $thumb->size_height(500);//setea el alto de la copia
-                        $thumb->jpeg_quality(150);//setea la calidad jpg
-                        $nom=$aleatorio.".jpg";
-                        $thumb->save("resoluciones/$nom");    //guardarla en el servidor
-                        unlink("resoluciones/".$_FILES["foto"]["name"]);
+                        while($x <= $cant)
+                                { 
+                                    $aleatorio1 = date("d-m-y");
+                                    $aleatorio2 = rand();
+                                    
+                                    $aleatorio = $aleatorio1.$aleatorio2;   
+                                    
+                                    if(is_uploaded_file($_FILES["foto".$x]['tmp_name'])){ 
+                                            
+                                                copy($_FILES["foto".$x]["tmp_name"],"resoluciones/".$_FILES["foto".$x]["name"]);
+                                                $thumb=new thumbnail("resoluciones/".$_FILES["foto".$x]["name"]);    
+                                                $thumb->size_width(600);//setea el ancho de la copia
+                                                $thumb->size_height(500);//setea el alto de la copia
+                                                $thumb->jpeg_quality(150);//setea la calidad jpg
+                                                $nom=$aleatorio.".jpg";
+                                                $thumb->save("resoluciones/$nom");    //guardarla en el servidor
+                                                unlink("resoluciones/".$_FILES["foto".$x]["name"]);
+                                                $sub++; 
+                                            }
+                                                else{
+                                                    $no_sub++;
+                                                }
+                                       
                                 
-                        $sql="INSERT INTO resoluciones(id, id_cuenta, cuenta, direccion, motivo) 
-                              VALUES (null,'$id_cta','$cta','$aleatorio', 'BAJA')";
-                        $res=mysql_query($sql,Conectar::con());
-       
-                        echo "<script type='text/javascript'>
-                        alert ('Resolucion de Cuenta Almacenada Correctamente.');
-                        window.location = 'edit_cuentas.php';
-                        </script>";
+                                            
+                                    $sql="INSERT INTO resoluciones(id, id_cuenta, cuenta, direccion, motivo) 
+                                          VALUES (null,'$id_cta','$cta','$aleatorio', 'BAJA')";
+                                    $res=mysql_query($sql,Conectar::con());
+                   
+                                    echo "<script type='text/javascript'>
+                                    alert ('Resolucion de Cuenta Almacenada Correctamente.');
+                                    window.location = 'edit_cuentas.php';
+                                    </script>";
+                                    
+                                $x++;
+                                }
                      
                     }
                 }

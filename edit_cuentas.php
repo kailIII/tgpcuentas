@@ -152,31 +152,59 @@ include("paginator.inc.php");
                                  <?php
                                  
                                 while($row = mysql_fetch_array($_pagi_result)){ 
-    
 
-                                
+                                    if (isset($row["fecbaja"])) 
+                                      {
+
                                     ?>
                                 <tr>
-                                    <td><?php echo $row["cta"]; ?></td>
-                                    <td><?php echo $row["saf"]; ?></td>
-                                    <td><?php echo $row["sector"]; ?></td>
-                                    <td><?php echo $row["denominacion"]; ?></td>
-                                    <td><?php echo $row["banco"]; ?></td>
-                                    <td><?php echo $row["actoadm"]; ?></td>
-                                    <td><?php echo $row["fecha"]; ?></td>
-                                    <td><?php echo $row["observaciones"]; ?></td>
-                                    <td><?php echo $row["actobaja"]; ?></td>
-                                    <td><?php echo $row["fecbaja"]; ?></td>
-                                    <td><?php echo $row["fdopropio"]; ?></td>
-                                    <td>
-                                        <a href="modificar_firmante.php?id=<?php echo $row["id"];?>" title="Modificar Firmante"><span class="glyphicon glyphicon-user"></span></a>
-                                        <a href="cambiar_saf.php?id=<?php echo $row["id"];?>" title="Cambiar SAF"><span class="glyphicon glyphicon-transfer"></span></a>
-                                        <a href="baja_cuenta.php?id=<?php echo $row["id"];?>" title="Baja de Cuenta"><span class="glyphicon glyphicon-trash"></span></a>
-                                        <a href="modificar_cuenta.php?id=<?php echo $row["id"];?>" title="Modificar Cuenta"><span class="glyphicon glyphicon-list"></span></a>
+                                    <td style="background-color: #FFD5D5"><?php echo $row["cta"]; ?></td>
+                                    <td style="background-color: #FFD5D5"><?php echo $row["saf"]; ?></td>
+                                    <td style="background-color: #FFD5D5"><?php echo $row["sector"]; ?></td>
+                                    <td style="background-color: #FFD5D5"><?php echo $row["denominacion"]; ?></td>
+                                    <td style="background-color: #FFD5D5"><?php echo $row["banco"]; ?></td>
+                                    <td style="background-color: #FFD5D5"><?php echo $row["actoadm"]; ?></td>
+                                    <td style="background-color: #FFD5D5"><?php echo $row["fecha"]; ?></td>
+                                    <td style="background-color: #FFD5D5"><?php echo $row["observaciones"]; ?></td>
+                                    <td style="background-color: #FFD5D5"><?php echo $row["actobaja"]; ?></td>
+                                    <td style="background-color: #FFD5D5"><?php echo $row["fecbaja"]; ?></td>
+                                    <td style="background-color: #FFD5D5"><?php echo $row["fdopropio"]; ?></td>
+                                    <td style="background-color: #FFD5D5">
                                         <a href="resoluciones.php?id=<?php echo $row["id"];?>" title="Resoluciones de Cuenta"><span class="glyphicon glyphicon-file"></span></a>
                                     </td>
                                 </tr>
-                                <?php
+
+                                 <?php
+
+                                    }//end if
+
+                                      else{
+
+                                          ?>
+                                          <tr>
+                                              <td><?php echo $row["cta"]; ?></td>
+                                              <td><?php echo $row["saf"]; ?></td>
+                                              <td><?php echo $row["sector"]; ?></td>
+                                              <td><?php echo $row["denominacion"]; ?></td>
+                                              <td><?php echo $row["banco"]; ?></td>
+                                              <td><?php echo $row["actoadm"]; ?></td>
+                                              <td><?php echo $row["fecha"]; ?></td>
+                                              <td><?php echo $row["observaciones"]; ?></td>
+                                              <td><?php echo $row["actobaja"]; ?></td>
+                                              <td><?php echo $row["fecbaja"]; ?></td>
+                                              <td><?php echo $row["fdopropio"]; ?></td>
+                                              <td>
+                                                  <a href="modificar_firmante.php?id=<?php echo $row["id"];?>" title="Modificar Firmante"><span class="glyphicon glyphicon-user"></span></a>
+                                                  <a href="cambiar_saf.php?id=<?php echo $row["id"];?>" title="Cambiar SAF"><span class="glyphicon glyphicon-transfer"></span></a>
+                                                  <a href="baja_cuenta.php?id=<?php echo $row["id"];?>" title="Baja de Cuenta"><span class="glyphicon glyphicon-trash"></span></a>
+                                                  <a href="modificar_cuenta.php?id=<?php echo $row["id"];?>" title="Modificar Cuenta"><span class="glyphicon glyphicon-list"></span></a>
+                                                  <a href="resoluciones.php?id=<?php echo $row["id"];?>" title="Resoluciones de Cuenta"><span class="glyphicon glyphicon-file"></span></a>
+                                              </td>
+                                          </tr>
+                                        <?php
+
+                                          }// end else
+                           
                                   }
                                 ?>
                                  <tr>
