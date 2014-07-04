@@ -241,7 +241,7 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
                     <img src="resoluciones/<?php echo $resolucion[$i]['direccion']; ?>.jpg" alt="Cuenta Nro: <?php echo $resolucion[$i]['cuenta']; ?> - Motivo: <?php echo $resolucion[$i]['motivo']; ?>">
                     <div class="caption">
                       <p class="text-center bg-danger">Motivo: <strong><?php echo $resolucion[$i]['motivo']; ?></strong></p>
-                      <p class="text-center"><a href="resoluciones/<?php echo $resolucion[$i]['direccion']; ?>.jpg" rel="shadowbox[Mixed];" title="Cuenta Nro: <?php echo $resolucion[$i]['cuenta']; ?> - Motivo: <?php echo $resolucion[$i]['motivo']; ?>" class="btn btn-primary btn-sm" role="button"><span class="glyphicon glyphicon-eye-open"></span></a>
+                      <p class="text-center"><a href="resoluciones/<?php echo $resolucion[$i]['direccion']; ?>.jpg" rel="shadowbox[Mixed];" title="<p class='bg-success'>&nbsp;Cuenta Nro: <?php echo $resolucion[$i]['cuenta']; ?> - Motivo: <?php echo $resolucion[$i]['motivo']; ?>&nbsp;||&nbsp;<a href='javascript:window.print()'><span class='glyphicon glyphicon-print'></span> IMPRIMIR</a></p>" class="btn btn-primary btn-sm" role="button"><span class="glyphicon glyphicon-eye-open"></span></a>
                         <button type="submit" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></button></p>
                         <input type="hidden" name="Eliminar" value="Si" />
                         <input type="hidden" name="id" value="<?php echo $resolucion[$i]["id"]; ?>"/>
@@ -302,6 +302,12 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="js/bootstrap.min.js"></script>
+    <script>
+      function imprimir(){
+          if (parseInt(navigator.appVersion)>4)
+            window.print();
+        }
+    </script>
 
           
 </body>
