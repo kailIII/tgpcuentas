@@ -47,7 +47,7 @@ if ($_SESSION["session_user"] and $_SESSION["session_name"] and $_SESSION["sessi
           </ul>
       </div>  
 
-      <?php include ("partes/menu.php"); ?>
+      <?php include ("partes/menu1.php"); ?>
 
         <div class="col-md-10">
           
