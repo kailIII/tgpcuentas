@@ -5803,9 +5803,8 @@ button.close {
 {
     font-size: 87px;
 }
-
-#accordion
-  {width: 115%}
+ 
+#accordion 
       .glyphicon { margin-right:10px; }
       .panel-collapse>.list-group .list-group-item:first-child {border-top-right-radius: 0;border-top-left-radius: 0;}
       .panel-collapse>.list-group .list-group-item {border-width: 1px 0;}

@@ -1,21 +1,21 @@
   <div class="col-sm-2 col-md-2">
-          <div class="panel-group" id="accordion">
+          <div class="panel-group" id="accordion" style="width: 110%">
            
             <div class="panel panel-default">
               <div class="panel-heading">
                 <h4 class="panel-title">
                   <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour"><span class="glyphicon glyphicon-play-circle">
-                    </span>Ctas. Oficiales</a>
+                    </span>Cuentas Oficiales</a>
                 </h4>
               </div>
               <div id="collapseFour" class="panel-collapse collapse">
                 <div class="list-group">
-                    <a href="apertura_cta.php" class="list-group-item"><span class="glyphicon glyphicon-folder-open"></span> Apertura de Cuentas</a>
-                          <a href="alta_cuentas.php" class="list-group-item"><span class="glyphicon glyphicon-floppy-saved"></span> Alta de Cuentas</a>
-                          <a href="alta_sectores.php" class="list-group-item"><span class="glyphicon glyphicon-floppy-saved"></span> Alta de Sectores</a>      
-                          <a href="edit_cuentas.php" class="list-group-item"><span class="glyphicon glyphicon-list"></span> Modificacion de Cuentas</a>
-                          <a href="bajas_cuentas.php" class="list-group-item"><span class="glyphicon glyphicon-trash"></span> Baja de Cuentas</a>
-                          <a href="baja_sectores.php" class="list-group-item"><span class="glyphicon glyphicon-trash"></span> Baja de Sectores</a>
+                    <a href="apertura_cta.php" class="list-group-item"><span class="glyphicon glyphicon-folder-open"></span>Apertura de Cuenta</a>
+                          <a href="alta_cuentas.php" class="list-group-item"><span class="glyphicon glyphicon-floppy-saved"></span>Alta de Cuenta</a>
+                          <a href="alta_sectores.php" class="list-group-item"><span class="glyphicon glyphicon-floppy-saved"></span>Alta de Sector</a>      
+                          <a href="edit_cuentas.php" class="list-group-item"><span class="glyphicon glyphicon-list"></span>Modificar Cuenta</a>
+                          <a href="bajas_cuentas.php" class="list-group-item"><span class="glyphicon glyphicon-trash"></span>Baja de Cuenta</a>
+                          <a href="baja_sectores.php" class="list-group-item"><span class="glyphicon glyphicon-trash"></span>Baja de Sector</a>
                 </div>
               </div>
             </div>
@@ -24,13 +24,13 @@
               <div class="panel-heading">
                 <h4 class="panel-title">
                   <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour1"><span class="glyphicon glyphicon-play-circle">
-                    </span>Cuentas</a>
+                    </span>Firmantes</a>
                 </h4>
               </div>
               <div id="collapseFour1" class="panel-collapse collapse">
                 <div class="list-group">
-                    <a href="informes.php?var=cuentas1" class="list-group-item"><i class="fa fa-file-text"></i> Por SAF</a>
-                    <a href="informes.php?var=cuentas2" class="list-group-item"><i class="fa fa-file-text"></i> Por Bancos</a>
+                    <a href="alta_firmantes.php" class="list-group-item"><span class="glyphicon glyphicon-user"></span>Agregar Firmantes</a>
+                    <a href="buscar_firmantes.php" class="list-group-item"><span class="glyphicon glyphicon-search"></span>Buscar Firmantes</a>
                 </div>
               </div>
             </div>
@@ -39,17 +39,13 @@
               <div class="panel-heading">
                 <h4 class="panel-title">
                   <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour2"><span class="glyphicon glyphicon-play-circle">
-                    </span>Bancos</a>
+                    </span>Administración</a>
                 </h4>
               </div>
               <div id="collapseFour2" class="panel-collapse collapse">
                 <div class="list-group">
-                    <a href="#" class="list-group-item">Cras justo odio</a>
-                    <a href="#" class="list-group-item">Cras justo odio</a>
-                    <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
-                    <a href="#" class="list-group-item">Morbi leo risus</a>
-                    <a href="#" class="list-group-item">Porta ac consectetur ac</a>
-                    <a href="#" class="list-group-item">Vestibulum at eros</a>
+                        <a href="alta_usuarios.php" class="list-group-item"><span class="glyphicon glyphicon-user"></span>Alta de Usuarios</a>
+                        <a href="#" class="list-group-item"><span class="glyphicon glyphicon-list"></span>Listado de Usuarios</a>
                 </div>
               </div>
             </div>
@@ -58,18 +54,11 @@
               <div class="panel-heading">
                 <h4 class="panel-title">
                   <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour3"><span class="glyphicon glyphicon-play-circle">
-                    </span>SAF</a>
+                    </span>Informes</a>
                 </h4>
               </div>
               <div id="collapseFour3" class="panel-collapse collapse">
-                <div class="list-group">
-                    <a href="#" class="list-group-item">Cras justo odio</a>
-                    <a href="#" class="list-group-item">Cras justo odio</a>
-                    <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
-                    <a href="#" class="list-group-item">Morbi leo risus</a>
-                    <a href="#" class="list-group-item">Porta ac consectetur ac</a>
-                    <a href="#" class="list-group-item">Vestibulum at eros</a>
-                </div>
+                   <a href="informes/informes.php" class="list-group-item"><span class="glyphicon glyphicon-file"></span>Informes</a>
               </div>
             </div>
 
