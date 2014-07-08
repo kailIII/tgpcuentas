@@ -68,7 +68,7 @@ include("paginator.inc.php");
 	
     <div class="container">
 
-      <?php include ("partes/nav2.php"); ?>
+      <?php include ("partes/nav.php"); ?>
 
       <div class="row"> 
 
@@ -79,8 +79,11 @@ include("paginator.inc.php");
             <li class="active">MODIFICACIÓN DE CUENTAS</li>
           </ul>
     </div> 
+    
+          <?php include ("partes/menu.php"); ?>
 
-    <div class="col-md-12">
+
+    <div class="col-md-10">
 
       <div class="panel panel-primary">
         
@@ -91,7 +94,7 @@ include("paginator.inc.php");
         <div class="panel-body">
 
             <div class="row">
-              <div class="col-md-6 col-md-offset-3">
+              <div class="col-md-8 col-md-offset-2">
 
                 <h4><p class="text-center">Buscar Cuenta por:</p></h4>
                   <center>
@@ -138,10 +141,10 @@ include("paginator.inc.php");
                         <th>Sector</th>
                         <th>Denominaci&oacute;n</th>
                         <th>Banco</th>
-                        <th>Acto Alta</th>
+                        <!-- <th>Acto Alta</th> -->
                         <th>Fecha Apertura</th>
-                        <th>Obs.</th>
-                        <th>Acto Baja</th>
+                        <th>Observación</th>
+                        <!-- <th>Acto Baja</th> -->
                         <th>Fecha Baja</th>
                         <th>Tipo Cta.</th>
                         <th>Operaciones</th>
@@ -163,10 +166,10 @@ include("paginator.inc.php");
                                     <td style="background-color: #FFD5D5"><?php echo $row["sector"]; ?></td>
                                     <td style="background-color: #FFD5D5"><?php echo $row["denominacion"]; ?></td>
                                     <td style="background-color: #FFD5D5"><?php echo $row["banco"]; ?></td>
-                                    <td style="background-color: #FFD5D5"><?php echo $row["actoadm"]; ?></td>
+                                    <!-- <td style="background-color: #FFD5D5"><?php// echo $row["actoadm"]; ?></td> -->
                                     <td style="background-color: #FFD5D5"><?php echo $row["fecha"]; ?></td>
                                     <td style="background-color: #FFD5D5"><?php echo $row["observaciones"]; ?></td>
-                                    <td style="background-color: #FFD5D5"><?php echo $row["actobaja"]; ?></td>
+                                    <!-- <td style="background-color: #FFD5D5"><?php// echo $row["actobaja"]; ?></td> -->
                                     <td style="background-color: #FFD5D5"><?php echo $row["fecbaja"]; ?></td>
                                     <td style="background-color: #FFD5D5"><?php echo $row["fdopropio"]; ?></td>
                                     <td style="background-color: #FFD5D5">
@@ -187,10 +190,10 @@ include("paginator.inc.php");
                                               <td><?php echo $row["sector"]; ?></td>
                                               <td><?php echo $row["denominacion"]; ?></td>
                                               <td><?php echo $row["banco"]; ?></td>
-                                              <td><?php echo $row["actoadm"]; ?></td>
+                                              <!-- <td><?php// echo $row["actoadm"]; ?></td> -->
                                               <td><?php echo $row["fecha"]; ?></td>
                                               <td><?php echo $row["observaciones"]; ?></td>
-                                              <td><?php echo $row["actobaja"]; ?></td>
+                                              <!-- <td><?php// echo $row["actobaja"]; ?></td> -->
                                               <td><?php echo $row["fecbaja"]; ?></td>
                                               <td><?php echo $row["fdopropio"]; ?></td>
                                               <td>

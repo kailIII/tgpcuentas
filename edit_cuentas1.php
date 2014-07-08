@@ -95,7 +95,7 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
 
     <div class="container">
 
-       <?php include ("partes/nav2.php"); ?>
+       <?php include ("partes/nav.php"); ?>
 
       <div class="row"> 
 
@@ -107,7 +107,10 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
           </ul>
     </div> 
 
-    <div class="col-md-12">
+                <?php include ("partes/menu.php"); ?>
+
+
+    <div class="col-md-10">
 
       <div class="panel panel-primary">
         
@@ -118,7 +121,7 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
         <div class="panel-body">
 
             <div class="row">
-              <div class="col-md-6 col-md-offset-3">
+              <div class="col-md-8 col-md-offset-2">
 
                 <h4><p class="text-center">Buscar Cuenta por:</p></h4>
                   <center>
@@ -164,7 +167,7 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
             ?>
             
             <div class="row">
-                <div class="col-sm-4">
+                <div class="col-sm-6">
                     <div class="alert alert-success">
                     
                 <?php
@@ -194,10 +197,10 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
                             <th>Sector</th>
                             <th>Denominaci&oacute;n</th>
                             <th>Banco</th>
-                            <th>Acto Alta</th>
+                            <!-- <th>Acto Alta</th> -->
                             <th>Fecha Apertura</th>
-                            <th>Obs.</th>
-                            <th>Acto Baja</th>
+                            <th>Observación</th>
+                            <!-- <th>Acto Baja</th> -->
                             <th>Fecha Baja</th>
                             <th>Operaciones&nbsp;&nbsp;&nbsp;</th>
                         </tr>
@@ -219,10 +222,10 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
                                       <td style="background-color: #FFD5D5"><?php echo $ctas[$i]["sector"]; ?></td>
                                       <td style="background-color: #FFD5D5"><?php echo $ctas[$i]["denominacion"]; ?></td>
                                       <td style="background-color: #FFD5D5"><?php echo $ctas[$i]["banco"]; ?></td>
-                                      <td style="background-color: #FFD5D5"><?php echo $ctas[$i]["actoadm"]; ?></td>
+                                     <!--  <td style="background-color: #FFD5D5"><?php// echo $ctas[$i]["actoadm"]; ?></td> -->
                                       <td style="background-color: #FFD5D5"><?php echo $ctas[$i]["fecha"]; ?></td>
                                       <td style="background-color: #FFD5D5"><?php echo $ctas[$i]["observaciones"]; ?></td>
-                                      <td style="background-color: #FFD5D5"><?php echo $ctas[$i]["actobaja"]; ?></td>
+                                      <!-- <td style="background-color: #FFD5D5"><?php// echo $ctas[$i]["actobaja"]; ?></td> -->
                                       <td style="background-color: #FFD5D5"><?php echo $ctas[$i]["fecbaja"]; ?></td>
                                       <td style="background-color: #FFD5D5">&nbsp;
                                           <a href="resoluciones.php?id=<?php echo $ctas[$i]["id"];?>" title="Resoluciones de Cuenta"><span class="glyphicon glyphicon-file"></span></a>
@@ -241,10 +244,10 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
                                                 <td><?php echo $ctas[$i]["sector"]; ?></td>
                                                 <td><?php echo $ctas[$i]["denominacion"]; ?></td>
                                                 <td><?php echo $ctas[$i]["banco"]; ?></td>
-                                                <td><?php echo $ctas[$i]["actoadm"]; ?></td>
+                                                <!-- <td><?php// echo $ctas[$i]["actoadm"]; ?></td> -->
                                                 <td><?php echo $ctas[$i]["fecha"]; ?></td>
                                                 <td><?php echo $ctas[$i]["observaciones"]; ?></td>
-                                                <td><?php echo $ctas[$i]["actobaja"]; ?></td>
+                                                <!-- <td><?php// echo $ctas[$i]["actobaja"]; ?></td> -->
                                                 <td><?php echo $ctas[$i]["fecbaja"]; ?></td>
                                                 <td>&nbsp;
                                                     <a href="modificar_firmante.php?id=<?php echo $ctas[$i]["id"];?>" title="Modificar Firmante"><span class="glyphicon glyphicon-user"></span></a>

@@ -1,61 +1,77 @@
-<div class="col-md-2">
-
-            <div class="btn-group-vertical">
-              <div class="btn-group">
-                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Cuentas Oficiales <span class="caret"></span>
-                  </button>
-                  <ul class="dropdown-menu">
-                          <li><a href="apertura_cta.php"><span class="glyphicon glyphicon-folder-open"></span> Apertura de Cuentas</a></li>
-                          <li><a href="alta_cuentas.php"><span class="glyphicon glyphicon-floppy-saved"></span> Alta de Cuentas</a></li>
-                          <li><a href="alta_sectores.php"><span class="glyphicon glyphicon-floppy-saved"></span> Alta de Sectores</a></li>      
-                          <li><a href="edit_cuentas.php"><span class="glyphicon glyphicon-list"></span> Modificacion de Cuentas</a></li>
-                          <li><a href="bajas_cuentas.php"><span class="glyphicon glyphicon-trash"></span> Baja de Cuentas</a></li>
-                          <li><a href="baja_sectores.php"><span class="glyphicon glyphicon-trash"></span> Baja de Sectores</a></li>
-                </ul>
+  <div class="col-sm-2 col-md-2">
+          <div class="panel-group" id="accordion" style="width: 110%">
+           
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour"><span class="glyphicon glyphicon-play-circle">
+                    </span>Cuentas Oficiales</a>
+                </h4>
               </div>
-
-               <div class="btn-group">
-                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Firmantes <span class="caret"></span>
-                  </button>
-                  <ul class="dropdown-menu">
-                    <li><a href="alta_firmantes.php"><span class="glyphicon glyphicon-user"></span> Agregar Firmantes</a></li>
-                    <li><a href="buscar_firmantes.php"><span class="glyphicon glyphicon-search"></span> Buscar Firmantes</a></li>
-                  </ul>
+              <div id="collapseFour" class="panel-collapse collapse">
+                <div class="list-group">
+                    <a href="apertura_cta.php" class="list-group-item"><span class="glyphicon glyphicon-folder-open"></span>Apertura de Cuenta</a>
+                          <a href="alta_cuentas.php" class="list-group-item"><span class="glyphicon glyphicon-floppy-saved"></span>Alta de Cuenta</a>
+                          <a href="alta_sectores.php" class="list-group-item"><span class="glyphicon glyphicon-floppy-saved"></span>Alta de Sector</a>      
+                          <a href="edit_cuentas.php" class="list-group-item"><span class="glyphicon glyphicon-list"></span>Modificar Cuenta</a>
+                          <a href="bajas_cuentas.php" class="list-group-item"><span class="glyphicon glyphicon-trash"></span>Baja de Cuenta</a>
+                          <a href="baja_sectores.php" class="list-group-item"><span class="glyphicon glyphicon-trash"></span>Baja de Sector</a>
+                </div>
               </div>
-
-              <div class="btn-group">
-                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Administración <span class="caret"></span>
-                  </button>
-                   <ul class="dropdown-menu">
-                        <li> <a href="alta_usuarios.php"><span class="glyphicon glyphicon-user"></span> Alta de Usuarios</a></li>
-                        <li> <a href="#"><span class="glyphicon glyphicon-list"></span> Listado de Usuarios</a></li>
-                  </ul>
-              </div>
-              <div class="btn-group">
-                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Informes <span class="caret"></span>
-                  </button>
-                   <ul class="dropdown-menu">
-                  <li role="presentation" class="dropdown-header">GENERAL</li>
-                            <li><a href="#">General</a></li>
-                            <li><a href="#">Activos de Cuentas</a></li>
-                            <li><a href="#">Historicos de Cuentas</a></li>
-                  <li role="presentation" class="divider"></li>
-                  <li role="presentation" class="dropdown-header">CUENTAS</li>
-                            <li><a href="informes/cuentas/cantidad_saf.php">Cantidad por SAF</a></li>
-                            <li><a href="informes/cuentas/cantidad_banco.php">Cantidad por Banco</a></li>
-                  <li role="presentation" class="divider"></li>
-                  <li role="presentation" class="dropdown-header">BANCOS</li>
-                            <li><a href="informes/bancos/cuentas_simple.php">Por Cuentas: Simple</a></li> 
-                            <li><a href="#">Por Cuentas: Detallado</a></li>
-                            <li><a href="#">Por Bancos y SAF</a></li>
-                  <li role="presentation" class="divider"></li>
-                  <li role="presentation" class="dropdown-header">SAF</li>
-                            <li><a href="#">Por SAF</a></li>
-                            <li><a href="#">General por Cuentas</a></li>
-                            <li><a href="#">Autorizados por SAF</a></li>
-                </ul>
-              </div>
-         
             </div>
+
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour1"><span class="glyphicon glyphicon-play-circle">
+                    </span>Firmantes</a>
+                </h4>
+              </div>
+              <div id="collapseFour1" class="panel-collapse collapse">
+                <div class="list-group">
+                    <a href="alta_firmantes.php" class="list-group-item"><span class="glyphicon glyphicon-user"></span>Agregar Firmantes</a>
+                    <a href="buscar_firmantes.php" class="list-group-item"><span class="glyphicon glyphicon-search"></span>Buscar Firmantes</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour2"><span class="glyphicon glyphicon-play-circle">
+                    </span>Administración</a>
+                </h4>
+              </div>
+              <div id="collapseFour2" class="panel-collapse collapse">
+                <div class="list-group">
+                        <a href="alta_usuarios.php" class="list-group-item"><span class="glyphicon glyphicon-user"></span>Alta de Usuarios</a>
+                        <a href="#" class="list-group-item"><span class="glyphicon glyphicon-list"></span>Listado de Usuarios</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour3"><span class="glyphicon glyphicon-play-circle">
+                    </span>Informes</a>
+                </h4>
+              </div>
+              <div id="collapseFour3" class="panel-collapse collapse">
+                            <a href="#" class="list-group-item">General</a>
+                            <a href="#" class="list-group-item">Activos de Cuentas</a>
+                            <a href="#" class="list-group-item">Historicos de Cuentas</a>
+                            <a href="informes/cuentas/cantidad_saf.php" class="list-group-item">Cantidad por SAF</a>
+                            <a href="informes/cuentas/cantidad_banco.php" class="list-group-item">Cantidad por Banco</a>
+                            <a href="informes/bancos/cuentas_simple.php" class="list-group-item">Por Cuentas: Simple</a> 
+                            <a href="#" class="list-group-item">Por Cuentas: Detallado</a>
+                            <a href="#" class="list-group-item">Por Bancos y SAF</a>
+                            <a href="#" class="list-group-item">Por SAF</a>
+                            <a href="#" class="list-group-item">General por Cuentas</a>
+                            <a href="#" class="list-group-item">Autorizados por SAF</a>
+              </div>
+            </div>
+
+          </div>
 
 </div>
