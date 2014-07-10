@@ -61,9 +61,9 @@ class Resoluciones {
                                             
                                                 copy($_FILES["foto".$x]["tmp_name"],"resoluciones/".$_FILES["foto".$x]["name"]);
                                                 $thumb=new thumbnail("resoluciones/".$_FILES["foto".$x]["name"]);    
-                                                $thumb->size_width(600);//setea el ancho de la copia
-                                                $thumb->size_height(500);//setea el alto de la copia
-                                                $thumb->jpeg_quality(150);//setea la calidad jpg
+                                                $thumb->size_width(794);//setea el ancho de la copia
+                                                $thumb->size_height(1123);//setea el alto de la copia
+                                                $thumb->jpeg_quality(100);//setea la calidad jpg
                                                 $nom=$aleatorio.".jpg";
                                                 $thumb->save("resoluciones/$nom");    //guardarla en el servidor
                                                 unlink("resoluciones/".$_FILES["foto".$x]["name"]);
@@ -127,9 +127,9 @@ class Resoluciones {
                                             
                                                 copy($_FILES["foto".$x]["tmp_name"],"resoluciones/".$_FILES["foto".$x]["name"]);
                                                 $thumb=new thumbnail("resoluciones/".$_FILES["foto".$x]["name"]);    
-                                                $thumb->size_width(600);//setea el ancho de la copia
-                                                $thumb->size_height(500);//setea el alto de la copia
-                                                $thumb->jpeg_quality(150);//setea la calidad jpg
+                                                $thumb->size_width(794);//setea el ancho de la copia
+                                                $thumb->size_height(1123);//setea el alto de la copia
+                                                $thumb->jpeg_quality(100);//setea la calidad jpg
                                                 $nom=$aleatorio.".jpg";
                                                 $thumb->save("resoluciones/$nom");    //guardarla en el servidor
                                                 unlink("resoluciones/".$_FILES["foto".$x]["name"]);
@@ -194,9 +194,9 @@ class Resoluciones {
                                             
                                                 copy($_FILES["foto".$x]["tmp_name"],"resoluciones/".$_FILES["foto".$x]["name"]);
                                                 $thumb=new thumbnail("resoluciones/".$_FILES["foto".$x]["name"]);    
-                                                $thumb->size_width(600);//setea el ancho de la copia
-                                                $thumb->size_height(500);//setea el alto de la copia
-                                                $thumb->jpeg_quality(150);//setea la calidad jpg
+                                                $thumb->size_width(794);//setea el ancho de la copia
+                                                $thumb->size_height(1123);//setea el alto de la copia
+                                                $thumb->jpeg_quality(100);//setea la calidad jpg
                                                 $nom=$aleatorio.".jpg";
                                                 $thumb->save("resoluciones/$nom");    //guardarla en el servidor
                                                 unlink("resoluciones/".$_FILES["foto".$x]["name"]);
@@ -260,9 +260,9 @@ class Resoluciones {
                                             
                                                 copy($_FILES["foto".$x]["tmp_name"],"resoluciones/".$_FILES["foto".$x]["name"]);
                                                 $thumb=new thumbnail("resoluciones/".$_FILES["foto".$x]["name"]);    
-                                                $thumb->size_width(600);//setea el ancho de la copia
-                                                $thumb->size_height(500);//setea el alto de la copia
-                                                $thumb->jpeg_quality(150);//setea la calidad jpg
+                                                $thumb->size_width(794);//setea el ancho de la copia
+                                                $thumb->size_height(1123);//setea el alto de la copia
+                                                $thumb->jpeg_quality(100);//setea la calidad jpg
                                                 $nom=$aleatorio.".jpg";
                                                 $thumb->save("resoluciones/$nom");    //guardarla en el servidor
                                                 unlink("resoluciones/".$_FILES["foto".$x]["name"]);

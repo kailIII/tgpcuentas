@@ -196,7 +196,7 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
                             echo "<div class='form-group'>
                                     <label class='col-sm-3 control-label'>Carga Resolución $x</label>
                                       <div class='col-sm-5'>
-                                         <input id='file-1' type='file' class='file' required name='foto$x' title='Seleccione la Resolucion Escaneada' data-preview-file-type='any'>
+                                         <input id='file-1' type='file' class='file' required name='foto$x' required title='Seleccione la Resolucion Escaneada' data-preview-file-type='any'>
                                       </div>
                                   </div>"; 
                             $x++; 
@@ -221,7 +221,7 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
                           <button type="button" class="btn btn-default" onclick="location='bajas_cuentas.php'">Cancelar</button>
                           <input type="hidden" name="Guardar" value="Si">
                           <input type="hidden" name="id" value="<?php echo $row[0]["idcta"]; ?>"/>
-                          <input type="hidden" name="id_cta" value="<?php echo $row[0]['cta'];?>" />
+                          <input type="hidden" name="nro_cta" value="<?php echo $row[0]['cta'];?>" />
                         </div>
                       </div>
                     </form> 

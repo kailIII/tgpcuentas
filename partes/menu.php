@@ -53,23 +53,11 @@
             <div class="panel panel-default">
               <div class="panel-heading">
                 <h4 class="panel-title">
-                  <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour3"><span class="glyphicon glyphicon-play-circle">
+                  <a href="informes/informes.php"><span class="glyphicon glyphicon-play-circle">
                     </span>Informes</a>
                 </h4>
               </div>
-              <div id="collapseFour3" class="panel-collapse collapse">
-                            <a href="#" class="list-group-item">General</a>
-                            <a href="#" class="list-group-item">Activos de Cuentas</a>
-                            <a href="#" class="list-group-item">Historicos de Cuentas</a>
-                            <a href="informes/cuentas/cantidad_saf.php" class="list-group-item">Cantidad por SAF</a>
-                            <a href="informes/cuentas/cantidad_banco.php" class="list-group-item">Cantidad por Banco</a>
-                            <a href="informes/bancos/cuentas_simple.php" class="list-group-item">Por Cuentas: Simple</a> 
-                            <a href="#" class="list-group-item">Por Cuentas: Detallado</a>
-                            <a href="#" class="list-group-item">Por Bancos y SAF</a>
-                            <a href="#" class="list-group-item">Por SAF</a>
-                            <a href="#" class="list-group-item">General por Cuentas</a>
-                            <a href="#" class="list-group-item">Autorizados por SAF</a>
-              </div>
+     
             </div>
 
           </div>

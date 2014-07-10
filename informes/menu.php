@@ -1,7 +1,7 @@
   <div class="col-sm-2 col-md-2">
           <div class="panel-group" id="accordion">
            
-            <div class="panel panel-default">
+            <div class="panel panel-success">
               <div class="panel-heading">
                 <h4 class="panel-title">
                   <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour"><span class="glyphicon glyphicon-play-circle">
@@ -20,7 +20,7 @@
               </div>
             </div>
 
-            <div class="panel panel-default">
+            <div class="panel panel-success">
               <div class="panel-heading">
                 <h4 class="panel-title">
                   <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour1"><span class="glyphicon glyphicon-play-circle">
@@ -35,7 +35,7 @@
               </div>
             </div>
 
-            <div class="panel panel-default">
+            <div class="panel panel-success">
               <div class="panel-heading">
                 <h4 class="panel-title">
                   <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour2"><span class="glyphicon glyphicon-play-circle">
@@ -54,7 +54,7 @@
               </div>
             </div>
 
-            <div class="panel panel-default">
+            <div class="panel panel-success">
               <div class="panel-heading">
                 <h4 class="panel-title">
                   <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour3"><span class="glyphicon glyphicon-play-circle">
@@ -70,6 +70,15 @@
                     <a href="#" class="list-group-item">Porta ac consectetur ac</a>
                     <a href="#" class="list-group-item">Vestibulum at eros</a>
                 </div>
+              </div>
+            </div>
+
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a href="../home.php"><span class="glyphicon glyphicon-arrow-left">
+                    </span>Menu Principal</a>
+                </h4>
               </div>
             </div>
 
