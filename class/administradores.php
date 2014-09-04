@@ -13,8 +13,8 @@ class Administradores {
 
     /*     * ********Start Paginación Administradores********* */
 
-    public function Lista_Usuarios($inicio) {
-        $sql = "SELECT * FROM usuarios ORDER BY id DESC LIMIT $inicio, 5";
+    public function Lista_Usuarios() {
+        $sql = "SELECT usuarios.id idu, user, ape_nom, perfil FROM usuarios, permisos WHERE permisos.id = usuarios.id_perfil";
         $res = mysql_query($sql, Conectar::con());
         while ($reg = mysql_fetch_assoc($res)) {
             $this->admin[] = $reg;
@@ -26,13 +26,28 @@ class Administradores {
     /*     * ********Start Add Administradores********* */
 
     public function Alta_Usuario($ape_nom, $user, $per, $pass1) {
-        $sql_u = "INSERT INTO usuarios(id, id_perfil, ape_nom, user, pass) VALUES(null, '$per', '$ape_nom', '$user', md5('$pass1'))";
-        $res_u = mysql_query($sql_u, Conectar::con());
 
-        echo "<script type='text/javascript'>
-                alert ('Usuario Registrado Correctamente.');
-                window.location = 'alta_usuarios.php';
-                </script>";
+        $sql = "SELECT user FROM usuarios WHERE user = '$user'";
+        $query = mysql_query($sql, Conectar::con());
+         if ($reg = mysql_fetch_assoc($query)) 
+            {
+                $this->admin[] = $reg;
+                header("Location: alta_usuarios.php?error=$user");
+                exit;
+
+            }else{
+
+                 $sql_u = "INSERT INTO usuarios(id, id_perfil, ape_nom, user, pass) VALUES(null, '$per', '$ape_nom', '$user', md5('$pass1'))";
+                 $res_u = mysql_query($sql_u, Conectar::con());
+
+                echo "<script type='text/javascript'>
+                        alert ('Usuario Registrado Correctamente.');
+                        window.location = 'alta_usuarios.php';
+                        </script>";
+
+            }
+
+           
     }
 
     /*     * ********End Add Administradores********* */

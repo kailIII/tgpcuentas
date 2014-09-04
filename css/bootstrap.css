@@ -5817,3 +5817,11 @@ button.close {
 
       .panel-collapse div.list-group div.list-group{margin: 0;}
       .panel-collapse div.list-group .list-group a.list-group-item {border-top: 1px solid #ddd;border-bottom: 0;padding-left: 30px;}
+
+
+.clickable{
+  float: right;
+  margin-top: -15px;
+  cursor: pointer;   
+}
+

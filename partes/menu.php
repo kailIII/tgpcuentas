@@ -45,7 +45,7 @@
               <div id="collapseFour2" class="panel-collapse collapse">
                 <div class="list-group">
                         <a href="alta_usuarios.php" class="list-group-item"><span class="glyphicon glyphicon-user"></span>Alta de Usuarios</a>
-                        <a href="#" class="list-group-item"><span class="glyphicon glyphicon-list"></span>Listado de Usuarios</a>
+                        <a href="listar_usuarios.php" class="list-group-item"><span class="glyphicon glyphicon-list"></span>Listado de Usuarios</a>
                 </div>
               </div>
             </div>
