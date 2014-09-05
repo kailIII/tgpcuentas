@@ -1,5 +1,4 @@
 <?php
-error_reporting(E_ERROR);
 require_once("class/class.php");
 require_once("class/class_usuarios.php");
 
@@ -9,32 +8,13 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
   
         require_once 'class/saf.php';
         require_once 'class/firmantes.php';
-
-        $obj1 = new Saf();
-        $list_saf = $obj1->Ordenar_Saf();
-    
-/////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////PAGINADOR///////////////////////////////////////////////////////////   
-$_pagi_sql = "SELECT dni, nombre, saf, id, domicilio, cargo
-              FROM firm_datos ORDER BY nombre"; 
-
-$_pagi_cuantos = 5;
-$_pagi_nav_num_enlaces = 10;
-$_pagi_nav_estilo="pag";
-//$_pagi_propagar=array('sec','nom','apli','per');
-//definimos qué irá en el enlace a la página anterior
-$_pagi_nav_primera ="<span class='glyphicon glyphicon-step-backward'></span>";
-$_pagi_nav_anterior = "<span class='glyphicon glyphicon-backward'></span>";
-$_pagi_nav_ultima = "<span class='glyphicon glyphicon-step-forward'></span>";
-$_pagi_nav_siguiente = "<span class='glyphicon glyphicon-forward'></span>";
-
-
-include("paginator.inc.php");     
-////////////////////////////////PAGINADOR/////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
+        
+        $obj2 = new Firmantes();
+        $list_firm = $obj2->listaFirmante();
+         
+             
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -47,6 +27,7 @@ include("paginator.inc.php");
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/bootstrap-theme.css" rel="stylesheet">
+    <link href="css/jquery.dataTables.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy this line! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -86,104 +67,57 @@ include("paginator.inc.php");
         </div>
         
         <div class="panel-body">
+                
 
-            <div class="row">
-              <div class="col-md-10  col-md-offset-1">
+               <table id="firmantes" class="table table-striped table-bordered" cellspacing="0" width="100%">
+        <thead>
+            <tr class="info">
+                <th>SAF</th>
+                <th>DNI</th>
+                <th>Apellido y Nombre</th>
+                <th>Domicilio</th>
+                <th>Cargo</th>
+                <th>Editar</th>   
+            </tr>
+        </thead>
+ 
+        <tfoot>
+            <tr class="info">
+                <th>SAF</th>
+                <th>DNI</th>
+                <th>Apellido y Nombre</th>
+                <th>Domicilio</th>
+                <th>Cargo</th>
+                <th>Editar</th>
+            </tr>
+        </tfoot>
+ 
+        <tbody>
 
-                <h4><p class="text-center">Buscar Firmante por:</p></h4>
-                  <center>
-                    <form class="form-inline" role="form" action="buscar_firmantes1.php" method="POST">
-                        
-                        <div class="form-group">
-                                  <select class="form-control" name="saf">
-                                    <option value=""><p class="text-muted">SAF</p></option>
+           <?php
+              for($i=0;$i<sizeof($list_firm);$i++){
+            ?>
 
+            <tr>
+                <td><?php echo $list_firm[$i]["saf"]; ?></td>
+                <td><?php echo $list_firm[$i]["dni"]; ?></td>
+                <td><?php echo $list_firm[$i]["nombre"]; ?></td>
+                <td><?php echo $list_firm[$i]["domicilio"]; ?></td>
+                <td><?php echo $list_firm[$i]["cargo"]; ?></td> 
+                <td>&nbsp;&nbsp;&nbsp;
+                    <a href="edit_firmante.php?id=<?php echo $list_firm[$i]["id"];?>" title="Modificar Firmante"><span class="glyphicon glyphicon-user"></span></a>
+                </td>
+            </tr>
 
-                                            <?php
-                                            for($i=0;$i<sizeof($list_saf);$i++){
-                                                ?>
-                                            <option title="<?php echo $list_saf[$i]["nombre"]; ?>" value="<?php echo $list_saf[$i]["servicio"]; ?>"> <?php echo $list_saf[$i]["servicio"];?></option>
-                                            
-                                                  <?php
-                                                   }
-                                                ?>   
-                                   </select>
-                        </div>
-
-                          <div class="form-group">
-                            <input type="text" name="dni" class="form-control" placeholder="DNI del Firmante">
-                          </div>
-
-                          <div class="form-group">
-                            <input type="text" name="ape_nom" class="form-control" placeholder="Apellido y Nombre">
-                          </div>
-
-                          <button type="submit" class="btn btn-info"><span class="glyphicon glyphicon-search"></span></button>
-                    </form>
-                   </center>
-              </div>
-            </div>
+          <?php } ?>
 
            
-
-            <br>
-                <table class="table table-hover">
-                    <thead>
-                      <tr class="info">
-                        <th>SAF</th>
-                        <th>DNI</th>
-                        <th>Apellido y Nombre</th>
-                        <th>Domicilio</th>
-                        <th>Cargo</th>
-                        <th>Editar</th>     
-                      </tr>
-                </thead>
-
-              <tbody>
-                                 <?php
-                                 
-                                while($row = mysql_fetch_array($_pagi_result)){ 
-    
-
-                                
-                                    ?>
-                                <tr>
-                                    <td><?php echo $row["saf"]; ?></td>
-                                    <td><?php echo $row["dni"]; ?></td>
-                                    <td><?php echo $row["nombre"]; ?></td>
-                                    <td><?php echo $row["domicilio"]; ?></td>
-                                    <td><?php echo $row["cargo"]; ?></td>      
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <a href="edit_firmante.php?id=<?php echo $row["id"];?>" title="Modificar Firmante"><span class="glyphicon glyphicon-user"></span></a>
-                            
-                                    </td>
-                                </tr>
-                                <?php
-                                  }
-                                ?>
-                                 <tr>
-                                    <td colspan="12">
-                                        <p class="text-center"><?php echo $_pagi_navegacion; //MUESTRA PAGINADOR ?></p>
-                                    </td>
-                                </tr>
-                                <?php
-                                   if($row < 0){
-                                ?>     
-                                <tr>
-                                    <td colspan="11">
-                                        <h4 style="color: red; text-align: center">No Existe Registro de Cuenta.</h4>
-                                    </td>
-                                </tr>
-                               <?php
-                                   }
-                                ?>
-                  </tbody>
-          </table>        
+        </tbody>
+    </table>
 
         </div>
         <div class="panel-footer"><?php include ("partes/footer.php");?></div>
       </div>
-
     </div>
   </div>
 </div> <!-- /container -->
@@ -194,7 +128,14 @@ include("paginator.inc.php");
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>  
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.dataTables.js"></script>
+    <script src="//cdn.datatables.net/plug-ins/725b2a2115b/integration/bootstrap/3/dataTables.bootstrap.js"></script>
+    <script>
+        $(document).ready(function() {
+        $('#firmantes').dataTable();
+        } );
+    </script>  
 
 </body>
 </html>

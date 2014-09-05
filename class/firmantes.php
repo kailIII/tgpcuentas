@@ -107,7 +107,17 @@ class Firmantes {
         }
         return $this->firmantes; 
     }
-    
+
+    public function listaFirmante() {
+        $sql = "SELECT *
+                FROM firm_datos
+                ORDER BY nombre";
+        $res = mysql_query($sql, Conectar::con());
+        while ($reg = mysql_fetch_array($res)) {
+            $this->firmantes[] = $reg;           
+        }
+        return $this->firmantes; 
+    }
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////FUNCION QUE IDENTIFICA FIRMANTE PARA MODIFICARLO - ARCHIVO (edit_firmante.php, add_firmante_cta.php)    
     public function idFirmante($id) {
