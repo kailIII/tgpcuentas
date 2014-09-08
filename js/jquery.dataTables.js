@@ -11151,7 +11151,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sSearch": "Buscar Firmante:",
+			"sSearch": "Buscar:",
 	
 	
 			/**

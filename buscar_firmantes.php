@@ -6,12 +6,11 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
     $obj = new Usuarios();
     $perfil = $obj->get_permisos_por_id();
   
-        require_once 'class/saf.php';
         require_once 'class/firmantes.php';
         
         $obj2 = new Firmantes();
         $list_firm = $obj2->listaFirmante();
-         
+ 
              
 ?>
 
@@ -135,7 +134,7 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
         $(document).ready(function() {
         $('#firmantes').dataTable();
         } );
-    </script>  
+    </script> 
 
 </body>
 </html>

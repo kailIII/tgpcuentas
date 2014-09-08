@@ -188,6 +188,21 @@ class Cuentas {
         return $this->cuentas;
     }
 
+    public function listaCuentas(){
+         $sql = "SELECT cuentas.id id, cta, cuentas.saf saf, cuentas.organismo sector, denominacion, banco, actoadm, DATE_FORMAT(fecha, '%d/%m/%Y') as fecha, observaciones, actobaja, DATE_FORMAT(fecbaja, '%d/%m/%Y') as fecbaja, fdopropio
+                 FROM cuentas
+                 WHERE cuentas.cerrada = 1
+                 AND cuentas.inibaj = 0 
+                 AND cuentas.baja = 0
+                 AND cuentas.inibaj = 0
+                 ORDER BY cuentas.saf, cuentas.cta";
+        $res = mysql_query($sql, Conectar::con());
+        while ($reg = mysql_fetch_array($res)) {
+            $this->cuentas[]=$reg;                    
+        }
+        return $this->cuentas;
+    }
+
 //////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////
 //IDENTIFICA AL SAF - ARCHIVO (cambiar_saf.php)
