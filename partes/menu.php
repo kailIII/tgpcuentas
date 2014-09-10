@@ -1,5 +1,5 @@
   <div class="col-sm-2 col-md-2">
-          <div class="panel-group" id="accordion" style="width: 110%">
+          <div class="panel-group" id="accordion" style="width: 112%">
            
             <div class="panel panel-default">
               <div class="panel-heading">

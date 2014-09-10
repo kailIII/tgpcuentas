@@ -1,5 +1,5 @@
   <div class="col-sm-2 col-md-2">
-          <div class="panel-group" id="accordion">
+          <div class="panel-group" id="accordion" style="width: 112%">
            
             <div class="panel panel-success">
               <div class="panel-heading">
@@ -10,12 +10,7 @@
               </div>
               <div id="collapseFour" class="panel-collapse collapse">
                 <div class="list-group">
-                    <a href="#" class="list-group-item">Cras justo odio</a>
-                    <a href="#" class="list-group-item">Cras justo odio</a>
-                    <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
-                    <a href="#" class="list-group-item">Morbi leo risus</a>
-                    <a href="#" class="list-group-item">Porta ac consectetur ac</a>
-                    <a href="#" class="list-group-item">Vestibulum at eros</a>
+                    <a href="#" class="list-group-item">.</a>
                 </div>
               </div>
             </div>
@@ -44,12 +39,7 @@
               </div>
               <div id="collapseFour2" class="panel-collapse collapse">
                 <div class="list-group">
-                    <a href="#" class="list-group-item">Cras justo odio</a>
-                    <a href="#" class="list-group-item">Cras justo odio</a>
-                    <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
-                    <a href="#" class="list-group-item">Morbi leo risus</a>
-                    <a href="#" class="list-group-item">Porta ac consectetur ac</a>
-                    <a href="#" class="list-group-item">Vestibulum at eros</a>
+                    <a href="#" class="list-group-item">.</a>
                 </div>
               </div>
             </div>
@@ -63,12 +53,7 @@
               </div>
               <div id="collapseFour3" class="panel-collapse collapse">
                 <div class="list-group">
-                    <a href="#" class="list-group-item">Cras justo odio</a>
-                    <a href="#" class="list-group-item">Cras justo odio</a>
-                    <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
-                    <a href="#" class="list-group-item">Morbi leo risus</a>
-                    <a href="#" class="list-group-item">Porta ac consectetur ac</a>
-                    <a href="#" class="list-group-item">Vestibulum at eros</a>
+                    <a href="#" class="list-group-item">.</a>
                 </div>
               </div>
             </div>

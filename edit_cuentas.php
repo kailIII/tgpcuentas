@@ -15,12 +15,11 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
     
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////PAGINADOR///////////////////////////////////////////////////////////   
-$_pagi_sql = "SELECT cuentas.id id, cta, cuentas.saf saf, cuentas.organismo sector, denominacion, banco, actoadm, DATE_FORMAT(fecha, '%d/%m/%Y') as fecha, observaciones, actobaja, DATE_FORMAT(fecbaja, '%d/%m/%Y') as fecbaja, fdopropio
+$_pagi_sql = "SELECT cuentas.id id, cta, cuentas.saf saf, cuentas.organismo sector, denominacion, banco, actoadm, DATE_FORMAT(fecha, '%d/%m/%Y') as fecha, observaciones, DATE_FORMAT(fecbaja, '%d/%m/%Y') as fecbaja, fdopropio
             FROM cuentas
             WHERE cuentas.cerrada = 1
             AND cuentas.inibaj = 0 
             AND cuentas.baja = 0
-            AND cuentas.inibaj = 0
             ORDER BY cuentas.saf, cuentas.cta"; 
 
 $_pagi_cuantos = 5;
@@ -147,7 +146,7 @@ include("paginator.inc.php");
                         <!-- <th>Acto Baja</th> -->
                         <th>Fecha Baja</th>
                         <th>Tipo Cta.</th>
-                        <th>Operaciones</th>
+                        <th>Operaciones&nbsp;</th>
                       </tr>
                 </thead>
 
@@ -156,34 +155,7 @@ include("paginator.inc.php");
                                  
                                 while($row = mysql_fetch_array($_pagi_result)){ 
 
-                                    if (isset($row["fecbaja"])) 
-                                      {
-
                                     ?>
-                                <tr>
-                                    <td style="background-color: #FFD5D5"><?php echo $row["cta"]; ?></td>
-                                    <td style="background-color: #FFD5D5"><?php echo $row["saf"]; ?></td>
-                                    <td style="background-color: #FFD5D5"><?php echo $row["sector"]; ?></td>
-                                    <td style="background-color: #FFD5D5"><?php echo $row["denominacion"]; ?></td>
-                                    <td style="background-color: #FFD5D5"><?php echo $row["banco"]; ?></td>
-                                    <!-- <td style="background-color: #FFD5D5"><?php// echo $row["actoadm"]; ?></td> -->
-                                    <td style="background-color: #FFD5D5"><?php echo $row["fecha"]; ?></td>
-                                    <td style="background-color: #FFD5D5"><?php echo $row["observaciones"]; ?></td>
-                                    <!-- <td style="background-color: #FFD5D5"><?php// echo $row["actobaja"]; ?></td> -->
-                                    <td style="background-color: #FFD5D5"><?php echo $row["fecbaja"]; ?></td>
-                                    <td style="background-color: #FFD5D5"><?php echo $row["fdopropio"]; ?></td>
-                                    <td style="background-color: #FFD5D5">
-                                        <a href="resoluciones.php?id=<?php echo $row["id"];?>" title="Resoluciones de Cuenta"><span class="glyphicon glyphicon-file"></span></a>
-                                    </td>
-                                </tr>
-
-                                 <?php
-
-                                    }//end if
-
-                                      else{
-
-                                          ?>
                                           <tr>
                                               <td><?php echo $row["cta"]; ?></td>
                                               <td><?php echo $row["saf"]; ?></td>
@@ -205,8 +177,6 @@ include("paginator.inc.php");
                                               </td>
                                           </tr>
                                         <?php
-
-                                          }// end else
                            
                                   }
                                 ?>

@@ -7,7 +7,7 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
     $perfil = $obj->get_permisos_por_id();
   
         require_once("../class/Informes.php");
-                   
+  
 ?>
 
 <!DOCTYPE html>
@@ -24,15 +24,10 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
     <link href="../css/font-awesome.css" rel="stylesheet">
     <!-- Bootstrap theme -->
     <link href="../css/bootstrap-theme.css" rel="stylesheet">
+    <!-- LIBRERIAS PARA GRAFICOS DE BARRA -->
+    <script src="../js/jquery.min.js"></script>
+    <?php include("highcharts.php"); ?>
 
-    <!-- Just for debugging purposes. Don't actually copy this line! -->
-    <!--[if lt IE 9]><script src="assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
     <style type="text/css"> body {padding-bottom: 40px; background-color: #eee; } </style>
  </head>
 
@@ -63,12 +58,21 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
           
           <div class="panel-heading">
                 <h3 class="panel-title"><span class="glyphicon glyphicon-chevron-right"></span>&nbsp;Informes de Cuentas</h3>
-          </div>  
-          
+          </div> 
+
           <?php  
 
                 if(isset($_GET["var"]) AND $_GET["var"] == "cuentas1")
                     {
+                      ?>
+                      <!-- LIBRERIAS PARA GRAFICOS DE BARRA -->
+                      <script src="../js/highcharts/highcharts.js"></script>
+                      <script src="../js/highcharts/modules/exporting.js"></script>
+
+                      <div id="container"></div>
+                      <!-- LIBRERIAS PARA GRAFICOS DE BARRA -->
+                      <?php 
+
                       $obj1 = new Informes();
                       $cantidadSaf = $obj1->cantidadPorSaf();
 
@@ -77,6 +81,15 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
 
                 if(isset($_GET["var"]) AND $_GET["var"] == "cuentas2")
                     {
+                      ?>
+                      <!-- LIBRERIAS PARA GRAFICOS DE BARRA -->
+                      <script src="../js/highcharts/highcharts.js"></script>
+                      <script src="../js/highcharts/modules/exporting.js"></script>
+
+                      <div id="container"></div>
+                      <!-- LIBRERIAS PARA GRAFICOS DE BARRA -->
+                      <?php 
+                      
                       $obj1 = new Informes();
                       $cantidadBanco = $obj1->cantidadPorBanco();
 
@@ -110,7 +123,7 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="../js/jquery.min.js"></script>
+    
     <script src="../js/bootstrap.min.js"></script>
 
           

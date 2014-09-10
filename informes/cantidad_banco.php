@@ -16,6 +16,7 @@
                 <table class="table table-hover">
                   <thead>
                       <tr class="info">
+                          <th>#</th>
                           <th>Nombre</th>
                           <th>Cantidad</th>
                       </tr>
@@ -23,10 +24,11 @@
                     <tbody>
                          <?php
                             
-                                      for($i=0;$i<sizeof($cantidadBanco);$i++){
+                                      for($i=1;$i<sizeof($cantidadBanco);$i++){
                                          
                                       ?>
                                       <tr>
+                                          <td><?php echo $i; ?></td>
                                           <td><?php echo $cantidadBanco[$i]["nombre"]; ?></td>
                                           <td><?php echo $cantidadBanco[$i]["cantidad"]; ?></td>
                                       </tr>
