@@ -8,8 +8,8 @@
       </div>
     
         <div class="col-md-3">
-         <button type="button" class="btn btn-danger" onclick="window.open('cantidad_saf_pdf.php', 'popup')"><i class="fa fa-file-pdf-o"></i> PDF</button>      
-         <button type="button" class="btn btn-success" onclick="location='cantidad_saf_exel.php'"><i class="fa fa-file-excel-o"></i> EXEL</button>      
+         <button type="button" class="btn btn-danger" onclick="window.open('cuentas/cantidad_saf_pdf.php', 'popup')"><i class="fa fa-file-pdf-o"></i> PDF</button>      
+         <button type="button" class="btn btn-success" onclick="location='cuentas/cantidad_saf_exel.php'"><i class="fa fa-file-excel-o"></i> EXEL</button>      
         </div>
     </div>
 

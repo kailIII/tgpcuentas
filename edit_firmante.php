@@ -70,7 +70,7 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
           <ul class="breadcrumb" style="margin-bottom: 5px;">
             <li><a href="home.php"><span class="glyphicon glyphicon-home"></a></li>
             <li>FIRMANTES</li>
-            <li><a href="buscar_firmantes.php">BÚSQUEDA DE FIRMANTES</a></li>
+            <li><a href="buscar_firmantes.php?dni=<?php echo $firm[0]["dni"];?>">BÚSQUEDA DE FIRMANTES</a></li>
             <li class="active">ACTUALIZACIÓN DE FIRMANTES</li>
           </ul>
       </div>

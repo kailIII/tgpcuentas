@@ -130,11 +130,22 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.dataTables.js"></script>
     <script src="//cdn.datatables.net/plug-ins/725b2a2115b/integration/bootstrap/3/dataTables.bootstrap.js"></script>
+    
+    <?php if (empty($_GET["dni"])) { ?>
     <script>
         $(document).ready(function() {
         $('#firmantes').dataTable();
         } );
-    </script> 
+    </script>
+    <?php } else { $dni = $_GET["dni"]; ?> ?>
+    <script>
+        $(document).ready(function() {
+        $('#firmantes').dataTable({
+          "search": {"search": "<?php echo $dni; ?>"}
+        });
+        } );
+    </script>
+    <?php }?>
 
 </body>
 </html>

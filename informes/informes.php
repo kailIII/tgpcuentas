@@ -104,7 +104,7 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
             
             <div class="panel-body">
               <blockquote>
-                <p>Seleccione el tipo de Informe que necesita accediendo al Menú de la izquierda. <small>Informes en PDF y Exel</small></p>
+                <p>Seleccione el tipo de Informe que necesita accediendo al Menú de la izquierda. <small>Gráficos de Barras e Informes en PDF y Exel</small></p>
               </blockquote>
             </div>
 

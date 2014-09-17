@@ -92,7 +92,7 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
           <ul class="breadcrumb" style="margin-bottom: 5px;">
             <li><a href="home.php"><span class="glyphicon glyphicon-home"></a></li>
             <li>CUENTAS OFICIALES</li>
-            <li><a href="edit_cuentas1.php?cta=<?php echo $row[0]["cta"]; ?>&&saf=<?php echo NULL; ?>">MODIFICACIÓN DE CUENTAS</a></li>
+            <li><a href="edit_cuentas.php?cta=<?php echo $row[0]["cta"]; ?>">MODIFICACIÓN DE CUENTAS</a></li>
             <li class="active">ASIGNAR - MODIFICAR FIRMANTE</li>
           </ul>
     </div>  
