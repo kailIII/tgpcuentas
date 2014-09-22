@@ -194,8 +194,7 @@ class Cuentas {
                  WHERE cuentas.cerrada = 1
                  AND cuentas.inibaj = 0 
                  AND cuentas.baja = 0
-                 AND cuentas.inibaj = 0
-                 ORDER BY cuentas.saf, cuentas.cta";
+                 AND cuentas.inibaj = 0";
         $res = mysql_query($sql, Conectar::con());
         while ($reg = mysql_fetch_array($res)) {
             $this->cuentas[]=$reg;                    

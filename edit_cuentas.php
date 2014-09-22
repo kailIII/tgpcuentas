@@ -80,6 +80,7 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
                 <th>Banco</th>
                 <th>Fecha Apertura</th>
                 <th>Observación</th>
+                <th>Tipo Cta.</th>
                 <!-- <th>Fecha Baja</th> -->
                 <th>Operación</th>
             </tr>
@@ -94,6 +95,7 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
               <th>Banco</th>
               <th>Fecha Apertura</th>
               <th>Observación</th>
+              <th>Tipo Cta.</th>
               <!-- <th>Fecha Baja</th> -->
               <th>Operación</th>
           </tr>
@@ -113,6 +115,7 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
                 <td><?php echo $list_cuentas[$i]["banco"]; ?></td>
                 <td><?php echo $list_cuentas[$i]["fecha"]; ?></td>
                 <td><?php echo $list_cuentas[$i]["observaciones"]; ?></td>
+                <td><?php echo $list_cuentas[$i]["fdopropio"]; ?></td>
                 <!-- <td><?php //echo $list_cuentas[$i]["fecbaja"]; ?></td> -->
                 <td>
                     <a href="modificar_firmante.php?id=<?php echo $list_cuentas[$i]["id"];?>" title="Modificar Firmante"><span class="glyphicon glyphicon-user"></span></a>

@@ -24,8 +24,8 @@
               </div>
               <div id="collapseFour1" class="panel-collapse collapse">
                 <div class="list-group">
-                    <a href="informes.php?var=cuentas1" class="list-group-item"><i class="fa fa-file-text"></i> Por SAF</a>
-                    <a href="informes.php?var=cuentas2" class="list-group-item"><i class="fa fa-file-text"></i> Por Bancos</a>
+                    <a href="informes_ctas.php?var=cuentas1" class="list-group-item"><i class="fa fa-file-text"></i> Por SAF</a>
+                    <a href="informes_ctas.php?var=cuentas2" class="list-group-item"><i class="fa fa-file-text"></i> Por Bancos</a>
                 </div>
               </div>
             </div>
@@ -39,7 +39,7 @@
               </div>
               <div id="collapseFour2" class="panel-collapse collapse">
                 <div class="list-group">
-                    <a href="#" class="list-group-item">.</a>
+                    <a href="informes_bancos.php?var=bancos1" class="list-group-item"><i class="fa fa-file-text"></i> Por Cuentas</a>
                 </div>
               </div>
             </div>

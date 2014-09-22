@@ -11162,7 +11162,7 @@
 			 *  @dtopt Language
 			 *  @name DataTable.defaults.language.searchPlaceholder
 			 */
-			"sSearchPlaceholder": "Ingrese dato de búsqueda",
+			"sSearchPlaceholder": "Ingrese datos de búsqueda",
 	
 	
 			/**
@@ -11209,7 +11209,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sZeroRecords": "No se encontro ningun registro!"
+			"sZeroRecords": "No se encontro ningun Registro"
 		},
 	
 	

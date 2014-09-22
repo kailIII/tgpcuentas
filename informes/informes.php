@@ -76,7 +76,7 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
                       $obj1 = new Informes();
                       $cantidadSaf = $obj1->cantidadPorSaf();
 
-                      include ("cantidad_saf.php");
+                      include ("cuentas/cantidad_saf.php");
                     }
 
                 if(isset($_GET["var"]) AND $_GET["var"] == "cuentas2")
@@ -93,7 +93,7 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
                       $obj1 = new Informes();
                       $cantidadBanco = $obj1->cantidadPorBanco();
 
-                      include ("cantidad_banco.php");
+                      include ("cuentas/cantidad_banco.php");
                     }
            ?> 
 
