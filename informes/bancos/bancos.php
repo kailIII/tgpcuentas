@@ -13,8 +13,9 @@
 
     </div>
 
-    <form class="form-horizontal" role="form" action="">
-
+    <form class="form-horizontal" role="form" action="informes_bancos.php" method="GET">
+      
+      <input type="hidden" name="var" value="bancos1">
       <div class="form-group">
         <label class="col-sm-2 control-label">Banco</label>
         <div class="col-sm-6">
@@ -22,7 +23,7 @@
              <?php
               for($i=0;$i<sizeof($banco);$i++){
              ?>
-                <option value="<?php echo $banco[$i]["nombre"]; ?>"> <?php echo $banco[$i]["nombre"]; ?></option>
+                <option value="<?php echo $banco[$i]["id"]; ?>"> <?php echo $banco[$i]["nombre"]; ?></option>
              <?php
               }
              ?>
@@ -35,16 +36,14 @@
         <label class="col-sm-2 control-label"></label>
         <div class="col-sm-6">
           <label class="radio-inline">
-              <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" checked>Todas</label>
+              <input type="radio" name="radio" id="inlineRadio1" value="1" required>Todas</label>
             <label class="radio-inline">
-              <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">Operativas</label>
+              <input type="radio" name="radio" id="inlineRadio2" value="2" required>Operativas</label>
             <label class="radio-inline">
-              <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">Cuentas Unicas del Tesoro</label>
+              <input type="radio" name="radio" id="inlineRadio3" value="3" required>Cuentas Unicas del Tesoro</label>
         </div>
       </div>
+      <input type="hidden" name="informe" value="1">
 
-    </form>
-
-
-              
-</div>  
+    </form>           
+</div>

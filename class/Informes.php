@@ -37,7 +37,7 @@ class Informes {
         return $this->informes;
 	}
 
-	public function bancosCuentas($banco){
+	public function bancosCuentas($banco, $opcion){
 		$sql = "SELECT banco, cta, denominacion, saf 
 				FROM cuentas 
 				WHERE banco='$banco'

@@ -58,7 +58,7 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
         <div class="panel panel-success">   
           
           <div class="panel-heading">
-                <h3 class="panel-title"><span class="glyphicon glyphicon-chevron-right"></span>&nbsp;Informes de Bancos</h3>
+                <h3 class="panel-title"><span class="glyphicon glyphicon-chevron-right"></span>&nbsp;Informes de Cuentas</h3>
           </div> 
 
           <?php  
@@ -76,6 +76,11 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
 
                       $obj1 = new Bancos();
                       $banco = $obj1->Ordenar_Banco();
+
+                      if (isset($_GET["informe"]) and $_GET["informe"] == 1) {
+                          $obj2 = new Informes();
+                          $listar = $obj2->bancoCuentas($_GET["banco"], $_GET["radio"]);
+                      }
 
                       include ("bancos/bancos.php");
                     }
