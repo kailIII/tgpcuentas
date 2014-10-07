@@ -37,10 +37,27 @@ class Informes {
         return $this->informes;
 	}
 
-	public function bancosCuentas($banco, $opcion){
-		$sql = "SELECT banco, cta, denominacion, saf 
+	public function bancoCuentas1($banco, $opcion){
+		$sql = "SELECT DATE_FORMAT(fecha, '%d/%m/%Y') as fecha, fdopropio, cta, denominacion, saf, banco
 				FROM cuentas 
 				WHERE banco='$banco'
+				AND fdopropio = '$opcion'
+				AND cerrada = 1
+				AND baja = 0
+				ORDER BY saf";
+		$res = mysql_query($sql, Conectar::con());
+		 while ($reg = mysql_fetch_assoc($res)) {
+            $this->informes[] = $reg;
+        }
+        return $this->informes;
+	}	
+
+	public function bancoCuentas2($banco, $opcion, $saf){
+		$sql = "SELECT DATE_FORMAT(fecha, '%d/%m/%Y') as fecha, fdopropio, cta, denominacion, saf, banco
+				FROM cuentas 
+				WHERE banco = '$banco'
+				AND saf = '$saf'
+				AND fdopropio = '$opcion'
 				AND cerrada = 1
 				AND baja = 0";
 		$res = mysql_query($sql, Conectar::con());

@@ -40,6 +40,7 @@
               <div id="collapseFour2" class="panel-collapse collapse">
                 <div class="list-group">
                     <a href="informes_bancos.php?var=bancos1" class="list-group-item"><i class="fa fa-file-text"></i> Por Cuentas</a>
+                    <a href="informes_bancos.php?var=bancos2" class="list-group-item"><i class="fa fa-file-text"></i> Por Banco y SAF</a>
                 </div>
               </div>
             </div>

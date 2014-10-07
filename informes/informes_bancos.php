@@ -8,6 +8,7 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
   
         require_once("../class/Informes.php");
         require_once("../class/bancos.php");
+        require_once("../class/saf.php")
   
 ?>
 
@@ -62,45 +63,44 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
           </div> 
 
           <?php  
-
-                if(isset($_GET["var"]) AND $_GET["var"] == "bancos1")
-                    {
-                      ?>
-                      <!-- LIBRERIAS PARA GRAFICOS DE BARRA -->
-                      <!--<script src="../js/highcharts/highcharts.js"></script>
-                      <script src="../js/highcharts/modules/exporting.js"></script>-->
-
-                      <!--<div id="container"></div>-->
-                      <!-- LIBRERIAS PARA GRAFICOS DE BARRA -->
-                      <?php 
+                switch ($_GET["var"]) {
+                  
+                  case 'bancos1':
 
                       $obj1 = new Bancos();
                       $banco = $obj1->Ordenar_Banco();
 
                       if (isset($_GET["informe"]) and $_GET["informe"] == 1) {
+
                           $obj2 = new Informes();
-                          $listar = $obj2->bancoCuentas($_GET["banco"], $_GET["radio"]);
-                      }
+                          $listar1 = $obj2->bancoCuentas1($_GET["banco"], $_GET["radio"]);
 
+                        }
                       include ("bancos/bancos.php");
-                    }
 
-                if(isset($_GET["var"]) AND $_GET["var"] == "bancos2")
-                    {
-                      ?>
-                      <!-- LIBRERIAS PARA GRAFICOS DE BARRA -->
-                      <script src="../js/highcharts/highcharts.js"></script>
-                      <script src="../js/highcharts/modules/exporting.js"></script>
+                      break;
 
-                      <div id="container"></div>
-                      <!-- LIBRERIAS PARA GRAFICOS DE BARRA -->
-                      <?php 
-                      
-                      $obj1 = new Informes();
-                      $cantidadBanco = $obj1->cantidadPorBanco();
+                  case 'bancos2':
 
-                      include ("cuentas/cantidad_banco.php");
-                    }
+                      $obj1 = new Bancos();
+                      $banco = $obj1->Ordenar_Banco();
+
+                      $obj2 = new Saf();
+                      $saf = $obj2->Ordenar_Saf();
+
+                      if (isset($_GET["informe"]) and $_GET["informe"] == 2) {
+
+                          $obj = new Informes();
+                          $listar = $obj->bancoCuentas2($_GET["banco"], $_GET["radio"], $_GET["saf"]);
+
+                        }
+
+                      include ("bancos/banco_saf.php");
+
+                      break;
+                }
+
+
            ?> 
 
 

@@ -24,7 +24,7 @@
                     <tbody>
                          <?php
                             
-                                      for($i=1;$i<sizeof($cantidadBanco);$i++){
+                                      for($i=0;$i<sizeof($cantidadBanco);$i++){
                                          
                                       ?>
                                       <tr>

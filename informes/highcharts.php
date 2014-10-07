@@ -99,7 +99,7 @@
                                     $obj1 = new Informes();
                                     $cantidadBanco = $obj1->cantidadPorBanco();
 
-                                    for($i=1;$i<sizeof($cantidadBanco);$i++){
+                                    for($i=0;$i<sizeof($cantidadBanco);$i++){
 
                                          $banco = $cantidadBanco[$i]["nombre"];
                                          $cantidad = $cantidadBanco[$i]["cantidad"];
