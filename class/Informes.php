@@ -66,6 +66,19 @@ class Informes {
         }
         return $this->informes;
 	}	
+
+	public function informePorSAF($saf){
+		$sql = "SELECT DATE_FORMAT(fecha, '%d/%m/%Y') as fecha, fdopropio, cta, denominacion, saf, banco, organismo
+				FROM cuentas 
+				WHERE saf = '$saf'
+				AND cerrada = 1
+				AND baja = 0";
+		$res = mysql_query($sql, Conectar::con());
+		 while ($reg = mysql_fetch_assoc($res)) {
+            $this->informes[] = $reg;
+        }
+        return $this->informes;
+	}	
 }
 
 ?>

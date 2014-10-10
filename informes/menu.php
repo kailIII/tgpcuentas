@@ -54,7 +54,8 @@
               </div>
               <div id="collapseFour3" class="panel-collapse collapse">
                 <div class="list-group">
-                    <a href="#" class="list-group-item">.</a>
+                    <a href="informes_saf.php?var=saf1" class="list-group-item"><i class="fa fa-file-text"></i> Por SAF</a>
+                    <a href="informes_saf.php?var=saf2" class="list-group-item"><i class="fa fa-file-text"></i> General por Cuentas</a>
                 </div>
               </div>
             </div>
