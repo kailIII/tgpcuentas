@@ -68,9 +68,7 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
         
         <div class="panel-body">
 
-         
-
-             <table id="cuentas" class="table table-striped table-bordered" cellspacing="0" width="100%">
+        <table id="cuentas" class="table table-striped table-bordered" cellspacing="0" width="100%">
         <thead>
             <tr class="info">
                 <th>Cuenta</th>

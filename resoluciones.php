@@ -177,8 +177,10 @@ if ($_SESSION["session_user"] and $_SESSION["session_perfil"]) {
                           <select class="form-control" name="motivo" required title="Seleccione el Motivo de la Resolucion">
                             <option value="">Sin Especificar</option>
                             <option value="CREACION">CREACION</option>
-                            <option value="MODIFICACION">MODIFICACION</option>
-                            <option value="BAJA">BAJA</option>
+                            <option value="MODIFICACION DE FIRMANTE">MODIFICACION DE FIRMANTE</option>
+                            <option value="MODIFICACION DE CUENTA">MODIFICACION DE CUENTA</option>
+                            <option value="BAJA DE FIRMANTE">BAJA DE FIRMANTE</option>
+                            <option value="BAJA DE CUENTA">BAJA DE CUENTA</option>
                           </select>
                       </div>
                   </div>    
